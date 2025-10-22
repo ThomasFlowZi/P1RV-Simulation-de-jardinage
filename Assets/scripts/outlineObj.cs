@@ -18,9 +18,11 @@ public class OutlineSelection : MonoBehaviour
 
     void Update()
     {
-       
-    
-        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+
+        Vector2 mousePos = Input.mousePosition; // on crée un vecteur 2D qui prend la position de la souris sur l'écran
+        Transform camera = Camera.main.transform;
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+
         if ( Physics.Raycast(ray, out raycastHit, rayDistance)) //Make sure you have EventSystem in the hierarchy before using EventSystem
         {
             if (audioSource != null && hitSound != null && Sound) // joue le son de sélection 

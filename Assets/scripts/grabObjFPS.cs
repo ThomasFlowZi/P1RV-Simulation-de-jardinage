@@ -28,11 +28,6 @@ public class grabObjectFPS : MonoBehaviour
     public float dureeAnim = 60f;
     private float frameAnim = 1f;
 
-    public Vector3 targetEulerAngles = new Vector3(0, 180, 180);
-    public float rotationSpeed = 90f; // degrés par seconde
-
-    private Color originalColor;
-
     void Update()
     { 
         Transform camera = Camera.main.transform;
