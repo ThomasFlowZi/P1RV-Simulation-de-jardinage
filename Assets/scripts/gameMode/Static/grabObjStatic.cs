@@ -22,6 +22,12 @@ public class grabObjStatic : MonoBehaviour
     private Plane grabPlane;
     private Vector3 ecartMouseObject ;
 
+    private rotObjStatic rotObj;
+
+    void Start()
+    {
+        rotObj = GetComponent<rotObjStatic>();
+    }
     void Update()
     {
         Vector2 mousePos = Input.mousePosition; // on crée un vecteur 2D qui prend la position de la souris sur l'écran
@@ -35,17 +41,20 @@ public class grabObjStatic : MonoBehaviour
 
             if (Physics.Raycast(_ray, out _hit, rayDistance)) // si le rayon touche un objet à une distance max de 100 :
             {
-                Renderer hitRenderer = _hit.collider.GetComponent<Renderer>();// On enregistre le renderer de l'objet en question
-                
-                grabObject = _hit.collider.gameObject;
-                grabActivate = true;
-                grabPlane = new Plane(camera.forward, grabObject.transform.position);
 
-                originalColor = hitRenderer.material.color; // on enregistre la couleur de l'objet touché 
-                hitRenderer.material.color = hitColor; // on applique la couleur souhaité à l'objet
-                lastHitRenderer = hitRenderer; // on update la valeur du hit renderer
+                if (_hit.collider.gameObject.CompareTag("Selectable"))
+                {
+                    Renderer hitRenderer = _hit.collider.GetComponent<Renderer>();// On enregistre le renderer de l'objet en question
 
+                    grabObject = _hit.collider.gameObject;
+                    grabActivate = true;
+                    grabPlane = new Plane(camera.forward, grabObject.transform.position);
 
+                    originalColor = hitRenderer.material.color; // on enregistre la couleur de l'objet touché 
+                    hitRenderer.material.color = hitColor; // on applique la couleur souhaité à l'objet
+                    lastHitRenderer = hitRenderer; // on update la valeur du hit renderer
+
+                }
             }
             else ResetLastObjectColor(); // si le rayon ne touche pas d'objet toutes les couleurs sont intouchées.
         }
