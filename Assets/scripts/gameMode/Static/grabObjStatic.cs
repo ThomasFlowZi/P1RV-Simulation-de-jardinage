@@ -63,7 +63,7 @@ public class grabObjStatic : MonoBehaviour
 
 
 
-            Debug.Log(_hit.transform.gameObject.name); //affiche le nom de l'objet touché
+        
 
         }
 
