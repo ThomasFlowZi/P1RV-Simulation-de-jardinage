@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 
 public class CameraRotation : MonoBehaviour
 {
-    public float sensitivityX = 3f;  // sensibilité horizontale
-    public float sensitivityY = 3f;  // sensibilité verticale
+    public float sensitivityX = 3f;  // sensibilitÃ© horizontale
+    public float sensitivityY = 3f;  // sensibilitÃ© verticale
 
     private float pitch = 0f; // rotation sur X (haut/bas)
     private float yaw = 0f;   // rotation sur Y (gauche/droite)
@@ -13,27 +13,25 @@ public class CameraRotation : MonoBehaviour
 
     void Start()
     {
-        // Cache le curseur et le verrouille au centre de l’écran
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        
         transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     void Update()
     {
-        // Récupère le mouvement de la souris
+        // RÃ©cupÃ¨re le mouvement de la souris
         float mouseX = Input.GetAxis("Mouse X") * sensitivityX;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivityY;
 
         // Ajuste les angles
         yaw += mouseX;       // gauche/droite  axe Y
-        pitch -= mouseY;     // haut/bas  axe X (souvent inversé pour un effet naturel)
-        roll = 0f;           // optionnel : tu peux lier à une autre touche si tu veux pencher
+        pitch -= mouseY;     // haut/bas  axe X (souvent inversÃ© pour un effet naturel)
+        roll = 0f;           // optionnel : tu peux lier Ã  une autre touche si tu veux pencher
 
-        // Empêche la caméra de faire un tour complet sur X
+        // EmpÃªche la camÃ©ra de faire un tour complet sur X
         pitch = Mathf.Clamp(pitch, -90f, 90f);
 
-        // Applique la rotation à la caméra
+        // Applique la rotation Ã  la camÃ©ra
         transform.rotation = Quaternion.Euler(pitch, yaw, roll);
 
 
