@@ -54,7 +54,7 @@ public class grabObjStatic : MonoBehaviour
 
 
 
-    if (Input.GetKeyDown(KeyCode.Mouse1))
+    if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             grabObject = null;
             grabActivate = false;
