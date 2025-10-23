@@ -10,7 +10,7 @@ public class switchMode : MonoBehaviour
     public GameObject crosshair;
 
 
-    private bool isFPSMode = false;
+    public bool isFPSMode = false;
 
     void Start()
     {
