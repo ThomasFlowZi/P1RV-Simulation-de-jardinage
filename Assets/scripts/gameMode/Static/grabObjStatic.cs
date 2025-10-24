@@ -21,6 +21,7 @@ public class grabObjStatic : MonoBehaviour
     private GameObject grabObject;
     private Plane grabPlane;
     private Vector3 ecartMouseObject ;
+    private OutlineSelection OutlineSelection;
 
     private rotObjStatic rotObj;
 
@@ -49,6 +50,8 @@ public class grabObjStatic : MonoBehaviour
                     grabObject = _hit.collider.gameObject;
                     grabActivate = true;
                     grabPlane = new Plane(camera.forward, grabObject.transform.position);
+
+                    grabObject.GetComponent < Outline>().enabled = false;
 
                     originalColor = hitRenderer.material.color; // on enregistre la couleur de l'objet touché 
                     hitRenderer.material.color = hitColor; // on applique la couleur souhaité à l'objet
