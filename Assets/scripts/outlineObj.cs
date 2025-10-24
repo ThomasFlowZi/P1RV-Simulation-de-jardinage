@@ -14,7 +14,7 @@ public class OutlineSelection : MonoBehaviour
     public float rayDistance = 100f;
     public AudioSource audioSource;
     public AudioClip hitSound;
-    public bool Sound = true;
+    private bool Sound = false;
 
     void Update()
     {
@@ -39,12 +39,13 @@ public class OutlineSelection : MonoBehaviour
                 highlight = raycastHit.transform;
                 if (highlight.CompareTag("Selectable") && highlight != selection)
                 {
+                    Sound = true;
                     if (highlight.gameObject.GetComponent<Outline>() != null)
                     {
 
 
                         highlight.gameObject.GetComponent<Outline>().enabled = true;
-                        highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.red;
+                        highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
                         highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
                         
                     }
@@ -52,7 +53,7 @@ public class OutlineSelection : MonoBehaviour
                     {
                         Outline outline = highlight.gameObject.AddComponent<Outline>();
                         outline.enabled = true;
-                        highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.red;
+                        highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
                         highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
                     }
                 }
@@ -61,6 +62,7 @@ public class OutlineSelection : MonoBehaviour
 
                   
                     highlight = null;
+                    Sound = false;
 
                 }
                 ;
@@ -69,7 +71,8 @@ public class OutlineSelection : MonoBehaviour
             
             
         }
-        else { Sound = true;
+        else { 
+            Sound = false;
             if (highlight != null)
             { 
               highlight.gameObject.GetComponent<Outline>().enabled = false; 
