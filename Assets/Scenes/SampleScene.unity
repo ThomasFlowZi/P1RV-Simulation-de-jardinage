@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 224544730}
   - component: {fileID: 224544729}
   - component: {fileID: 224544728}
-  - component: {fileID: 224544731}
   - component: {fileID: 224544733}
   m_Layer: 6
   m_Name: Cylinder
@@ -210,21 +209,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &224544731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224544726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fd6c80d3da6d164d98b254fa473e7b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OutlineSelection
-  rayDistance: 100
-  audioSource: {fileID: 0}
-  hitSound: {fileID: 0}
 --- !u!65 &224544733
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -669,6 +653,7 @@ GameObject:
   - component: {fileID: 511996028}
   - component: {fileID: 511996027}
   - component: {fileID: 511996042}
+  - component: {fileID: 511996043}
   m_Layer: 3
   m_Name: Sphere
   m_TagString: Selectable
@@ -795,6 +780,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &511996043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511996026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46445532f51a64b4285cfcb5f09f6a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::grabVisualFeedback
+  grabColor: {r: 0.17221434, g: 0.47195882, b: 0.8113208, a: 1}
+  grabSound: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,7 +1376,7 @@ GameObject:
   - component: {fileID: 1637764436}
   - component: {fileID: 1637764435}
   - component: {fileID: 1637764434}
-  - component: {fileID: 1637764432}
+  - component: {fileID: 1637764438}
   - component: {fileID: 1637764433}
   - component: {fileID: 1637764431}
   - component: {fileID: 1637764430}
@@ -1462,26 +1461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::rotObjStatic
   rayDistance: 100
-  speedRot: 0.2
---- !u!114 &1637764432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637764426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9db8ff63c46d0f4aad43bdbeff1bb24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::grabObjStatic
-  rayDistance: 100
-  hitColor: {r: 1, g: 0, b: 0, a: 1}
-  hitSound: {fileID: 0}
-  audioSource: {fileID: 0}
-  grabScripts:
-  - {fileID: 1637764431}
-  - {fileID: 1637764433}
+  speedRot: 0.4
 --- !u!114 &1637764433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1508,7 +1488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::modeManager
   staticScripts:
   - {fileID: 1637764433}
-  - {fileID: 1637764432}
+  - {fileID: 1637764438}
   - {fileID: 1637764431}
   fpsScripts:
   - {fileID: 1637764430}
@@ -1595,6 +1575,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637764426}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1637764438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637764426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b9d9c9f42e9254da1bd0646fd73c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::grabManager
+  rayDistance: 100
+  grabScripts:
+  - {fileID: 1637764433}
+  - {fileID: 1637764433}
 --- !u!1 &1723765891
 GameObject:
   m_ObjectHideFlags: 0

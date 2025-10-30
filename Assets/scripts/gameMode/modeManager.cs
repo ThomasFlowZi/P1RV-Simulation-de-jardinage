@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Android;
 
-public class modeManager : MonoBehaviour
+public class ModeManager : MonoBehaviour
 {
     [Header("Scripts à activer pendant Static")]
     public List<MonoBehaviour> staticScripts = new List<MonoBehaviour>();

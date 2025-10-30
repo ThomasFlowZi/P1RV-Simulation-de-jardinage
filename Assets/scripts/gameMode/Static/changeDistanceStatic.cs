@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class changeDistanceStatic : MonoBehaviour
+public class ChangeDistanceStatic : MonoBehaviour
 {
-    private grabObjStatic grabObjStatic;
+    private GrabManagerStatic grabManagerStatic;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 

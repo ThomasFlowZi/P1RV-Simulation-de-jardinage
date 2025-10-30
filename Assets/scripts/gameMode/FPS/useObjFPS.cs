@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class useObjFPS : MonoBehaviour
+public class UseObjFPS : MonoBehaviour
 {
     public float dureeAnim = 60f;
     private float frameAnim = 1f;

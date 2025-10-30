@@ -1,7 +1,7 @@
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class rotObjStatic : MonoBehaviour
+public class RotObjStatic : MonoBehaviour
 {
 
 

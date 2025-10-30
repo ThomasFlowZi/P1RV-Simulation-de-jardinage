@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class grabManager : MonoBehaviour
+public class GrabManagerStatic : MonoBehaviour
 {
     [Header("Raycast Settings")]
     public float rayDistance = 100f;
@@ -17,7 +17,8 @@ public class grabManager : MonoBehaviour
     private Plane grabPlane;
     private Vector3 offsetMouseObject;
 
-    private grabVisualFeedback visualFeedback;
+    private GrabVisualFeedback visualFeedback;
+    private OutlineSelection outlineSelection;
 
     void Update()
     {
@@ -33,7 +34,7 @@ public class grabManager : MonoBehaviour
                 if (hitObj.CompareTag("Selectable"))
                 {
                     grabbedObject = hitObj;
-                    visualFeedback = grabbedObject.GetComponent<grabVisualFeedback>();
+                    visualFeedback = grabbedObject.GetComponent<GrabVisualFeedback>();
 
                     if (visualFeedback != null)
                         visualFeedback.OnGrabStart();
@@ -76,7 +77,13 @@ public class grabManager : MonoBehaviour
 
     void StartGrab()
     {
+
+
         grabActive = true;
+
+        if (outlineSelection != null)
+            outlineSelection.enabled = false;
+
         foreach (var script in grabScripts)
             script.enabled = true;
 
@@ -87,6 +94,9 @@ public class grabManager : MonoBehaviour
     {
         grabActive = false;
         offsetMouseObject = Vector3.zero;
+
+        if (outlineSelection != null)
+            outlineSelection.enabled = true;
 
         foreach (var script in grabScripts)
             script.enabled = false;

@@ -11,11 +11,11 @@ public class GrabObjFPS : MonoBehaviour
     private Vector3 lastPos;
     private Quaternion lastRot;
 
-    private useObjFPS useObject;
+    private UseObjFPS useObject;
 
     void Start()
     {
-        useObject = GetComponent<useObjFPS>();
+        useObject = GetComponent<UseObjFPS>();
     }
 
     void Update()

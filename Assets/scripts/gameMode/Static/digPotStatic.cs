@@ -4,7 +4,7 @@ using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 
-public class digPotStatic : MonoBehaviour
+public class DigPotStatic : MonoBehaviour
 {
     public static bool estCreuse = false;
     public GameObject pot_creuse;
