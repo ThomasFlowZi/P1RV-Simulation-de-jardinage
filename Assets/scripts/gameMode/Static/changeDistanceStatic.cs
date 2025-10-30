@@ -9,7 +9,8 @@ public class ChangeDistanceStatic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        
+
     }
 }

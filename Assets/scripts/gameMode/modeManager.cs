@@ -40,8 +40,8 @@ public class ModeManager : MonoBehaviour
         foreach (var script in fpsScripts)
             script.enabled = !modeStatic;
 
-        if (modeStatic) Debug.Log("mode static activé !");
-        else Debug.Log("mode FPS activé !");
+        /*if (modeStatic) Debug.Log("mode static activé !");
+        else Debug.Log("mode FPS activé !");*/
     }
 
    

@@ -20,6 +20,12 @@ public class GrabManagerStatic : MonoBehaviour
     private GrabVisualFeedback visualFeedback;
     private OutlineSelection outlineSelection;
 
+    private void Start()
+    {
+        foreach (var script in grabScripts)
+            script.enabled = false;
+    }
+
     void Update()
     {
         Vector2 mousePos = Input.mousePosition;
@@ -45,7 +51,7 @@ public class GrabManagerStatic : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             if (visualFeedback != null)
                 visualFeedback.OnGrabEnd();
@@ -87,7 +93,7 @@ public class GrabManagerStatic : MonoBehaviour
         foreach (var script in grabScripts)
             script.enabled = true;
 
-        Debug.Log("Grab activé");
+        //Debug.Log("Grab activé");
     }
 
     void StopGrab()
@@ -101,8 +107,13 @@ public class GrabManagerStatic : MonoBehaviour
         foreach (var script in grabScripts)
             script.enabled = false;
 
-        Debug.Log("Grab désactivé");
+        //Debug.Log("Grab désactivé");
     }
 
     public bool IsGrabbing() => grabActive;
+
+    public GameObject WhatGrab()
+    {
+        return grabbedObject;
+    }
 }

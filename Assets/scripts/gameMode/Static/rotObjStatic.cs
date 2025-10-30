@@ -5,8 +5,9 @@ public class RotObjStatic : MonoBehaviour
 {
 
 
-    Ray _ray;
-    RaycastHit _hit;
+    private GameObject grabbedObject;
+    private  GrabManagerStatic GrabManagerStatic;
+
     public float rayDistance = 100f;
     private Transform selection;
     private Quaternion initRot = Quaternion.Euler(0, 0, 0);
@@ -15,40 +16,34 @@ public class RotObjStatic : MonoBehaviour
 
     void Update()
     {
-        Vector2 mousePos = Input.mousePosition; // on crée un vecteur 2D qui prend la position de la souris sur l'écran
-        Transform camera = Camera.main.transform;
-        _ray = Camera.main.ScreenPointToRay(mousePos); // on envoie un rayon sur la position de la souris
-
-
-
         if (Input.GetKey(KeyCode.R))
         {
-
-
-            if (Physics.Raycast(_ray, out _hit, rayDistance)) // si le rayon touche un objet à une distance max de 100 :
+            if (GrabManagerStatic == null)
             {
-
-                if (_hit.collider.gameObject.CompareTag("Selectable"))
-                {
-
-                    selection = _hit.collider.gameObject.transform;
-                    if (initRot == Quaternion.Euler(0, 0, 0))
-                    {
-                        initRot = selection.rotation;
-                    }
-
-                    Debug.Log(Quaternion.Angle(selection.rotation, initRot));
-                    if (Quaternion.Angle(selection.rotation, initRot) < 160)
-                    {
-                        selection.rotation = selection.rotation * Quaternion.Euler(0, 0, speedRot);
-                    }
-
-                }
+                GrabManagerStatic = FindAnyObjectByType<GrabManagerStatic>();
+                if (GrabManagerStatic == null) return;
             }
 
-        ;
+            grabbedObject = GrabManagerStatic.WhatGrab();
+            if (grabbedObject == null) return;
+
+            if (grabbedObject.CompareTag("Selectable"))
+            {
+                selection = grabbedObject.transform;
 
 
+                if (initRot == Quaternion.Euler(0, 0, 0))
+                {
+                    initRot = selection.rotation;
+                }
+
+                Debug.Log(Quaternion.Angle(selection.rotation, initRot));
+                if (Quaternion.Angle(selection.rotation, initRot) < 160)
+                {
+                    selection.rotation = selection.rotation * Quaternion.Euler(0, 0, speedRot);
+                }
+
+            }
 
         }
         else
