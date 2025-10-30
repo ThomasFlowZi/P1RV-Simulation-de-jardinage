@@ -18,7 +18,7 @@ public class GrabManagerStatic : MonoBehaviour
     private Vector3 offsetMouseObject;
 
     private GrabVisualFeedback visualFeedback;
-    private OutlineSelection outlineSelection;
+    public OutlineSelection outlineSelection;
 
     private void Start()
     {
@@ -116,4 +116,7 @@ public class GrabManagerStatic : MonoBehaviour
     {
         return grabbedObject;
     }
+
+    public void SetPlane(Plane p)
+        { grabPlane = p; }
 }

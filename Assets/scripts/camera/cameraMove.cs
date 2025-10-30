@@ -14,7 +14,7 @@ public class CameraRotation : MonoBehaviour
     void Start()
     {
         
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+      
     }
 
     void Update()
