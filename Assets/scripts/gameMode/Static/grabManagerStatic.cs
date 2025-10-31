@@ -41,6 +41,7 @@ public class GrabManagerStatic : MonoBehaviour
                 {
                     grabbedObject = hitObj;
                     visualFeedback = grabbedObject.GetComponent<GrabVisualFeedback>();
+                    if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
 
                     if (visualFeedback != null)
                         visualFeedback.OnGrabStart();
@@ -57,7 +58,11 @@ public class GrabManagerStatic : MonoBehaviour
                 visualFeedback.OnGrabEnd();
 
             StopGrab();
+            if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+
+
             grabbedObject = null;
+            
         }
 
         if (grabActive && grabbedObject != null)

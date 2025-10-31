@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Android;
+using System;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine.Timeline;
 
 public class ModeManager : MonoBehaviour
 {
@@ -14,31 +17,37 @@ public class ModeManager : MonoBehaviour
 
     [Header("différents points de vue")]
     public GameObject staticView;
-    public GameObject player;
+    public GameObject playerPOV;
+
+    private float distTravel = 0f;
+    private float speed = 2f;
+    private Transform camPositionFPS;
+    private Transform camPositionStatic;
+    private bool travel = false;
 
     private void Start()
     {
-        Camera.main.enabled = true;
+        camPositionFPS = playerPOV.transform;
+        camPositionStatic = staticView.transform;
+        Camera.main.transform.SetPositionAndRotation(camPositionFPS.position,camPositionFPS.rotation);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            modeStatic = !modeStatic;
-            if (modeStatic)
+            modeStatic = !modeStatic; 
+            distTravel = 0f;
+            if (modeStatic) // si on passe en mode static on stocke la position de la cam en FPS
             {
-                Camera.main.transform.position = staticView.transform.position;
-                Camera.main.transform.rotation = staticView.transform.rotation;
+                camPositionFPS.SetPositionAndRotation(Camera.main.transform.position, Camera.main.transform.rotation);
             }
-            else
-            {
-                Camera.main.transform.position = player.transform.position + new Vector3(0,1.4f,0);
-                Camera.main.transform.rotation = player.transform.rotation;
-
-
-            }
+            
+                travel = true;
+            
         }
+
+        if (travel) { Travel(); };
 
         if (crosshair != null)
             crosshair.SetActive(!modeStatic);
@@ -46,20 +55,52 @@ public class ModeManager : MonoBehaviour
         Cursor.lockState = modeStatic ?  CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = modeStatic;
 
-
         GameMode();
     }
 
-    void GameMode()
+    private void Travel()
+    {
+        if (distTravel < 1f) { 
+            distTravel += Time.deltaTime * speed;
+
+            if (modeStatic)
+            {
+                Camera.main.transform.SetPositionAndRotation(Vector3.Lerp(camPositionFPS.position, camPositionStatic.position, distTravel), Quaternion.Slerp(camPositionFPS.rotation, camPositionStatic.rotation, distTravel));
+            }
+            else
+            {
+                Camera.main.transform.SetPositionAndRotation(Vector3.Lerp(camPositionStatic.position, camPositionFPS.position, distTravel), Quaternion.Slerp(camPositionStatic.rotation, camPositionFPS.rotation, distTravel));
+            }
+        }
+        else { travel = false; }
+
+    }
+
+    void GameMode() // on veut que pendant le travel, tout les scripts soient désactivés
     {
       
+        if (travel)
+        {
+            foreach (var script in staticScripts)
+                script.enabled = false;
+
+
+
+            foreach (var script in fpsScripts)
+                script.enabled = false;
+
+        }
+        else
+        {
             foreach (var script in staticScripts)
                 script.enabled = modeStatic;
 
-        
 
-        foreach (var script in fpsScripts)
-            script.enabled = !modeStatic;
+
+            foreach (var script in fpsScripts)
+                script.enabled = !modeStatic;
+        }
+            
 
         /*if (modeStatic) Debug.Log("mode static activé !");
         else Debug.Log("mode FPS activé !");*/
