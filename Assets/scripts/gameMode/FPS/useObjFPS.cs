@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class UseObjFPS : MonoBehaviour
@@ -5,6 +6,15 @@ public class UseObjFPS : MonoBehaviour
     public float dureeAnim = 60f;
     private float frameAnim = 1f;
     public bool Animation { get; private set; } = false;
+
+    private GameObject player;
+
+    void Start()
+    {
+        
+        player = GameObject.Find("player");
+
+    }
 
     public void StartInteraction(Transform selection, Transform target)
     {
@@ -25,7 +35,7 @@ public class UseObjFPS : MonoBehaviour
 
     public void PlayAnimation(Transform selection, Transform camera)
     {
-        selection.RotateAround(selection.position - camera.up, camera.right, Mathf.Abs(frameAnim) * (90 / dureeAnim));
+        selection.RotateAround(selection.position - camera.up *player.transform.localScale.y, camera.right, Mathf.Abs(frameAnim) * (90 / dureeAnim));
         frameAnim += 1f;
 
         if (frameAnim > dureeAnim)

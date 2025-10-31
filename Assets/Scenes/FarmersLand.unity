@@ -1564,10 +1564,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c1e0106a9861394f8d3b71d3d7009a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabObjFPS
-  rayDistance: 100
-  objRight: 2
-  objUp: -1
-  objClose: 2
+  rayDistance: 10
+  objRight: 0.9
+  objUp: -0.5
+  objClose: 1
 --- !u!114 &1637764431
 MonoBehaviour:
   m_ObjectHideFlags: 0

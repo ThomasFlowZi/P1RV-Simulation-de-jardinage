@@ -12,13 +12,15 @@ public class GrabObjFPS : MonoBehaviour
     private Quaternion lastRot;
 
     private UseObjFPS useObject;
+    private GameObject player;
 
     void Start()
     {
         useObject = GetComponent<UseObjFPS>();
-    }
+        player = GameObject.Find("player");
 
-    void Update()
+    }
+        void Update()
     {
         Transform camera = Camera.main.transform;
         Ray ray = new Ray(camera.position, camera.forward);
@@ -63,7 +65,7 @@ public class GrabObjFPS : MonoBehaviour
 
         if (selection != null)
         {
-            selection.position = camera.position + objClose * camera.forward + objRight * camera.right + objUp * camera.up;
+            selection.position = camera.position + (objClose * camera.forward + objRight * camera.right + objUp * camera.up) * player.transform.localScale.y;
             selection.rotation = camera.rotation;
 
             if (useObject.Animation)
