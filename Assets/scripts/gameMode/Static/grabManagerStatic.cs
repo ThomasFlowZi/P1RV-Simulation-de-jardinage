@@ -41,7 +41,7 @@ public class GrabManagerStatic : MonoBehaviour
                 {
                     grabbedObject = hitObj;
                     visualFeedback = grabbedObject.GetComponent<GrabVisualFeedback>();
-                    if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+                    //if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
 
                     if (visualFeedback != null)
                         visualFeedback.OnGrabStart();
@@ -58,7 +58,7 @@ public class GrabManagerStatic : MonoBehaviour
                 visualFeedback.OnGrabEnd();
 
             StopGrab();
-            if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+            //if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = false; désactiver pour l'instant
 
 
             grabbedObject = null;
@@ -79,10 +79,10 @@ public class GrabManagerStatic : MonoBehaviour
         {
             Vector3 hitPoint = mouseRay.GetPoint(distance);
 
-            if (offsetMouseObject == Vector3.zero)
-                offsetMouseObject = grabbedObject.transform.position - hitPoint;
+            /*if (offsetMouseObject == Vector3.zero)
+                offsetMouseObject = grabbedObject.transform.position - hitPoint;*/
 
-            grabbedObject.transform.position = hitPoint + offsetMouseObject;
+            grabbedObject.transform.position = hitPoint; //+ offsetMouseObject;
         }
     }
 

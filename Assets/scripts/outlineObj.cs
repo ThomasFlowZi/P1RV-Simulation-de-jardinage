@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class OutlineSelection : MonoBehaviour
 {
     private Transform highlight;
-    private Transform selection;
+
     private RaycastHit raycastHit;
     public float rayDistance = 100f;
     public AudioSource audioSource;
@@ -37,7 +37,7 @@ public class OutlineSelection : MonoBehaviour
                 { highlight.gameObject.GetComponent<Outline>().enabled = false; }
                 
                 highlight = raycastHit.transform;
-                if (highlight.CompareTag("Selectable") && highlight != selection)
+                if (highlight.CompareTag("Selectable"))
                 {
                     Sound = true;
                     if (highlight.gameObject.GetComponent<Outline>() != null)
@@ -67,8 +67,7 @@ public class OutlineSelection : MonoBehaviour
                 }
                 ;
             }
-
-            
+         
             
         }
         else { 

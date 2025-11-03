@@ -1,37 +1,34 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
-
 
 public class DigPotStatic : MonoBehaviour
 {
     public static bool estCreuse = false;
     public GameObject pot_creuse;
+
     [Header("Audio")]
-    public AudioSource source;  
+    public AudioSource source;
     public AudioClip sfx;
+    public float SpeedLimit = 20f;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!estCreuse)
+        if (estCreuse) return;
+
+        int layer = other.gameObject.layer;
+        if (layer == 8) // ShovelTip
         {
-            int layer = other.gameObject.layer;
-            if (layer == 7)
+            float speed = other.GetComponentInParent<Shovel>().GetSpeed();
+       
+
+            Debug.Log("Vitesse détectée : " + speed);
+
+            if (speed > SpeedLimit)
             {
                 Instantiate(pot_creuse, transform.position, transform.rotation);
                 estCreuse = true;
-                Debug.Log("Pot creusée avec : " + other.name);
                 source.PlayOneShot(sfx);
-
                 Destroy(gameObject);
             }
-
         }
-        
-
-
-
     }
-
 }
