@@ -27,25 +27,28 @@ public class RotObjStatic : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.R))
         {
-            
+
 
             grabbedObject = GrabManagerStatic.WhatGrab();
             if (grabbedObject == null) return;
 
-            selection = grabbedObject.transform;
+            if (grabbedObject.layer == 9) //watering can 
+            { 
+
+                selection = grabbedObject.transform;
 
 
-            if (initRot == Quaternion.Euler(0, 0, 0))
-            {
-                initRot = selection.rotation;
+                if (initRot == Quaternion.Euler(0, 0, 0))
+                {
+                    initRot = selection.rotation;
+                }
+
+                Debug.Log(Quaternion.Angle(selection.rotation, initRot));
+                if (Quaternion.Angle(selection.rotation, initRot) < 160)
+                {
+                    selection.rotation = selection.rotation * Quaternion.Euler(0, 0, speedRot);
+                }
             }
-
-            Debug.Log(Quaternion.Angle(selection.rotation, initRot));
-            if (Quaternion.Angle(selection.rotation, initRot) < 160)
-            {
-                selection.rotation = selection.rotation * Quaternion.Euler(0, 0, speedRot);
-            }
-
 
 
 
