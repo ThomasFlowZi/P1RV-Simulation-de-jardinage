@@ -43,7 +43,7 @@ public class RotObjStatic : MonoBehaviour
                     initRot = selection.rotation;
                 }
 
-                Debug.Log(Quaternion.Angle(selection.rotation, initRot));
+                
                 if (Quaternion.Angle(selection.rotation, initRot) < 160)
                 {
                     selection.rotation = selection.rotation * Quaternion.Euler(0, 0, speedRot);

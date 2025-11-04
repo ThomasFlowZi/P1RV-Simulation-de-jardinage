@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GrabObjFPS : MonoBehaviour
@@ -33,6 +34,7 @@ public class GrabObjFPS : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, rayDistance))
                 {
                     Transform hitTransform = hit.collider.GetComponent<Transform>();
+                    Debug.Log(hit.collider.gameObject);
 
                     if (hitTransform.CompareTag("Selectable"))
                     {

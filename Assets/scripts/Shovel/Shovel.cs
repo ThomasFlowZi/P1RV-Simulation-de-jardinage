@@ -32,7 +32,7 @@ public class Shovel : MonoBehaviour
         
         bool isGrabbed = (grabbed == gameObject);
 
-        if (isGrabbed != wasGrabbed)
+        if (isGrabbed )
         {
             
             wasGrabbed = isGrabbed;
@@ -45,14 +45,23 @@ public class Shovel : MonoBehaviour
         }
         else
         {
-            
-            transform.localPosition = Vector3.Lerp(transform.localPosition, initialPosition, Time.deltaTime * transitionSpeed);
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, initialRotation, Time.deltaTime * transitionSpeed);
-            
-            if ((transform.localPosition - initialPosition).magnitude < 0.01f)
+            if (wasGrabbed)
             {
-                rb.isKinematic = false;
-                transform.localPosition = initialPosition;
+                if ((transform.localPosition - initialPosition).magnitude < 0.01f)
+                {
+                    rb.isKinematic = false;
+                    transform.localPosition = initialPosition;
+                    wasGrabbed = false;
+                }
+                else transform.localPosition = Vector3.Lerp(transform.localPosition, initialPosition, Time.deltaTime * transitionSpeed);
+
+
+                if (Quaternion.Angle(transform.localRotation, initialRotation) < 0.01f)
+                {
+                    transform.localRotation = initialRotation;
+                    wasGrabbed = false;
+                }
+                else transform.localRotation = Quaternion.Lerp(transform.localRotation, initialRotation, Time.deltaTime * transitionSpeed);
             }
         }
 

@@ -20,6 +20,9 @@ public class GrabManagerStatic : MonoBehaviour
     private GrabVisualFeedback visualFeedback;
     public OutlineSelection outlineSelection;
 
+    public bool Snap = false;
+    public Vector3 hitPoint;
+
     private void Start()
     {
         foreach (var script in grabScripts)
@@ -73,17 +76,21 @@ public class GrabManagerStatic : MonoBehaviour
 
     void MoveGrabbedObject(Vector2 mousePos)
     {
-        Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
-
-        if (grabPlane.Raycast(mouseRay, out float distance))
+        if (!Snap)
         {
-            Vector3 hitPoint = mouseRay.GetPoint(distance);
+            Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
 
-            /*if (offsetMouseObject == Vector3.zero)
-                offsetMouseObject = grabbedObject.transform.position - hitPoint;*/
+            if (grabPlane.Raycast(mouseRay, out float distance))
+            {
+                 hitPoint = mouseRay.GetPoint(distance);
 
-            grabbedObject.transform.position = hitPoint; //+ offsetMouseObject;
+                /*if (offsetMouseObject == Vector3.zero)
+                    offsetMouseObject = grabbedObject.transform.position - hitPoint;*/
+
+                grabbedObject.transform.position = hitPoint; //+ offsetMouseObject;
+            }
         }
+        else Debug.Log("objet Snap");
     }
 
     void StartGrab()
