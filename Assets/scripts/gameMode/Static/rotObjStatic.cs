@@ -10,8 +10,9 @@ public class RotObjStatic : MonoBehaviour
 
     public float rayDistance = 100f;
     private Transform selection;
-    private Quaternion initRot = Quaternion.Euler(0, 0, 0);
-    public float speedRot = 0.2f;
+    private Quaternion initRot = Quaternion.Euler(0,0,0);
+
+    public float speedRot = 0.002f;
 
 
     private void Start()
@@ -21,6 +22,8 @@ public class RotObjStatic : MonoBehaviour
             GrabManagerStatic = FindAnyObjectByType<GrabManagerStatic>();
             if (GrabManagerStatic == null) return;
         }
+
+       
     }
 
     void Update()
@@ -36,17 +39,18 @@ public class RotObjStatic : MonoBehaviour
             { 
 
                 selection = grabbedObject.transform;
+                Debug.Log(selection);
 
-
-                if (initRot == Quaternion.Euler(0, 0, 0))
+                if (initRot == Quaternion.Euler(0,0,0))
                 {
-                    initRot = selection.rotation;
+                    Debug.Log("coucou"); initRot = selection.localRotation;
                 }
 
-                
-                if (Quaternion.Angle(selection.rotation, initRot) < 160)
+
+
+                if (Quaternion.Angle(selection.localRotation, initRot) < 160)
                 {
-                    selection.rotation = selection.rotation * Quaternion.Euler(0, 0, speedRot);
+                    selection.localRotation = selection.localRotation * Quaternion.Euler(0, 0, -speedRot);
                 }
             }
 
@@ -57,12 +61,14 @@ public class RotObjStatic : MonoBehaviour
         {
             if (selection != null)
             {
-
-                if (Quaternion.Angle(selection.rotation, initRot) > 1)
+                
+                if (Quaternion.Angle(selection.localRotation, initRot) > 10)
                 {
-                    selection.rotation = selection.rotation * Quaternion.Euler(0, 0, -2 * speedRot);
+                    Debug.Log(Quaternion.Angle(selection.localRotation, initRot));
+                    selection.localRotation = selection.localRotation * Quaternion.Euler(0, 0, 2 * speedRot);
                 }
-                else { initRot = Quaternion.Euler(0, 0, 0); }
+                else { 
+                    selection.localRotation = initRot ; }
 
             }
 
