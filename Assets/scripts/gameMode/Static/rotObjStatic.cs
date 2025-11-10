@@ -11,6 +11,7 @@ public class RotObjStatic : MonoBehaviour
     public float rayDistance = 100f;
     private Transform selection;
     private Quaternion initRot = Quaternion.Euler(0,0,0);
+   
 
     public float speedRot = 0.002f;
 
@@ -48,8 +49,9 @@ public class RotObjStatic : MonoBehaviour
 
 
 
-                if (Quaternion.Angle(selection.localRotation, initRot) < 160)
+                if (Quaternion.Angle(selection.localRotation, initRot) < 120)
                 {
+                   
                     selection.localRotation = selection.localRotation * Quaternion.Euler(0, 0, -speedRot);
                 }
             }

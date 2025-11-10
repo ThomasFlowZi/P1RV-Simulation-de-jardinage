@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8716075267780295623}
   - component: {fileID: 6928246775759440784}
   - component: {fileID: 7206237082440531894}
-  - component: {fileID: 7671372593972156911}
   m_Layer: 9
   m_Name: Wooden_Bucket_filled
   m_TagString: Selectable
@@ -106,29 +105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fillWaterBucket
   Bucket_filled: {fileID: 0}
---- !u!136 &7671372593972156911
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181742147013934761}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2195731
-  m_Height: 0.3965063
-  m_Direction: 1
-  m_Center: {x: 0.00000026823724, y: 0.19806093, z: 0.00054790825}
 --- !u!1 &1444808099441596916
 GameObject:
   m_ObjectHideFlags: 0
