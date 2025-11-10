@@ -131,4 +131,13 @@ public class GrabManagerStatic : MonoBehaviour
 
     public void SetPlane(Plane p)
         { grabPlane = p; }
+
+
+    public void setGrabbedObject(GameObject objet)
+    {
+
+        grabbedObject = objet; 
+
+
+    }
 }

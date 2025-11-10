@@ -28,15 +28,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181742147013934761}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.23344536, z: 0, w: 0.97236997}
-  m_LocalPosition: {x: 0, y: -0.122, z: 0.0000000012224}
+  m_LocalRotation: {x: 0, y: -0.5735764, z: 0, w: 0.8191521}
+  m_LocalPosition: {x: 0, y: -0.122, z: 0}
   m_LocalScale: {x: 0.7688403, y: 0.77903, z: 0.77903}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2306432170940063192}
   - {fileID: 1107557300797693393}
   m_Father: {fileID: 6892473921637052019}
-  m_LocalEulerAnglesHint: {x: 0, y: -27, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -70, z: 0}
 --- !u!33 &8716075267780295623
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a160dc707f2a4141b0f12c6abf8d7e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fillWaterBucket
-  Wooden_Bucket_filled: {fileID: 0}
+  Bucket_filled: {fileID: 0}
 --- !u!136 &7671372593972156911
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 5294748094709023988}
   - component: {fileID: 1856046751757616915}
   - component: {fileID: 4731987899234676809}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eau_bucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ Transform:
   m_GameObject: {fileID: 5271254964044999471}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.047, y: 0.142, z: -1.479}
+  m_LocalPosition: {x: 0.35501105, y: 0.65653354, z: 0.9494977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
