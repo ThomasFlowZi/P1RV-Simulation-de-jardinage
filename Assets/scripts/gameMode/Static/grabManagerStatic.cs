@@ -13,7 +13,7 @@ public class GrabManagerStatic : MonoBehaviour
     private RaycastHit _hit;
 
     private bool grabActive = false;
-    private GameObject grabbedObject;
+    public GameObject grabbedObject;
     private Plane grabPlane;
     private Vector3 offsetMouseObject;
 

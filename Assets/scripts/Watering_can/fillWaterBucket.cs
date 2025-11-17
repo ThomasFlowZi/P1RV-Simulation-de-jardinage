@@ -3,11 +3,14 @@ using UnityEngine;
 public class fillWaterBucket : MonoBehaviour
 {
 
+    [Header("Audio")]
+    public AudioSource source;
+    public AudioClip sfx;
 
-   
 
     GameObject eauBucket; 
     public static bool estRempli = false;
+
 
     private void Start()
     {
@@ -23,7 +26,8 @@ public class fillWaterBucket : MonoBehaviour
         if (other.CompareTag("Eau"))
         {
             eauBucket.GetComponent<Renderer>().enabled = true;
-
+            source.PlayOneShot(sfx);
+            estRempli = true;
 
         };
     }

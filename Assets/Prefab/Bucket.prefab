@@ -230,4 +230,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a160dc707f2a4141b0f12c6abf8d7e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::fillWaterBucket
-  Wooden_Bucket_filled: {fileID: 0}
+  source: {fileID: 0}
+  sfx: {fileID: 0}

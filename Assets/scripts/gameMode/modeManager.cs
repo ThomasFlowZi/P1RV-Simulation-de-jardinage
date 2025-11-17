@@ -25,6 +25,7 @@ public class ModeManager : MonoBehaviour
     private Transform camPositionStatic;
     private bool travel = false;
 
+    public GrabManagerStatic refGrabManager;
     private void Start()
     {
         camPositionFPS = playerPOV.transform;
@@ -43,7 +44,7 @@ public class ModeManager : MonoBehaviour
                 camPositionFPS.SetPositionAndRotation(Camera.main.transform.position, Camera.main.transform.rotation);
             }
             
-                travel = true;
+            travel = true;
             
         }
 
@@ -63,15 +64,19 @@ public class ModeManager : MonoBehaviour
         if (distTravel < 1f) { 
             distTravel += Time.deltaTime * speed;
 
+
             if (modeStatic)
             {
                 Camera.main.transform.SetPositionAndRotation(Vector3.Lerp(camPositionFPS.position, camPositionStatic.position, distTravel), Quaternion.Slerp(camPositionFPS.rotation, camPositionStatic.rotation, distTravel));
+               
             }
             else
             {
                 Camera.main.transform.SetPositionAndRotation(Vector3.Lerp(camPositionStatic.position, camPositionFPS.position, distTravel), Quaternion.Slerp(camPositionStatic.rotation, camPositionFPS.rotation, distTravel));
             }
         }
+  
+
         else { travel = false; }
 
     }
