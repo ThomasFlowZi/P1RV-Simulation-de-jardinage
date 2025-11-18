@@ -47,12 +47,12 @@ public class ChangeDistanceStatic : MonoBehaviour
 
             // Limiter la distance entre 1 et 10 unités
             newDistance = Mathf.Clamp(newDistance, 0.4f, 3f);
-
+                
            
             Vector3 newPosition = camTransform.position + direction * newDistance;
 
             // Mettre à jour le plan de grab
-            GrabManagerStatic.SetPlane(new Plane(camTransform.forward, newPosition));
+            GrabManagerStatic.SetPlane(new Plane(new Vector3(camTransform.forward.x, 0, camTransform.forward.z), newPosition));
         }
     }
 

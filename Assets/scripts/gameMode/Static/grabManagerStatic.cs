@@ -20,6 +20,7 @@ public class GrabManagerStatic : MonoBehaviour
     private GrabVisualFeedback visualFeedback;
     public OutlineSelection outlineSelection;
 
+
     public bool Snap = false;
     public Vector3 hitPoint;
 
@@ -27,6 +28,7 @@ public class GrabManagerStatic : MonoBehaviour
     {
         foreach (var script in grabScripts)
             script.enabled = false;
+
     }
 
     void Update()
@@ -44,12 +46,13 @@ public class GrabManagerStatic : MonoBehaviour
                 {
                     grabbedObject = hitObj;
                     visualFeedback = grabbedObject.GetComponent<GrabVisualFeedback>();
+
                     //if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
 
                     if (visualFeedback != null)
                         visualFeedback.OnGrabStart();
 
-                    grabPlane = new Plane(camera.forward, grabbedObject.transform.position);
+                    grabPlane = new Plane(new Vector3(camera.forward.x,0,camera.forward.z), grabbedObject.transform.position);
                     StartGrab();
                 }
             }
@@ -100,7 +103,7 @@ public class GrabManagerStatic : MonoBehaviour
         grabActive = true;
 
         if (outlineSelection != null)
-            outlineSelection.enabled = false;
+            outlineSelection.SetActivate(false);
 
         foreach (var script in grabScripts)
             script.enabled = true;
@@ -114,7 +117,7 @@ public class GrabManagerStatic : MonoBehaviour
         offsetMouseObject = Vector3.zero;
 
         if (outlineSelection != null)
-            outlineSelection.enabled = true;
+            outlineSelection.SetActivate(true);
 
         foreach (var script in grabScripts)
             script.enabled = false;

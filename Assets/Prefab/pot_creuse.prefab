@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5921266805545635584}
   - component: {fileID: 766401171910007173}
   - component: {fileID: 1242975290350589528}
+  - component: {fileID: 5253445296108631447}
   m_Layer: 0
   m_Name: Cylinder.002
   m_TagString: Untagged
@@ -89,6 +90,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5253445296108631447
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2497132630196607350}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8691780276856062721, guid: 40c7a757432aa4a4eac8be907afc315d, type: 3}
 --- !u!1 &3183888989059820868
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,9 +174,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1370552656297340019}
-  - component: {fileID: 6017443598103727039}
   - component: {fileID: 6040707625590011574}
   - component: {fileID: 7314624477334599713}
+  - component: {fileID: 7828595215304344145}
   m_Layer: 0
   m_Name: pot_creuse
   m_TagString: Untagged
@@ -179,27 +202,6 @@ Transform:
   - {fileID: 4211276408414940258}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6017443598103727039
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8462477528029813375}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.51, y: 2.51, z: 2.51}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &6040707625590011574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +313,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &7828595215304344145
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462477528029813375}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8691780276856062721, guid: 40c7a757432aa4a4eac8be907afc315d, type: 3}
 --- !u!1 &8772796115686484629
 GameObject:
   m_ObjectHideFlags: 0

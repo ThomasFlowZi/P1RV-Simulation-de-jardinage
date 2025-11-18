@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 5536630641753108504}
   - component: {fileID: 62072691252098680}
   - component: {fileID: 6124610175582681718}
+  - component: {fileID: 26589348320177244}
   m_Layer: 0
   m_Name: Cylinder.001
   m_TagString: Untagged
@@ -178,6 +179,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &26589348320177244
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143755333241803242}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7387706064836869012, guid: c50a33f0cab7096478097d1f46c2f1e7, type: 3}
 --- !u!1 &9113900865178872177
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +210,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3692361019654127892}
-  - component: {fileID: 7494679395698940003}
   - component: {fileID: 8269911628324486370}
   - component: {fileID: 3392288799132929476}
   - component: {fileID: 8119389065054935480}
@@ -215,27 +237,6 @@ Transform:
   - {fileID: 5536630641753108504}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7494679395698940003
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9113900865178872177}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.51, y: 2.51, z: 2.51}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &8269911628324486370
 MonoBehaviour:
   m_ObjectHideFlags: 0
