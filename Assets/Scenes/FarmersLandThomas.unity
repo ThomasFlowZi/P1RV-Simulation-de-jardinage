@@ -1010,66 +1010,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::grabVisualFeedback
   grabColor: {r: 0.17221434, g: 0.47195882, b: 0.8113208, a: 1}
   grabSound: {fileID: 0}
---- !u!1001 &623300557
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1370552656297340019, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.173
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370552656297340019, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.02000016
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370552656297340019, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.47320068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370552656297340019, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370552656297340019, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370552656297340019, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370552656297340019, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370552656297340019, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370552656297340019, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370552656297340019, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8462477528029813375, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_Name
-      value: pot_creuse
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8772796115686484629, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1731788236}
-  m_SourcePrefab: {fileID: 100100000, guid: 386f289113b64444593909a3fce656a3, type: 3}
 --- !u!1 &643534495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,6 +1189,7 @@ PrefabInstance:
       value: 'Bucket '
       objectReference: {fileID: 0}
     m_RemovedComponents:
+    - {fileID: 0}
     - {fileID: 5239691986216337187, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8757672843339828581, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
@@ -2638,33 +2579,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!1 &1731788232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8772796115686484629, guid: 386f289113b64444593909a3fce656a3, type: 3}
-  m_PrefabInstance: {fileID: 623300557}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1731788236
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731788232}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6239881831769578202, guid: 40c7a757432aa4a4eac8be907afc315d, type: 3}
 --- !u!1001 &1744796693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3438,4 +3352,3 @@ SceneRoots:
   - {fileID: 1744796693}
   - {fileID: 850674620}
   - {fileID: 2017277427241604288}
-  - {fileID: 623300557}
