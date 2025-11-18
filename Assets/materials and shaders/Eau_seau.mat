@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Eau
+  m_Name: Eau_seau
   m_Shader: {fileID: -6465566751694194690, guid: 4932948396533eb4dacd391a8f4382ba, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -53,7 +53,11 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _WobbleX: 0
+    - _WobbleZ: 0
+    - _seuil: 0.12
     m_Colors:
     - _Color: {r: 0.14484686, g: 0.5617815, b: 0.8773585, a: 1}
+    - _Vector3: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

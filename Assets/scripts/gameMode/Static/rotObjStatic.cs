@@ -49,7 +49,7 @@ public class RotObjStatic : MonoBehaviour
 
 
 
-                if (Quaternion.Angle(selection.localRotation, initRot) < 120)
+                if (Quaternion.Angle(selection.localRotation, initRot) < 90)
                 {
                    
                     selection.localRotation = selection.localRotation * Quaternion.Euler(0, 0, -speedRot);
