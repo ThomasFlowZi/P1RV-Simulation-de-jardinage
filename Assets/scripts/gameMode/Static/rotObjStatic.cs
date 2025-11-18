@@ -6,12 +6,12 @@ public class RotObjStatic : MonoBehaviour
 
 
     private GameObject grabbedObject;
-    private  GrabManagerStatic GrabManagerStatic;
+    private GrabManagerStatic GrabManagerStatic;
 
     public float rayDistance = 100f;
     private Transform selection;
-    private Quaternion initRot = Quaternion.Euler(0,0,0);
-   
+    private Quaternion initRot = Quaternion.Euler(0, 0, 0);
+
 
     public float speedRot = 0.002f;
 
@@ -24,7 +24,7 @@ public class RotObjStatic : MonoBehaviour
             if (GrabManagerStatic == null) return;
         }
 
-       
+
     }
 
     void Update()
@@ -37,12 +37,12 @@ public class RotObjStatic : MonoBehaviour
             if (grabbedObject == null) return;
 
             if (grabbedObject.layer == 9) //watering can 
-            { 
+            {
 
                 selection = grabbedObject.transform;
                 Debug.Log(selection);
 
-                if (initRot == Quaternion.Euler(0,0,0))
+                if (initRot == Quaternion.Euler(0, 0, 0))
                 {
                     Debug.Log("coucou"); initRot = selection.localRotation;
                 }
@@ -51,7 +51,7 @@ public class RotObjStatic : MonoBehaviour
 
                 if (Quaternion.Angle(selection.localRotation, initRot) < 90)
                 {
-                   
+
                     selection.localRotation = selection.localRotation * Quaternion.Euler(0, 0, -speedRot);
                 }
             }
@@ -63,21 +63,22 @@ public class RotObjStatic : MonoBehaviour
         {
             if (selection != null)
             {
-                
+
                 if (Quaternion.Angle(selection.localRotation, initRot) > 10)
                 {
                     Debug.Log(Quaternion.Angle(selection.localRotation, initRot));
                     selection.localRotation = selection.localRotation * Quaternion.Euler(0, 0, 2 * speedRot);
                 }
-                else { 
-                    selection.localRotation = initRot ; }
+                else
+                {
+                    selection.localRotation = initRot;
+                }
 
             }
 
-        
+
         }
 
 
     }
 }
-
