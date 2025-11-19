@@ -59,7 +59,7 @@ public class RotObjStatic : MonoBehaviour
                             GameObject parent = GrabManagerStatic.Snap.transform.parent.gameObject;
                             GameObject terre = parent.transform.Find("terre").gameObject;
 
-                            terre.GetComponent<Renderer>().material.color = terre.GetComponent<Renderer>().material.color*0.99f;
+                            terre.GetComponent<Renderer>().material.color = terre.GetComponent<DryToWetPot>().wet * Quaternion.Angle(selection.localRotation, initRot) / 90f + terre.GetComponent<DryToWetPot>().dry *(1- Quaternion.Angle(selection.localRotation, initRot) / 90f);
 
                     }
                 }

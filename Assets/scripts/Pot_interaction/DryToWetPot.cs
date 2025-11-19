@@ -9,6 +9,9 @@ public class DryToWetPot : MonoBehaviour
     public AudioSource source;
     public AudioClip sfx;
 
+    public Color dry;
+    public Color wet;
+
     void Update()
     {
 

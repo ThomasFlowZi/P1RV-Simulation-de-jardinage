@@ -85,22 +85,25 @@ public class GrabManagerStatic : MonoBehaviour
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
 
         Physics.Raycast(mouseRay, out hit, rayDistance);
-        if ((hit.collider.gameObject.layer == 10) && grabbedObject.layer == 9)  // si notre curseur est sur une snap zone et qu'on tient le seau 
+        if (grabbedObject != null)
         {
-            grabbedObject.transform.position = hit.collider.transform.position;
-            Snap = hit.collider.gameObject;
-        }
-        else
-        {
-            if (grabPlane.Raycast(mouseRay, out float distance))
+            if ((hit.collider.gameObject.layer == 10) && grabbedObject.layer == 9)  // si notre curseur est sur une snap zone et qu'on tient le seau 
             {
-                hitPoint = mouseRay.GetPoint(distance);
-
-
-                grabbedObject.transform.position = hitPoint;
-                Snap = null;
+                grabbedObject.transform.position = hit.collider.transform.position;
+                Snap = hit.collider.gameObject;
             }
-            
+            else
+            {
+                if (grabPlane.Raycast(mouseRay, out float distance))
+                {
+                    hitPoint = mouseRay.GetPoint(distance);
+
+
+                    grabbedObject.transform.position = hitPoint;
+                    Snap = null;
+                }
+
+            }
         }
  
     }
