@@ -1,19 +1,27 @@
+using UnityEditor;
 using UnityEngine;
 
 public class PutSeed : MonoBehaviour
 {
-    GameObject seedPrefab;
+    public GameObject seed;
     bool possedeGraine = false;
+    GrabManagerStatic grabManager;
+    GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     void OnMouseDown()
     {
 
-        if (possedeGraine)
+        if (player.transform.Find("seedBag") && !possedeGraine)
 
         {
-
-            Instantiate(seedPrefab, gameObject.transform.position, gameObject.transform.rotation);
-
+            GameObject parent = transform.parent.gameObject;
+            Instantiate(seed, parent.transform.Find("positionSeed").position, parent.transform.Find("positionSeed").rotation);
+            possedeGraine = true;
         }
         
     }

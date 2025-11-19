@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1242975290350589528}
   - component: {fileID: 5253445296108631447}
   - component: {fileID: 6848969918750929725}
+  - component: {fileID: 7304856661495451320}
   m_Layer: 0
   m_Name: terre
   m_TagString: Untagged
@@ -130,6 +131,50 @@ MonoBehaviour:
   sfx: {fileID: 0}
   dry: {r: 0.4901961, g: 0.30588236, b: 0.1764706, a: 1}
   wet: {r: 0.3679245, g: 0.23027822, b: 0.13363294, a: 1}
+--- !u!114 &7304856661495451320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2497132630196607350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd632148240f024a983ebfd6111c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PutSeed
+  seed: {fileID: 5398023586075487451, guid: 8539096e1bf6d5f4cb66c818598de65a, type: 3}
+--- !u!1 &2723413948550057652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581790494398598682}
+  m_Layer: 0
+  m_Name: positionSeed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &581790494398598682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723413948550057652}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.015, y: 1.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1370552656297340019}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3183888989059820868
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +263,7 @@ Transform:
   - {fileID: 5921266805545635584}
   - {fileID: 3188911133214082945}
   - {fileID: 4211276408414940258}
+  - {fileID: 581790494398598682}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6040707625590011574
@@ -352,7 +398,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 8691780276856062721, guid: 40c7a757432aa4a4eac8be907afc315d, type: 3}
+  m_Mesh: {fileID: 6239881831769578202, guid: 40c7a757432aa4a4eac8be907afc315d, type: 3}
 --- !u!1 &8772796115686484629
 GameObject:
   m_ObjectHideFlags: 0
