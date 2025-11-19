@@ -167,6 +167,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6848969918750929725, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: dry.b
+      value: 0.27058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848969918750929725, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: dry.g
+      value: 0.42352945
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848969918750929725, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: dry.r
+      value: 0.6431373
+      objectReference: {fileID: 0}
     - target: {fileID: 8462477528029813375, guid: 386f289113b64444593909a3fce656a3, type: 3}
       propertyPath: m_Name
       value: pot_creuse
