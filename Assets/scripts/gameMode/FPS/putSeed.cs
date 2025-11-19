@@ -2,32 +2,18 @@ using UnityEngine;
 
 public class putSeed : MonoBehaviour
 {
+    GameObject seedPrefab;
+    bool possedeGraine = false;
 
-    float rayDistance = 100f; 
-    
-    void Start()
+    void OnMouseDown()
     {
-        
-    }
-
-
-    void Update()
-    {
-        Transform camera = Camera.main.transform;
-        RaycastHit hit;
-        
-        Ray ray = new Ray(camera.position, camera.forward);
-        if (Physics.Raycast(ray, out hit, rayDistance) && )
+        if (possedeGraine)
         {
-            if (Input.GetMouseButton(0)) { 
-            
-            
-            
-            }
-
-
-
+            Instantiate(seedPrefab, gameObject.transform.position, gameObject.transform.rotation);
 
         }
+
+
     }
-}
+
+}  
