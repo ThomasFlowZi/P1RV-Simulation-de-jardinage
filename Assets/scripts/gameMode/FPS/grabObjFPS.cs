@@ -69,6 +69,7 @@ public class GrabObjFPS : MonoBehaviour
         {
             selection.position = camera.position + (objClose * camera.forward + objRight * camera.right + objUp * camera.up) * player.transform.localScale.y;
             selection.rotation = camera.rotation;
+            selection.SetParent(transform);
 
             if (useObject.Animation)
             {
@@ -83,6 +84,7 @@ public class GrabObjFPS : MonoBehaviour
         {
             selection.position = lastPos;
             selection.rotation = lastRot;
+            selection.SetParent(null);
         }
     }
 }
