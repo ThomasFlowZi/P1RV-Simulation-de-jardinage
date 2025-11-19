@@ -76,27 +76,4 @@ public class WateringPot : MonoBehaviour
 
 
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == 10) //snap zone
-        {
-            grabManager.Snap = true;
-            transform.localPosition = other.transform.position;
-        }
-        
-        
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-       
-        if (other.gameObject.layer == 10) //snap zone
-        {
-        grabManager.Snap = false;
-        }
-    }
-
-
-
 }

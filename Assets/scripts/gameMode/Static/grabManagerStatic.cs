@@ -79,21 +79,27 @@ public class GrabManagerStatic : MonoBehaviour
 
     void MoveGrabbedObject(Vector2 mousePos)
     {
-        if (!Snap)
-        {
-            Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
 
+        
+        RaycastHit hit;
+        Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
+
+        Physics.Raycast(mouseRay, out hit, rayDistance);
+        if (!(hit.collider.gameObject.layer == 10))
+        {
             if (grabPlane.Raycast(mouseRay, out float distance))
             {
-                 hitPoint = mouseRay.GetPoint(distance);
+                hitPoint = mouseRay.GetPoint(distance);
 
-                /*if (offsetMouseObject == Vector3.zero)
-                    offsetMouseObject = grabbedObject.transform.position - hitPoint;*/
 
-                grabbedObject.transform.position = hitPoint; //+ offsetMouseObject;
+                grabbedObject.transform.position = hitPoint;
             }
         }
-        else Debug.Log("objet Snap");
+        else
+        {
+            grabbedObject.transform.position = hit.collider.transform.position;
+        }
+ 
     }
 
     void StartGrab()
