@@ -43,6 +43,10 @@ public class ModeManager : MonoBehaviour
             {
                 camPositionFPS.SetPositionAndRotation(Camera.main.transform.position, Camera.main.transform.rotation);
             }
+            else
+            {
+                Camera.main.transform.SetPositionAndRotation(camPositionFPS.position, camPositionFPS.rotation);
+            }
             
             travel = true;
             

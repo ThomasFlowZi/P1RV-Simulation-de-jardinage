@@ -2278,6 +2278,7 @@ MonoBehaviour:
   - {fileID: 891260557102661686}
   - {fileID: 891260557102661686}
   - {fileID: 385346097}
+  - {fileID: 8988178539551489784}
   crosshair: {fileID: 250207297}
   staticView: {fileID: 1524175111}
   playerPOV: {fileID: 3738001334911321375}
@@ -2446,6 +2447,7 @@ GameObject:
   - component: {fileID: 6829126888772879334}
   - component: {fileID: 891260557102661686}
   - component: {fileID: 6183954460077494963}
+  - component: {fileID: 8988178539551489784}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -2703,6 +2705,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::rotObjStatic
   rayDistance: 100
   speedRot: 0.4
+--- !u!114 &8988178539551489784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3815518738147692403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c206fb78d3c18ee4f92069f971dbb4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Moveplayer
+  playerMoveSpeed: 0.01
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
