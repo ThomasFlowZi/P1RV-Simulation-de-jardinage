@@ -21,7 +21,7 @@ public class GrabManagerStatic : MonoBehaviour
     public OutlineSelection outlineSelection;
 
 
-    public bool Snap = false;
+    public GameObject Snap ;
     public Vector3 hitPoint;
 
     private void Start()
@@ -85,7 +85,12 @@ public class GrabManagerStatic : MonoBehaviour
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
 
         Physics.Raycast(mouseRay, out hit, rayDistance);
-        if (!(hit.collider.gameObject.layer == 10))
+        if ((hit.collider.gameObject.layer == 10) && grabbedObject.layer == 9)  // si notre curseur est sur une snap zone et qu'on tient le seau 
+        {
+            grabbedObject.transform.position = hit.collider.transform.position;
+            Snap = hit.collider.gameObject;
+        }
+        else
         {
             if (grabPlane.Raycast(mouseRay, out float distance))
             {
@@ -93,11 +98,9 @@ public class GrabManagerStatic : MonoBehaviour
 
 
                 grabbedObject.transform.position = hitPoint;
+                Snap = null;
             }
-        }
-        else
-        {
-            grabbedObject.transform.position = hit.collider.transform.position;
+            
         }
  
     }

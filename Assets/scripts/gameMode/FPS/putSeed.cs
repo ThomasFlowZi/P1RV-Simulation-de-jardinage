@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class putSeed : MonoBehaviour
+public class PutSeed : MonoBehaviour
 {
 
     float rayDistance = 100f; 
@@ -17,7 +17,7 @@ public class putSeed : MonoBehaviour
         RaycastHit hit;
         
         Ray ray = new Ray(camera.position, camera.forward);
-        if (Physics.Raycast(ray, out hit, rayDistance) && )
+        if (Physics.Raycast(ray, out hit, rayDistance)  )
         {
             if (Input.GetMouseButton(0)) { 
             
