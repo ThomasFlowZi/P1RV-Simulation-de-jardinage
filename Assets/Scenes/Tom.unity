@@ -1533,6 +1533,7 @@ MonoBehaviour:
   grabScripts:
   - {fileID: 1152014383}
   - {fileID: 1152014382}
+  grabbedObject: {fileID: 0}
   outlineSelection: {fileID: 1152014379}
   Snap: 0
   hitPoint: {x: 0, y: 0, z: 0}
@@ -1558,6 +1559,7 @@ MonoBehaviour:
   crosshair: {fileID: 250207297}
   staticView: {fileID: 1524175111}
   playerPOV: {fileID: 450122118}
+  refGrabManager: {fileID: 0}
 --- !u!136 &1152014386
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1670,7 +1672,7 @@ GameObject:
   - component: {fileID: 1164181750}
   - component: {fileID: 1164181749}
   m_Layer: 9
-  m_Name: Cylinder
+  m_Name: Seed bag
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
