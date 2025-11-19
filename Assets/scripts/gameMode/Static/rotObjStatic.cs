@@ -53,6 +53,15 @@ public class RotObjStatic : MonoBehaviour
                 {
 
                     selection.localRotation = selection.localRotation * Quaternion.Euler(0, 0, -speedRot);
+
+                    if (GrabManagerStatic.Snap != null)
+                    {
+                            GameObject parent = GrabManagerStatic.Snap.transform.parent.gameObject;
+                            GameObject terre = parent.transform.Find("terre").gameObject;
+
+                            terre.GetComponent<Renderer>().material.color = terre.GetComponent<Renderer>().material.color*0.99f;
+
+                    }
                 }
             }
 

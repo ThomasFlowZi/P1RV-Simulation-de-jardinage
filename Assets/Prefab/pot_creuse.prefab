@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1242975290350589528}
   - component: {fileID: 5253445296108631447}
   m_Layer: 0
-  m_Name: Cylinder.002
+  m_Name: terre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
