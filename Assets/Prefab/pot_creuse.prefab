@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5253445296108631447}
   - component: {fileID: 6848969918750929725}
   - component: {fileID: 7304856661495451320}
+  - component: {fileID: 4446478053530004206}
   m_Layer: 0
   m_Name: terre
   m_TagString: Untagged
@@ -129,7 +130,7 @@ MonoBehaviour:
   Pot_wet: {fileID: 0}
   source: {fileID: 0}
   sfx: {fileID: 0}
-  dry: {r: 0.4901961, g: 0.30588236, b: 0.1764706, a: 1}
+  dry: {r: 0.6431373, g: 0.42352945, b: 0.27058825, a: 1}
   wet: {r: 0.3679245, g: 0.23027822, b: 0.13363294, a: 1}
 --- !u!114 &7304856661495451320
 MonoBehaviour:
@@ -144,6 +145,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PutSeed
   seed: {fileID: 5398023586075487451, guid: 8539096e1bf6d5f4cb66c818598de65a, type: 3}
+--- !u!114 &4446478053530004206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2497132630196607350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e000911ef6736c43b11b62cf6717882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DryToWetPot
+  Pot_wet: {fileID: 0}
+  source: {fileID: 0}
+  sfx: {fileID: 0}
+  dry: {r: 0, g: 0, b: 0, a: 0}
+  wet: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2723413948550057652
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +258,8 @@ GameObject:
   - component: {fileID: 6040707625590011574}
   - component: {fileID: 7314624477334599713}
   - component: {fileID: 7828595215304344145}
+  - component: {fileID: 1349792736227325471}
+  - component: {fileID: 9145250909886972162}
   m_Layer: 0
   m_Name: pot_creuse
   m_TagString: Untagged
@@ -399,6 +419,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6239881831769578202, guid: 40c7a757432aa4a4eac8be907afc315d, type: 3}
+--- !u!114 &1349792736227325471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462477528029813375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd632148240f024a983ebfd6111c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PutSeed
+  seed: {fileID: 5398023586075487451, guid: 8539096e1bf6d5f4cb66c818598de65a, type: 3}
+--- !u!114 &9145250909886972162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462477528029813375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e000911ef6736c43b11b62cf6717882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DryToWetPot
+  Pot_wet: {fileID: 0}
+  source: {fileID: 0}
+  sfx: {fileID: 0}
+  dry: {r: 0, g: 0, b: 0, a: 0}
+  wet: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8772796115686484629
 GameObject:
   m_ObjectHideFlags: 0
