@@ -8,7 +8,7 @@ public class GroundProjection : MonoBehaviour
 
     public GameObject objet;
     LineRenderer lineRenderer;
-    private void Start()
+    private void Awake()
     {
 
         lineRenderer = objet.GetComponent<LineRenderer>();
@@ -28,4 +28,7 @@ public class GroundProjection : MonoBehaviour
         lineRenderer.startWidth = 0.01f;
 
     }
+
+
+    public void SetLR(LineRenderer lr) { lineRenderer = lr; }
 }

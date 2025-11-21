@@ -47,6 +47,10 @@ public class Shovel : MonoBehaviour
         {
             if (wasGrabbed)
             {
+              
+
+
+
                 if ((transform.localPosition - initialPosition).magnitude < 0.01f)
                 {
                     rb.isKinematic = false;
