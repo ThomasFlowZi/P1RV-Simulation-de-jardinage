@@ -43,10 +43,7 @@ public class ModeManager : MonoBehaviour
             {
                 camPositionFPS.SetPositionAndRotation(Camera.main.transform.position, Camera.main.transform.rotation);
             }
-            else
-            {
-                Camera.main.transform.SetPositionAndRotation(camPositionFPS.position, camPositionFPS.rotation);
-            }
+            
             
             travel = true;
             
@@ -108,6 +105,9 @@ public class ModeManager : MonoBehaviour
 
             foreach (var script in fpsScripts)
                 script.enabled = !modeStatic;
+
+            if (!modeStatic) Camera.main.transform.position = camPositionFPS.position; //en FPS, la camera suit la position de la tete du personnage
+                
         }
             
 

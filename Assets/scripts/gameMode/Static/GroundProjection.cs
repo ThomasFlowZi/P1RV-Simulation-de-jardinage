@@ -24,6 +24,8 @@ public class GroundProjection : MonoBehaviour
         Physics.Raycast(ray, out hit, 10f);
 
         lineRenderer.SetPosition(1, hit.point);
+        lineRenderer.startWidth = 0.001f; 
+        lineRenderer.startWidth = 0.01f;
 
     }
 }

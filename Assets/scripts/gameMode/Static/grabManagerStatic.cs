@@ -45,6 +45,8 @@ public class GrabManagerStatic : MonoBehaviour
                 if (hitObj.CompareTag("Selectable"))
                 {
                     grabbedObject = hitObj;
+                   
+
                     visualFeedback = grabbedObject.GetComponent<GrabVisualFeedback>();
 
                     //if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
