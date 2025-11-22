@@ -4,7 +4,7 @@ using UnityEngine;
 public class GrabManagerStatic : MonoBehaviour
 {
     [Header("Raycast Settings")]
-    public float rayDistance = 100f;
+    public float rayDistance = 10f;
 
     [Header("Grab Settings")]
     public List<MonoBehaviour> grabScripts = new List<MonoBehaviour>();
@@ -48,11 +48,11 @@ public class GrabManagerStatic : MonoBehaviour
                    
 
                     visualFeedback = grabbedObject.GetComponent<GrabVisualFeedback>();
+                    if (visualFeedback != null)
+                        visualFeedback.OnGrabStart();
 
                     //if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
 
-                    if (visualFeedback != null)
-                        visualFeedback.OnGrabStart();
 
                     grabPlane = new Plane(new Vector3(camera.forward.x,0,camera.forward.z), grabbedObject.transform.position);
                     StartGrab();

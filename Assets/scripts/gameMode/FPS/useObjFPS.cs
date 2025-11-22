@@ -1,51 +1,63 @@
 using UnityEditor.Rendering;
 using UnityEngine;
+using System.Collections;
 
 public class UseObjFPS : MonoBehaviour
 {
     public float dureeAnim = 60f;
-    private float frameAnim = 1f;
-    public bool Animation { get; private set; } = false;
+    private float frameAnim = 0f;
+    private bool Animation  = false;
 
-    private GameObject player;
+    Transform  main;
 
     void Start()
     {
         
-        player = GameObject.Find("player");
+        main = GameObject.Find("player").transform.Find("positionTete/main");
 
     }
 
-    public void StartInteraction(Transform selection, Transform target)
+    public void StartInteraction(Transform selection, Transform target,Transform camera)
     {
         Animation = true;
+        StartCoroutine(PlayAnimation(selection, camera));
         Interact(selection, target);
     }
 
-    public void StartAnimation()
+
+    public IEnumerator PlayAnimation(Transform selection, Transform camera)
     {
         Animation = true;
-    }
 
-    public void StopAnimation()
-    {
-        Animation = false;
-        frameAnim = 1f;
-    }
-
-    public void PlayAnimation(Transform selection, Transform camera)
-    {
-        selection.RotateAround(selection.position - camera.up *player.transform.localScale.y, camera.right, Mathf.Abs(frameAnim) * (90 / dureeAnim));
-        frameAnim += 1f;
-
-        if (frameAnim > dureeAnim)
+        while (true)
         {
-            frameAnim = -dureeAnim;
-        }
 
-        if (frameAnim == 0)
-        {
-            Animation = false;
+            frameAnim += 1f;
+
+
+            // Si on a fini l'aller on repart dans l'autre sens
+            if (frameAnim > dureeAnim)
+                frameAnim = -dureeAnim;
+
+            // Quand on revient pile à 0  fin de l’animation
+            if (frameAnim == 0)
+            {
+                Animation = false;
+                yield break;
+            }
+
+
+            Debug.Log(frameAnim);
+
+            selection.RotateAround(
+                main.position,
+                camera.right,
+                Mathf.Sign(frameAnim) * (90f / dureeAnim)
+            );
+
+            
+
+            yield return null;
         }
     }
 
@@ -65,4 +77,7 @@ public class UseObjFPS : MonoBehaviour
             renderer.material.color = Color.blue;
         }
     }
+
+
+    public bool getAnim() { return Animation; }
 }

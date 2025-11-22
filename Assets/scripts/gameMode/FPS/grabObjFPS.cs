@@ -13,21 +13,21 @@ public class GrabObjFPS : MonoBehaviour
     private Quaternion lastRot;
 
     private UseObjFPS useObject;
-    private GameObject player;
+    private Transform main;
 
     void Start()
     {
         useObject = GetComponent<UseObjFPS>();
-        player = GameObject.Find("player");
+        main = GameObject.Find("player").transform.Find("positionTete/main");
 
     }
-        void Update()
+    void Update()
     {
         Transform camera = Camera.main.transform;
         Ray ray = new Ray(camera.position, camera.forward);
         RaycastHit hit;
 
-        if (!useObject.Animation)
+        if (!useObject.getAnim())
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -44,38 +44,35 @@ public class GrabObjFPS : MonoBehaviour
                             selection = hitTransform;
                             lastPos = selection.position;
                             lastRot = selection.rotation;
+
+                            selection.position = main.position + camera.up*0.2f;
+                            selection.rotation = camera.rotation;
+                            if (selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = true;
+
+                            selection.SetParent(camera.transform);
                         }
                     }
                     else if (selection != null)
                     {
-                        useObject.StartInteraction(selection, hitTransform);
+                        useObject.StartInteraction(selection,hitTransform,camera);
                     }
                 }
                 else if (selection != null)
                 {
-                    useObject.StartAnimation();
+                    Debug.Log("commence anim");
+                    StartCoroutine(useObject.PlayAnimation(selection,camera));
                 }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            ResetLastObjectPosition();
-            selection = null;
-            useObject.StopAnimation();
-        }
-
-        if (selection != null)
-        {
-            selection.position = camera.position + (objClose * camera.forward + objRight * camera.right + objUp * camera.up) * player.transform.localScale.y;
-            selection.rotation = camera.rotation;
-            selection.SetParent(transform);
-
-            if (useObject.Animation)
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                useObject.PlayAnimation(selection, camera);
+                ResetLastObjectPosition();
+                selection = null;
             }
+
         }
+
+
     }
 
     void ResetLastObjectPosition()
@@ -87,4 +84,5 @@ public class GrabObjFPS : MonoBehaviour
             selection.SetParent(null);
         }
     }
+
 }

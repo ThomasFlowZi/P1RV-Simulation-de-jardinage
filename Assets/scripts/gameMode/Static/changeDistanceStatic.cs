@@ -46,7 +46,7 @@ public class ChangeDistanceStatic : MonoBehaviour
             float newDistance = currentDistance + scroll.y * sensitivity;
 
             // Limiter la distance entre 1 et 10 unités
-            newDistance = Mathf.Clamp(newDistance, 0.4f, 3f);
+            newDistance = Mathf.Clamp(newDistance, 0.5f, 3f);
                 
            
             Vector3 newPosition = camTransform.position + direction * newDistance;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9177621573439500616}
   - component: {fileID: 4018525468174873621}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 6124610175582681718}
   - component: {fileID: 26589348320177244}
   m_Layer: 0
-  m_Name: Cylinder.001
+  m_Name: terre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 8269911628324486370}
   - component: {fileID: 3392288799132929476}
   - component: {fileID: 8119389065054935480}
+  - component: {fileID: 2930785260105119661}
   m_Layer: 0
   m_Name: pot_plein
   m_TagString: Untagged
@@ -394,3 +395,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.54, y: 0.4, z: 1.51}
   m_Center: {x: 0, y: 1.62, z: 0}
+--- !u!114 &2930785260105119661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113900865178872177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fdcb458dafb104a9914313f97391ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CamPosInteraction
+  staticScripts: []
+  fpsScripts: []
+  crosshair: {fileID: 0}
+  staticView: {fileID: 0}
+  playerPOV: {fileID: 0}
+  refGrabManager: {fileID: 0}
