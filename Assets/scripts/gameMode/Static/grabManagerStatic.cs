@@ -47,7 +47,6 @@ public class GrabManagerStatic : MonoBehaviour
             grabbedObject = null;
         }
 
-        Debug.Log("qsldkjqsdmlfkjqsdmlfkqjsdmlqsdjfml");
         StopGrab();
           
 

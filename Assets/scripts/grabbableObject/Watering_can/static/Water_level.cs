@@ -57,7 +57,6 @@ public class Water_level : MonoBehaviour
         // limite la montée d'eau au maximum (évite de descendre de façon bizarre)
         if (newSeuil < seuil)
         {
-            Debug.Log("coucocuocuocuocu");
             if (newSeuil < -0.11f) {
                 eauBucket.GetComponent<Renderer>().enabled = false;
                 

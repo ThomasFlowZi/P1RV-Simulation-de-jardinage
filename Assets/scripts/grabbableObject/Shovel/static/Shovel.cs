@@ -4,7 +4,7 @@ using System.Collections;
 public class Shovel : MonoBehaviour, IGrabbable
 {
     private GrabManagerStatic grabManager; 
-    public Vector3 grabbedRotation = new Vector3(-24f,221f, -170f); 
+    public Vector3 grabbedRotation = new Vector3(0,0, 0); 
      
     public float transitionSpeed = 5f; 
 
@@ -24,6 +24,7 @@ public class Shovel : MonoBehaviour, IGrabbable
         initialPosition = transform.localPosition;
         initialRotation = transform.localRotation;
         lastPos = transform.localPosition;
+        enabled = false;
     }
 
 
@@ -62,6 +63,9 @@ public class Shovel : MonoBehaviour, IGrabbable
             {
                 wasGrabbed = false;
                 rb.isKinematic = false;
+                transform.localPosition = initialPosition;
+                transform.localRotation = initialRotation;  
+
             }
         }
 
@@ -80,7 +84,7 @@ public class Shovel : MonoBehaviour, IGrabbable
 
     public void OnGrabEnd()
     {
-        Debug.Log("enabled false");
+        
         StartCoroutine(waitWasGrabbed());
         isGrabbed = false;
         // wasGrabbed reste true pour le retour automatique

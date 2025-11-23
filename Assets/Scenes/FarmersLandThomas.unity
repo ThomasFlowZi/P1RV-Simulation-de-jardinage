@@ -1392,15 +1392,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 700370848045010188, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.91688305
+      value: 0.9169
       objectReference: {fileID: 0}
     - target: {fileID: 700370848045010188, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9130004
+      value: 0.9078
       objectReference: {fileID: 0}
     - target: {fileID: 700370848045010188, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.051068112
+      value: 0.0511
       objectReference: {fileID: 0}
     - target: {fileID: 700370848045010188, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1431,6 +1431,10 @@ PrefabInstance:
       value: -0.288
       objectReference: {fileID: 0}
     - target: {fileID: 1711385749129704885, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
+      propertyPath: speedRot
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711385749129704885, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -1438,6 +1442,10 @@ PrefabInstance:
       propertyPath: GrabManagerStatic
       value: 
       objectReference: {fileID: 1637764438}
+    - target: {fileID: 2794557499769061765, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9067197861354675132, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
       propertyPath: m_Name
       value: 'Bucket '
@@ -1464,17 +1472,25 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3991272109443727292, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991272109443727292, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7222462359338800248, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.77309346
+      value: 0.751
       objectReference: {fileID: 0}
     - target: {fileID: 7222462359338800248, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.819
+      value: 0.826
       objectReference: {fileID: 0}
     - target: {fileID: 7222462359338800248, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.623
+      value: -0.451
       objectReference: {fileID: 0}
     - target: {fileID: 7222462359338800248, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1504,13 +1520,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7803439688220009760, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803439688220009760, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803439688220009760, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8030067203157298882, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
       propertyPath: m_Name
       value: Pelle
       objectReference: {fileID: 0}
     - target: {fileID: 8800006750216448325, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2934,7 +2962,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: grabScripts.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8902770448398534904, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

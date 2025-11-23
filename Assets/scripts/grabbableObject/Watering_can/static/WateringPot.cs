@@ -1,6 +1,7 @@
 using UnityEngine;
+using System.Collections;
 
-public class WateringPot : MonoBehaviour
+public class WateringPot : MonoBehaviour, IGrabbable
 {
     private GrabManagerStatic grabManager;
 
@@ -9,6 +10,7 @@ public class WateringPot : MonoBehaviour
 
     private Vector3 initialPosition;
     private Quaternion initialRotation;
+    private bool isGrabbed = false;
     private bool wasGrabbed = false;
     Rigidbody rb;
     private float speed;
@@ -17,22 +19,17 @@ public class WateringPot : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody>();
-        grabManager = FindAnyObjectByType<GrabManagerStatic>();
+        
 
-        initialPosition = transform.localPosition;
-        initialRotation = transform.localRotation;
-        lastPos = transform.localPosition;
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+        lastPos = transform.position;
+        enabled = false;
     }
 
     void Update()
     {
-        GameObject grabbed = grabManager.WhatGrab();
-
-
-        bool isGrabbed = (grabbed == gameObject);
-
-        if (isGrabbed) wasGrabbed = isGrabbed;
-
+        
 
         if (isGrabbed)
         {
@@ -40,35 +37,66 @@ public class WateringPot : MonoBehaviour
         }
         else
         {
-            if (wasGrabbed)
+            // Retour à la position de base
+            transform.position = Vector3.Lerp(
+                transform.position,
+                initialPosition,
+                Time.deltaTime * transitionSpeed
+            );
+
+            transform.localRotation = Quaternion.Lerp(
+                transform.localRotation,
+                initialRotation,
+                Time.deltaTime * transitionSpeed
+            );
+
+            // Si revenu presque parfaitement : reset
+            if (Vector3.Distance(transform.position, initialPosition) < 0.01f &&
+                Quaternion.Angle(transform.localRotation, initialRotation) < 0.01f)
             {
-                if ((transform.localPosition - initialPosition).magnitude < 0.01f)
-                {
-                    rb.isKinematic = false;
-                    transform.localPosition = initialPosition;
-                    wasGrabbed = false;
-                }
-                else transform.localPosition = Vector3.Lerp(transform.localPosition, initialPosition, Time.deltaTime * transitionSpeed);
-
-
-                if (Quaternion.Angle(transform.localRotation, initialRotation) < 0.01f)
-                {
-                    transform.localRotation = initialRotation;
-
-                }
-                else transform.localRotation = Quaternion.Lerp(transform.localRotation, initialRotation, Time.deltaTime * transitionSpeed);
+                wasGrabbed = false;
+                rb.isKinematic = false;
+                transform.position = initialPosition;
             }
         }
 
 
-        WPSpeed();
+    WPSpeed();
 
     }
 
+    // ----------- INTERFACE ------------
+    public void OnGrabStart()
+    {
+        enabled = true;
+        isGrabbed = true;
+        wasGrabbed = true;
+    }
+
+
+
+    public void OnGrabEnd()
+    {
+        
+        StartCoroutine(waitWasGrabbed());
+        isGrabbed = false;
+        // wasGrabbed reste true pour le retour automatique
+    }
+
+    private IEnumerator waitWasGrabbed()
+    {
+        while (true)
+        {
+            if (wasGrabbed) { yield return null; }
+            else { enabled = false; yield break; }
+        }
+    }
+    // ----------------------------------
+
     void WPSpeed()
     {
-        speed = (transform.localPosition - lastPos).magnitude / Time.deltaTime;
-        lastPos = transform.localPosition;
+        speed = (transform.position - lastPos).magnitude / Time.deltaTime;
+        lastPos = transform.position;
 
     }
 

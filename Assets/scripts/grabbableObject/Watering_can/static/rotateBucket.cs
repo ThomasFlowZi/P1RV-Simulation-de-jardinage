@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class rotateBucket : MonoBehaviour
+public class rotateBucket : MonoBehaviour, IGrabbable
 {
 
     private Quaternion initRot = Quaternion.Euler(0, 0, 0);
@@ -17,13 +17,6 @@ public class rotateBucket : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
         {
 
-
-            
-
-                if (initRot == Quaternion.Euler(0, 0, 0))
-                {
-                    Debug.Log("coucou"); initRot = transform.localRotation;
-                }
 
 
 
@@ -54,7 +47,7 @@ public class rotateBucket : MonoBehaviour
 
                 if (Quaternion.Angle(transform.localRotation, initRot) > 10)
                 {
-                    //Debug.Log(Quaternion.Angle(transform.localRotation, initRot));
+                    
                     transform.localRotation = transform.localRotation * Quaternion.Euler(0, 0, 2 * speedRot);
                 }
                 else
@@ -68,5 +61,16 @@ public class rotateBucket : MonoBehaviour
         }
 
 
+    }
+
+    public void OnGrabStart()
+    {
+        initRot = transform.localRotation;
+        enabled = true;
+    }
+
+    public void OnGrabEnd()
+    {
+        enabled = false;
     }
 }
