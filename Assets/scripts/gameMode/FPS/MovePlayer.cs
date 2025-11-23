@@ -8,35 +8,38 @@ public class Moveplayer : MonoBehaviour
     {
 
         Transform camera = Camera.main.transform;
+        Vector3 forward = new Vector3(camera.forward.x, 0, camera.forward.z);
+        Vector3 right = new Vector3(camera.right.x, 0, camera.right.z);
+        Vector3 result = Vector3.zero;
 
         if (Input.GetKey(KeyCode.W)) // C'est W car QWERTY
         {
-            Vector3 movement = new Vector3(camera.forward.x, 0, camera.forward.z);
-            transform.position += movement.normalized * playerMoveSpeed;
-            //camera.position += movement.normalized * playerMoveSpeed;
+
+            result += forward.normalized;
+            
         }
         if (Input.GetKey(KeyCode.S)) 
         {
-          
-            Vector3 movement = new Vector3(camera.forward.x, 0, camera.forward.z);
-            transform.position -= movement.normalized * playerMoveSpeed;
-            //camera.position -= movement.normalized * playerMoveSpeed;
+
+
+            result -= forward.normalized;
+            
         }
         if (Input.GetKey(KeyCode.D)) 
         {
+
+
+            result += right.normalized;
             
-            Vector3 movement = new Vector3(camera.right.x, 0, camera.right.z);
-            transform.position += movement.normalized * playerMoveSpeed;
-            //camera.position += movement.normalized * playerMoveSpeed;
         }
         if (Input.GetKey(KeyCode.A))
         {
+
+            result -= right.normalized;
             
-            Vector3 movement = new Vector3(camera.right.x, 0, camera.right.z);
-            transform.position -= movement.normalized * playerMoveSpeed;
-            //camera.position -= movement.normalized * playerMoveSpeed;
         }
 
+        transform.position += result.normalized * playerMoveSpeed;
 
 
 
