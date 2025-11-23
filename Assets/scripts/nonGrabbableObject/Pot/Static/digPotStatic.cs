@@ -10,9 +10,16 @@ public class DigPotStatic : MonoBehaviour
     public AudioClip sfx;
     public float SpeedLimit = 20f;
 
+
+    public ModeManager ModeManager;
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (estCreuse) return;
+
+
+
 
         int layer = other.gameObject.layer;
         if (layer == 8) // ShovelTip
@@ -24,9 +31,14 @@ public class DigPotStatic : MonoBehaviour
 
             if (speed > SpeedLimit)
             {
-                Instantiate(pot_creuse, transform.position, transform.rotation);
+                GameObject potInstance = Instantiate(pot_creuse, transform.position, transform.rotation);
                 estCreuse = true;
                 source.PlayOneShot(sfx);
+
+                ModeManager.SetCamStatic(potInstance.transform.Find("PotView").transform);
+                ModeManager.SetMode(true);
+
+
                 Destroy(gameObject);
             }
         }

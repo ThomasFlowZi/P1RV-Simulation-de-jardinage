@@ -49,7 +49,7 @@ public class GrabObjFPS : MonoBehaviour
                             selection.rotation = camera.rotation;
                             if (selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = true;
 
-                            selection.SetParent(camera.transform);
+                            selection.SetParent(main);
                         }
                     }
                     else if (selection != null)
@@ -68,6 +68,7 @@ public class GrabObjFPS : MonoBehaviour
             {
                 ResetLastObjectPosition();
                 selection = null;
+                if (selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = false;
             }
 
         }

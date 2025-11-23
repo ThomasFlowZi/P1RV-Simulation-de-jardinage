@@ -1,6 +1,7 @@
 using UnityEngine;
+using System.Collections;
 
-public class Shovel : MonoBehaviour
+public class Shovel : MonoBehaviour, IGrabbable
 {
     private GrabManagerStatic grabManager; 
     public Vector3 grabbedRotation = new Vector3(-24f,221f, -170f); 
@@ -9,6 +10,7 @@ public class Shovel : MonoBehaviour
 
     private Vector3 initialPosition;
     private Quaternion initialRotation;
+    private bool isGrabbed = false;
     private bool wasGrabbed = false;
     Rigidbody rb;
     private float speed;
@@ -18,68 +20,91 @@ public class Shovel : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody>();
-        grabManager = FindAnyObjectByType<GrabManagerStatic>();
 
         initialPosition = transform.localPosition;
         initialRotation = transform.localRotation;
         lastPos = transform.localPosition;
     }
 
+
+
+
+
     void Update()
     {
-        GameObject grabbed = grabManager.WhatGrab();
-
-        
-        bool isGrabbed = (grabbed == gameObject);
-
-        if (isGrabbed )
-        {
-            
-            wasGrabbed = isGrabbed;
-        }
-
         if (isGrabbed)
         {
-            rb.isKinematic = true;
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(grabbedRotation), Time.deltaTime * transitionSpeed);
+            // Rotation pendant le grab
+            transform.localRotation = Quaternion.Lerp(
+                transform.localRotation,
+                Quaternion.Euler(grabbedRotation),
+                Time.deltaTime * transitionSpeed
+            );
         }
-        else
+        else if (wasGrabbed)
         {
-            if (wasGrabbed)
+            // Retour à la position de base
+            transform.localPosition = Vector3.Lerp(
+                transform.localPosition,
+                initialPosition,
+                Time.deltaTime * transitionSpeed
+            );
+
+            transform.localRotation = Quaternion.Lerp(
+                transform.localRotation,
+                initialRotation,
+                Time.deltaTime * transitionSpeed
+            );
+
+            // Si revenu presque parfaitement : reset
+            if (Vector3.Distance(transform.localPosition, initialPosition) < 0.01f &&
+                Quaternion.Angle(transform.localRotation, initialRotation) < 0.01f)
             {
-              
-
-
-
-                if ((transform.localPosition - initialPosition).magnitude < 0.01f)
-                {
-                    rb.isKinematic = false;
-                    transform.localPosition = initialPosition;
-                    wasGrabbed = false;
-                }
-                else transform.localPosition = Vector3.Lerp(transform.localPosition, initialPosition, Time.deltaTime * transitionSpeed);
-
-
-                if (Quaternion.Angle(transform.localRotation, initialRotation) < 0.01f)
-                {
-                    transform.localRotation = initialRotation;
-                    wasGrabbed = false;
-                }
-                else transform.localRotation = Quaternion.Lerp(transform.localRotation, initialRotation, Time.deltaTime * transitionSpeed);
+                wasGrabbed = false;
+                rb.isKinematic = false;
             }
         }
 
-
-        ShovelSpeed();
-
+        ShovelYRelativeSpeed();
     }
 
-    void ShovelSpeed()
+    // ----------- INTERFACE ------------
+    public void OnGrabStart()
     {
-        speed = (transform.localPosition - lastPos).magnitude / Time.deltaTime;
-        lastPos = transform.localPosition;
+        enabled = true;
+        isGrabbed = true;
+        wasGrabbed = true;
+    }
+    
 
+
+    public void OnGrabEnd()
+    {
+        Debug.Log("enabled false");
+        StartCoroutine(waitWasGrabbed());
+        isGrabbed = false;
+        // wasGrabbed reste true pour le retour automatique
     }
 
-    public float GetSpeed() { return speed; }
+    private IEnumerator waitWasGrabbed()
+    {
+        while (true)
+        {
+            if (wasGrabbed) { yield return null; }
+            else { enabled = false; yield break; }
+        }
+    }
+    // ----------------------------------
+
+    void ShovelYRelativeSpeed()
+    {
+        speed = -(transform.localPosition.y - lastPos.y) / Time.deltaTime;
+        lastPos = transform.localPosition;
+    }
+
+
+
+    
+
+    public float GetSpeed() => speed;
 }

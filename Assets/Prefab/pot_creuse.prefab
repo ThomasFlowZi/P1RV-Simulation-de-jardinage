@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5253445296108631447}
   - component: {fileID: 6848969918750929725}
   - component: {fileID: 7304856661495451320}
-  - component: {fileID: 4446478053530004206}
   m_Layer: 0
   m_Name: terre
   m_TagString: Untagged
@@ -145,23 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PutSeed
   seed: {fileID: 5398023586075487451, guid: 8539096e1bf6d5f4cb66c818598de65a, type: 3}
---- !u!114 &4446478053530004206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2497132630196607350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e000911ef6736c43b11b62cf6717882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DryToWetPot
-  Pot_wet: {fileID: 0}
-  source: {fileID: 0}
-  sfx: {fileID: 0}
-  dry: {r: 0, g: 0, b: 0, a: 0}
-  wet: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2723413948550057652
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +240,6 @@ GameObject:
   - component: {fileID: 6040707625590011574}
   - component: {fileID: 7314624477334599713}
   - component: {fileID: 7828595215304344145}
-  - component: {fileID: 1349792736227325471}
   - component: {fileID: 9145250909886972162}
   m_Layer: 0
   m_Name: pot_creuse
@@ -284,6 +265,7 @@ Transform:
   - {fileID: 3188911133214082945}
   - {fileID: 4211276408414940258}
   - {fileID: 581790494398598682}
+  - {fileID: 4462663455663074289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6040707625590011574
@@ -419,19 +401,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6239881831769578202, guid: 40c7a757432aa4a4eac8be907afc315d, type: 3}
---- !u!114 &1349792736227325471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8462477528029813375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd632148240f024a983ebfd6111c9f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PutSeed
-  seed: {fileID: 5398023586075487451, guid: 8539096e1bf6d5f4cb66c818598de65a, type: 3}
 --- !u!114 &9145250909886972162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +484,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4776738613624916129, guid: 40c7a757432aa4a4eac8be907afc315d, type: 3}
+  - {fileID: 2100000, guid: 40abcf49327a1bd4aab184683637fc4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -538,3 +507,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &9004051809277042608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4462663455663074289}
+  m_Layer: 0
+  m_Name: PotView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4462663455663074289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9004051809277042608}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.23592833, y: -0, z: -0, w: 0.97177047}
+  m_LocalPosition: {x: 2.1180115, y: 5.227073, z: -5.1277127}
+  m_LocalScale: {x: 3.5485907, y: 3.5485911, z: 3.5485911}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1370552656297340019}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

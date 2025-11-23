@@ -42,7 +42,7 @@ public class ModeManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.E))
         {
             SwitchMode(!modeStatic);
         }
@@ -118,7 +118,8 @@ public class ModeManager : MonoBehaviour
             }
             else
             {
-                Camera.main.transform.parent = null;
+                Camera.main.transform.position = camPositionStatic.position; 
+                Camera.main.transform.parent = camPositionStatic;
             }
 
         }
@@ -145,11 +146,7 @@ public class ModeManager : MonoBehaviour
 
         modeStatic = modeStat;
         distTravel = 0f;
-        if (modeStatic) // si on passe en mode static on stocke la position de la cam en FPS
-        {
-            camPositionFPS.SetPositionAndRotation(Camera.main.transform.position, Camera.main.transform.rotation);
-
-        }
+        
 
         Cursor.lockState = modeStatic ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = modeStatic;

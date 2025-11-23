@@ -8,7 +8,6 @@ public class RotObjStatic : MonoBehaviour
     private GameObject grabbedObject;
     private GrabManagerStatic GrabManagerStatic;
 
-    public float rayDistance = 100f;
     private Transform selection;
     private Quaternion initRot = Quaternion.Euler(0, 0, 0);
 

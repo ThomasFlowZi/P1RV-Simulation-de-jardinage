@@ -47,8 +47,6 @@ public class UseObjFPS : MonoBehaviour
             }
 
 
-            Debug.Log(frameAnim);
-
             selection.RotateAround(
                 main.position,
                 camera.right,

@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 516841683385654347}
   - component: {fileID: 3772864146673117865}
   - component: {fileID: 6237079199622521762}
-  - component: {fileID: 8824075598969372804}
   m_Layer: 9
   m_Name: seedBag
   m_TagString: Selectable
@@ -35,7 +34,8 @@ Transform:
   m_LocalPosition: {x: 1.101, y: 0.942, z: -0.375}
   m_LocalScale: {x: 0.17057127, y: 0.17057127, z: 0.17057127}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2848245222261990560}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3771030178811457516
@@ -174,20 +174,38 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8824075598969372804
-MonoBehaviour:
+--- !u!1 &5622117012469817265
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929955052934953786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7724a957cc9bcec4ebf23b68f51bd5b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WateringCan
-  transitionSpeed: 5
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2848245222261990560}
+  m_Layer: 0
+  m_Name: GroundProjectionPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2848245222261990560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622117012469817265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.89, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016604394090431218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

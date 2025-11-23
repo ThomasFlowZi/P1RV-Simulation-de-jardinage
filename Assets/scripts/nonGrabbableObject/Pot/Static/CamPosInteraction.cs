@@ -16,8 +16,8 @@ public class CamPosInteraction : MonoBehaviour
         Transform cameraStatic = parent.transform.Find("PotView").transform;
 
 
-        ModeManager.SwitchMode(true);
         ModeManager.SetCamStatic(cameraStatic);
+        ModeManager.SwitchMode(true);
 
 
     }

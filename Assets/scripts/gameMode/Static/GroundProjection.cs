@@ -6,26 +6,59 @@ public class GroundProjection : MonoBehaviour
 {
 
 
-    public GameObject objet;
-    LineRenderer lineRenderer;
-    private void Awake()
-    {
+    public GrabManagerStatic grabManager;
+    public Material linecolor;
+    private LineRenderer lineRenderer;
+    private GameObject objet;
+    private GameObject gpp;
 
-        lineRenderer = objet.GetComponent<LineRenderer>();
+
+    private void OnEnable()
+    {
+        objet = grabManager.WhatGrab();
+        
+        gpp = objet.transform.Find("GroundProjectionPoint").gameObject;
+        if (gpp != null)
+        {
+
+            lineRenderer = gpp.AddComponent<LineRenderer>();
+
+            lineRenderer.SetPosition(0, gpp.transform.position);
+            lineRenderer.SetPosition(1, gpp.transform.position);
+        }
     }
+
+    private void OnDisable()
+    {
+        if (lineRenderer != null)
+        {
+            Destroy(lineRenderer);
+            lineRenderer = null;
+        }
+    }
+
 
     private void Update()
     {
-        lineRenderer.SetPosition(0, objet.transform.position);
+        if (objet == null || lineRenderer == null) return;
+
+
+        lineRenderer.positionCount = 2;
+        lineRenderer.material = linecolor;
+        lineRenderer.startWidth = 0.001f;
+        lineRenderer.startWidth = 0.01f;
+        
+        lineRenderer.SetPosition(0, gpp.transform.position);
 
         RaycastHit hit;
-        Ray ray = new Ray(objet.transform.position, Vector3.down);
+        Ray ray = new Ray(gpp.transform.position, Vector3.down);
 
         Physics.Raycast(ray, out hit, 10f);
 
+        
         lineRenderer.SetPosition(1, hit.point);
-        lineRenderer.startWidth = 0.001f; 
-        lineRenderer.startWidth = 0.01f;
+        
+
 
     }
 
