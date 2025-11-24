@@ -6,7 +6,7 @@ public class rotateBucket : MonoBehaviour, IGrabbable
 
     private Quaternion initRot = Quaternion.Euler(0, 0, 0);
     public GrabManagerStatic GrabManagerStatic;
-
+    public DryToWetPot dryToWetPot;
     public float speedRot = 0.002f;
 
 
@@ -33,10 +33,11 @@ public class rotateBucket : MonoBehaviour, IGrabbable
                         
 
                         terre.GetComponent<Renderer>().material.color = terre.GetComponent<DryToWetPot>().wet * Quaternion.Angle(transform.localRotation, initRot) / 90f + terre.GetComponent<DryToWetPot>().dry * (1 - Quaternion.Angle(transform.localRotation, initRot) / 90f);
-
+                        
                     }
                 }
-            
+                dryToWetPot.estWet = true; 
+
 
 
 
