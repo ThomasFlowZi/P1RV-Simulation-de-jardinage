@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e000911ef6736c43b11b62cf6717882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DryToWetPot
+  estWet: 0
   Pot_wet: {fileID: 0}
   source: {fileID: 0}
   sfx: {fileID: 0}
@@ -413,11 +414,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e000911ef6736c43b11b62cf6717882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DryToWetPot
+  estWet: 0
   Pot_wet: {fileID: 0}
   source: {fileID: 0}
   sfx: {fileID: 0}
-  dry: {r: 0, g: 0, b: 0, a: 0}
-  wet: {r: 0, g: 0, b: 0, a: 0}
+  dry: {r: 0.6784314, g: 0.47058827, b: 0.34901962, a: 0}
+  wet: {r: 0.49056602, g: 0.29638362, b: 0.18280526, a: 1}
 --- !u!1 &8772796115686484629
 GameObject:
   m_ObjectHideFlags: 0

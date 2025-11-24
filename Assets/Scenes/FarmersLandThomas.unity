@@ -1431,21 +1431,13 @@ PrefabInstance:
       value: -0.288
       objectReference: {fileID: 0}
     - target: {fileID: 1711385749129704885, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
-      propertyPath: speedRot
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1711385749129704885, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: dryToWetPot
+      value: 
+      objectReference: {fileID: 1048701799}
     - target: {fileID: 1711385749129704885, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
       propertyPath: GrabManagerStatic
       value: 
       objectReference: {fileID: 1637764438}
-    - target: {fileID: 2794557499769061765, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9067197861354675132, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
       propertyPath: m_Name
       value: 'Bucket '
@@ -1784,6 +1776,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e43441994bc94724581a25cdb6b814f9, type: 3}
   m_PrefabInstance: {fileID: 105138539}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1048701799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9145250909886972162, guid: 386f289113b64444593909a3fce656a3, type: 3}
+  m_PrefabInstance: {fileID: 1557785306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e000911ef6736c43b11b62cf6717882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DryToWetPot
 --- !u!4 &1077342899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e43441994bc94724581a25cdb6b814f9, type: 3}
@@ -2962,12 +2965,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
-      propertyPath: grabScripts.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8902770448398534904, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

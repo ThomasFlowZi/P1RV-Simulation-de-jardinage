@@ -12,11 +12,11 @@ public class step1 : MonoBehaviour
 
     void Update()
     {
-        if (dryToWetPot.estWet == true)
+       /* if (dryToWetPot.estWet == true)
         {
             StartCoroutine(Grow());
 
-        }
+        }*/
     }
 
     IEnumerator Grow()

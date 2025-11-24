@@ -107,29 +107,44 @@ public class GrabManagerStatic : MonoBehaviour
     {
 
         
-        RaycastHit hit;
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
+        RaycastHit hit;
 
-        Physics.Raycast(mouseRay, out hit, rayDistance);
-        if (grabbedObject != null)
+    
+        if (grabbedObject != null && grabPlane.Raycast(mouseRay, out float distance))
         {
-            if ((hit.collider.gameObject.layer == 10) && grabbedObject.layer == 9)  // si notre curseur est sur une snap zone et qu'on tient le seau 
+
+            hitPoint = mouseRay.GetPoint(distance);
+
+            int layerMask = LayerMask.GetMask("SnapZone");  // ne detecte que les snap zones
+
+            
+
+            if (Physics.Raycast(mouseRay, out hit, distance,layerMask) )
             {
-                grabbedObject.transform.position = hit.collider.transform.position;
-                Snap = hit.collider.gameObject;
+                Debug.Log(hit);
+
+                if ( IsPointInsideBoxCollider(hit.collider.gameObject.GetComponent<BoxCollider>(), hitPoint) && grabbedObject.layer == 9)  // si notre curseur est sur une snap zone et qu'on tient le seau 
+                {
+                    grabbedObject.transform.position = hit.collider.transform.position;
+                    Snap = hit.collider.gameObject;
+                }
+                else
+                {
+                    grabbedObject.transform.position = hitPoint;
+                    Snap = null;
+
+                }
             }
             else
             {
-                if (grabPlane.Raycast(mouseRay, out float distance))
-                {
-                    hitPoint = mouseRay.GetPoint(distance);
 
+                grabbedObject.transform.position = hitPoint;
+                Snap = null;
 
-                    grabbedObject.transform.position = hitPoint;
-                    Snap = null;
-                }
 
             }
+
         }
  
     }
@@ -181,6 +196,18 @@ public class GrabManagerStatic : MonoBehaviour
             foreach (var g in grabbedObject.GetComponents<IGrabbable>())
                 g.OnGrabEnd();
         }
+
+    }
+
+    public static bool IsPointInsideBoxCollider(BoxCollider box, Vector3 point)
+    {
+        Vector3 localPoint = box.transform.InverseTransformPoint(point);
+
+        Vector3 halfSize = box.size / 2f;
+
+        return (localPoint.x >= box.center.x - halfSize.x && localPoint.y >= box.center.y - halfSize.y && localPoint.z >= box.center.z - halfSize.z) &&
+            (localPoint.x <= box.center.x + halfSize.x && localPoint.y <= box.center.y + halfSize.y && localPoint.z <= box.center.z + halfSize.z);
+
 
     }
 

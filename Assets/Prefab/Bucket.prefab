@@ -371,13 +371,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9067197861354675132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dea8eb63f9b3da342a59475f6f34b771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::rotateBucket
   GrabManagerStatic: {fileID: 0}
-  speedRot: 0.002
+  dryToWetPot: {fileID: 0}
+  speedRot: 0.2
 --- !u!1001 &7668264514879463566
 PrefabInstance:
   m_ObjectHideFlags: 0

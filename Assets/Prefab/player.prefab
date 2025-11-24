@@ -150,7 +150,6 @@ GameObject:
   - component: {fileID: 6291283689982169140}
   - component: {fileID: 5710704533850874718}
   - component: {fileID: 7185920717777816193}
-  - component: {fileID: 8902770448398534904}
   - component: {fileID: 131504440189345760}
   - component: {fileID: 8015210519320088215}
   - component: {fileID: 2274197682688433966}
@@ -218,7 +217,6 @@ MonoBehaviour:
   grabScripts:
   - {fileID: 5710704533850874718}
   - {fileID: 7185920717777816193}
-  - {fileID: 8902770448398534904}
   outlineSelection: {fileID: 2653609788993892142}
   Snap: {fileID: 0}
   hitPoint: {x: 0, y: 0, z: 0}
@@ -248,19 +246,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GroundProjection
   grabManager: {fileID: 6291283689982169140}
   linecolor: {fileID: 2100000, guid: 15d4d8a3657706942b2a44e8b4ee18fe, type: 2}
---- !u!114 &8902770448398534904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260047594304665361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0deb79e894a72d2409c10f2743bddeed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::rotObjStatic
-  speedRot: 0.1
 --- !u!114 &131504440189345760
 MonoBehaviour:
   m_ObjectHideFlags: 0
