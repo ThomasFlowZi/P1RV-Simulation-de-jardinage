@@ -106,11 +106,11 @@ public class GrabManagerStatic : MonoBehaviour
     void MoveGrabbedObject(Vector2 mousePos)
     {
 
-        
+
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
         RaycastHit hit;
 
-    
+
         if (grabbedObject != null && grabPlane.Raycast(mouseRay, out float distance))
         {
 
@@ -118,35 +118,38 @@ public class GrabManagerStatic : MonoBehaviour
 
             int layerMask = LayerMask.GetMask("SnapZone");  // ne detecte que les snap zones
 
-            
-
-            if (Physics.Raycast(mouseRay, out hit, distance,layerMask) )
+            if (grabbedObject.layer == 9) //cas particulier pour le seau
             {
-                Debug.Log(hit);
-
-                if ( IsPointInsideBoxCollider(hit.collider.gameObject.GetComponent<BoxCollider>(), hitPoint) && grabbedObject.layer == 9)  // si notre curseur est sur une snap zone et qu'on tient le seau 
+                if (Physics.Raycast(mouseRay, out hit, distance, layerMask))
                 {
-                    grabbedObject.transform.position = hit.collider.transform.position;
-                    Snap = hit.collider.gameObject;
+
+                    if (IsPointInsideBoxCollider(hit.collider.gameObject.GetComponent<BoxCollider>(), hitPoint))  // si notre curseur est sur une snap zone et qu'on tient le seau 
+                    {
+                        grabbedObject.transform.position = hit.collider.transform.position;
+                        Snap = hit.collider.gameObject;
+                    }
+                    else
+                    {
+                        grabbedObject.transform.position = hitPoint;
+                        Snap = null;
+
+                    }
+
+
                 }
                 else
                 {
+
                     grabbedObject.transform.position = hitPoint;
                     Snap = null;
 
-                }
-            }
-            else
-            {
 
-                grabbedObject.transform.position = hitPoint;
-                Snap = null;
+                }
 
 
             }
 
         }
- 
     }
 
     void StartGrab()
