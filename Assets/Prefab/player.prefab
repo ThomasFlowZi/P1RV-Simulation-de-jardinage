@@ -220,6 +220,9 @@ MonoBehaviour:
   outlineSelection: {fileID: 2653609788993892142}
   Snap: {fileID: 0}
   hitPoint: {x: 0, y: 0, z: 0}
+  SnapableObject:
+  - serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &5710704533850874718
 MonoBehaviour:
   m_ObjectHideFlags: 0

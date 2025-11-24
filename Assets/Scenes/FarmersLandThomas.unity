@@ -2965,6 +2965,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: 'SnapableObject.Array.data[0]'
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

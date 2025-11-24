@@ -24,7 +24,10 @@ public class GrabManagerStatic : MonoBehaviour
     public GameObject Snap ;
     public Vector3 hitPoint;
 
-    
+    [Header("Grab Settings")]
+    public List<int> SnapableObject = new List<int>();
+
+
 
 
     private void Start()
@@ -105,50 +108,49 @@ public class GrabManagerStatic : MonoBehaviour
 
     void MoveGrabbedObject(Vector2 mousePos)
     {
-
+        if (grabbedObject == null) return;
 
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
-        RaycastHit hit;
 
+        if (!grabPlane.Raycast(mouseRay, out float distance)) return;
 
-        if (grabbedObject != null && grabPlane.Raycast(mouseRay, out float distance))
+        hitPoint = mouseRay.GetPoint(distance);
+
+        //  Si l'objet n'est PAS snapable mouvement normal
+        if (!SnapableObject.Contains(grabbedObject.layer))
+        {
+            
+            grabbedObject.transform.position = hitPoint;
+            Snap = null;
+            return;
+        }
+
+        // L'objet est snapable  on cherche une snap zone
+        int snapMask = LayerMask.GetMask("SnapZone");
+        if (!Physics.Raycast(mouseRay, out RaycastHit hit, distance, snapMask))
+        {
+            grabbedObject.transform.position = hitPoint;
+            Snap = null;
+            return;
+        }
+
+        // On vérifie si le point est bien DANS le box collider
+        BoxCollider box = hit.collider.GetComponent<BoxCollider>();
+        bool inside = IsPointInsideBoxCollider(box, hitPoint);
+
+        if (inside)
         {
 
-            hitPoint = mouseRay.GetPoint(distance);
+           
+            grabbedObject.transform.position = hit.collider.transform.position;
+            Snap = hit.collider.gameObject;
+        }
+        else
+        {
 
-            int layerMask = LayerMask.GetMask("SnapZone");  // ne detecte que les snap zones
-
-            if (grabbedObject.layer == 9) //cas particulier pour le seau
-            {
-                if (Physics.Raycast(mouseRay, out hit, distance, layerMask))
-                {
-
-                    if (IsPointInsideBoxCollider(hit.collider.gameObject.GetComponent<BoxCollider>(), hitPoint))  // si notre curseur est sur une snap zone et qu'on tient le seau 
-                    {
-                        grabbedObject.transform.position = hit.collider.transform.position;
-                        Snap = hit.collider.gameObject;
-                    }
-                    else
-                    {
-                        grabbedObject.transform.position = hitPoint;
-                        Snap = null;
-
-                    }
-
-
-                }
-                else
-                {
-
-                    grabbedObject.transform.position = hitPoint;
-                    Snap = null;
-
-
-                }
-
-
-            }
-
+            
+            grabbedObject.transform.position = hitPoint;
+            Snap = null;
         }
     }
 
