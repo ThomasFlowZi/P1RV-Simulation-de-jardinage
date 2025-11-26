@@ -8,13 +8,16 @@ public class step1 : MonoBehaviour
     public GameObject plantStep1;
     public float growthTime = 10f;
 
-
+    private void Start()
+    {
+        StartCoroutine(Grow());
+    }
 
     void Update()
     {
        /* if (dryToWetPot.estWet == true)
         {
-            StartCoroutine(Grow());
+            
 
         }*/
     }
@@ -22,7 +25,8 @@ public class step1 : MonoBehaviour
     IEnumerator Grow()
     {
         yield return new WaitForSeconds(growthTime);
-        Instantiate(plantStep1, transform);
+        Instantiate(plantStep1, transform.position,transform.rotation);
+
         Destroy(gameObject);
     }
 }
