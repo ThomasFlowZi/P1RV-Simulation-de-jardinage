@@ -67,8 +67,9 @@ public class GrabObjFPS : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 ResetLastObjectPosition();
-                selection = null;
+                
                 if (selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = false;
+                selection = null;
             }
 
         }

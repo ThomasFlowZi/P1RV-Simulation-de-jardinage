@@ -53,7 +53,9 @@ public class GroundProjection : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(gpp.transform.position, Vector3.down);
 
-        Physics.Raycast(ray, out hit, 10f);
+        LayerMask layermask = ~LayerMask.GetMask("SnapZone");
+
+        Physics.Raycast(ray, out hit, 10f, layermask);
 
         
         lineRenderer.SetPosition(1, hit.point);
