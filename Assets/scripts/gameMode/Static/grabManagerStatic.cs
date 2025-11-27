@@ -21,7 +21,6 @@ public class GrabManagerStatic : MonoBehaviour
     public OutlineSelection outlineSelection;
 
 
-    public GameObject Snap ;
     public Vector3 hitPoint;
 
     [Header("Grab Settings")]
@@ -121,7 +120,6 @@ public class GrabManagerStatic : MonoBehaviour
         {
             
             grabbedObject.transform.position = hitPoint;
-            Snap = null;
             return;
         }
 
@@ -130,7 +128,8 @@ public class GrabManagerStatic : MonoBehaviour
         if (!Physics.Raycast(mouseRay, out RaycastHit hit, distance, snapMask))
         {
             grabbedObject.transform.position = hitPoint;
-            Snap = null;
+
+            if (grabbedObject.GetComponent<State>().GetSnap() != false) grabbedObject.GetComponent<State>().SetSnap(false);
             return;
         }
 
@@ -143,14 +142,14 @@ public class GrabManagerStatic : MonoBehaviour
 
            
             grabbedObject.transform.position = hit.collider.transform.position;
-            Snap = hit.collider.gameObject;
+            if(grabbedObject.GetComponent<State>().GetSnap() != true) grabbedObject.GetComponent<State>().SetSnap(true) ;
         }
         else
         {
 
             
             grabbedObject.transform.position = hitPoint;
-            Snap = null;
+            if (grabbedObject.GetComponent<State>().GetSnap() != false) grabbedObject.GetComponent<State>().SetSnap(false);
         }
     }
 

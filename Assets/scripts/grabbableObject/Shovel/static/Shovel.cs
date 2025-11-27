@@ -21,9 +21,9 @@ public class Shovel : MonoBehaviour, IGrabbable
 
         rb = GetComponent<Rigidbody>();
 
-        initialPosition = transform.localPosition;
-        initialRotation = transform.localRotation;
-        lastPos = transform.localPosition;
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+        lastPos = transform.position;
         enabled = false;
     }
 
@@ -36,8 +36,8 @@ public class Shovel : MonoBehaviour, IGrabbable
         if (isGrabbed)
         {
             // Rotation pendant le grab
-            transform.localRotation = Quaternion.Lerp(
-                transform.localRotation,
+            transform.rotation = Quaternion.Lerp(
+                transform.rotation,
                 Quaternion.Euler(grabbedRotation),
                 Time.deltaTime * transitionSpeed
             );
@@ -45,26 +45,25 @@ public class Shovel : MonoBehaviour, IGrabbable
         else if (wasGrabbed)
         {
             // Retour à la position de base
-            transform.localPosition = Vector3.Lerp(
-                transform.localPosition,
+            transform.position = Vector3.Lerp(
+                transform.position,
                 initialPosition,
                 Time.deltaTime * transitionSpeed
             );
 
-            transform.localRotation = Quaternion.Lerp(
-                transform.localRotation,
+            transform.rotation = Quaternion.Lerp(
+                transform.rotation,
                 initialRotation,
                 Time.deltaTime * transitionSpeed
             );
 
             // Si revenu presque parfaitement : reset
-            if (Vector3.Distance(transform.localPosition, initialPosition) < 0.01f &&
-                Quaternion.Angle(transform.localRotation, initialRotation) < 0.01f)
+            if (Vector3.Distance(transform.position, initialPosition) < 0.01f &&
+                Quaternion.Angle(transform.rotation, initialRotation) < 0.01f)
             {
                 wasGrabbed = false;
                 rb.isKinematic = false;
-                transform.localPosition = initialPosition;
-                transform.localRotation = initialRotation;  
+                transform.rotation = initialRotation;  
 
             }
         }
@@ -102,8 +101,8 @@ public class Shovel : MonoBehaviour, IGrabbable
 
     void ShovelYRelativeSpeed()
     {
-        speed = -(transform.localPosition.y - lastPos.y) / Time.deltaTime;
-        lastPos = transform.localPosition;
+        speed = -(transform.position.y - lastPos.y) / Time.deltaTime;
+        lastPos = transform.position;
     }
 
 

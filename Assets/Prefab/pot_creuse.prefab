@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5253445296108631447}
   - component: {fileID: 6848969918750929725}
   - component: {fileID: 7304856661495451320}
+  - component: {fileID: 8648761983450971992}
   m_Layer: 0
   m_Name: terre
   m_TagString: Untagged
@@ -145,6 +146,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PutSeed
   seed: {fileID: 5398023586075487451, guid: 8539096e1bf6d5f4cb66c818598de65a, type: 3}
+--- !u!114 &8648761983450971992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2497132630196607350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fdcb458dafb104a9914313f97391ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CamPosInteraction
+  player: {fileID: 1260047594304665361, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
 --- !u!1 &2723413948550057652
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +237,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -241,7 +255,6 @@ GameObject:
   - component: {fileID: 6040707625590011574}
   - component: {fileID: 7314624477334599713}
   - component: {fileID: 7828595215304344145}
-  - component: {fileID: 9145250909886972162}
   m_Layer: 0
   m_Name: pot_creuse
   m_TagString: Untagged
@@ -402,24 +415,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6239881831769578202, guid: 40c7a757432aa4a4eac8be907afc315d, type: 3}
---- !u!114 &9145250909886972162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8462477528029813375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e000911ef6736c43b11b62cf6717882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DryToWetPot
-  estWet: 0
-  Pot_wet: {fileID: 0}
-  source: {fileID: 0}
-  sfx: {fileID: 0}
-  dry: {r: 0.6784314, g: 0.47058827, b: 0.34901962, a: 0}
-  wet: {r: 0.49056602, g: 0.29638362, b: 0.18280526, a: 1}
 --- !u!1 &8772796115686484629
 GameObject:
   m_ObjectHideFlags: 0

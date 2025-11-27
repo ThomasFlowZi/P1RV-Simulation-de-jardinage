@@ -4,9 +4,7 @@ using UnityEngine;
 public class GrabObjFPS : MonoBehaviour
 {
     public float rayDistance = 100f;
-    public float objRight = 2;
-    public float objUp = -1;
-    public float objClose = 2;
+    
 
     private Transform selection;
     private Vector3 lastPos;
@@ -68,7 +66,7 @@ public class GrabObjFPS : MonoBehaviour
             {
                 ResetLastObjectPosition();
                 
-                if (selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = false;
+                if (selection != null && selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = false;
                 selection = null;
             }
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-
+/*
 public class RotObjStatic : MonoBehaviour
 {
 
@@ -89,4 +89,4 @@ public class RotObjStatic : MonoBehaviour
 
 
     }
-}
+}*/

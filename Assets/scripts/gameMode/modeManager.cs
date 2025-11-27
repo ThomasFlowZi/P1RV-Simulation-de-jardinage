@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Android;
@@ -26,6 +26,8 @@ public class ModeManager : MonoBehaviour
     private Transform camPositionStatic;
     private bool travel = false;
 
+    public GameObject body;
+
     public GrabManagerStatic refGrabManager;
 
 
@@ -37,6 +39,8 @@ public class ModeManager : MonoBehaviour
         Camera.main.transform.SetPositionAndRotation(camPositionFPS.position, camPositionFPS.rotation);
         Camera.main.transform.parent = playerPOV.transform;
         SetMode(false);
+
+
     }
 
     void Update()
@@ -88,9 +92,9 @@ public class ModeManager : MonoBehaviour
 
     void GameMode() // on veut que pendant le travel, tout les scripts soient désactivés
     {
-
         if (travel)
         {
+            
             foreach (var script in staticScripts)
                 script.enabled = false;
 
@@ -118,6 +122,8 @@ public class ModeManager : MonoBehaviour
             }
             else
             {
+                Debug.Log("coucocu");
+                Camera.main.transform.parent = null;
                 Camera.main.transform.position = camPositionStatic.position; 
                 Camera.main.transform.parent = camPositionStatic;
             }
@@ -133,9 +139,10 @@ public class ModeManager : MonoBehaviour
     public void SwitchMode(bool modeStat)
     {
 
+        travel = true;
         SetMode(modeStat);
 
-        travel = true;
+        
     
 
 
@@ -147,16 +154,24 @@ public class ModeManager : MonoBehaviour
         modeStatic = modeStat;
         distTravel = 0f;
         
+        body.SetActive(!modeStatic);
 
         Cursor.lockState = modeStatic ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = modeStatic;
 
-      
+        Debug.Log(modeStat);
+
+        if (crosshair != null)
+        {
+            Debug.Log(crosshair);
+            crosshair.SetActive(!modeStatic);
+        }
+            crosshair.SetActive(!modeStatic);
+
         GameMode();
 
 
-        if (crosshair != null)
-            crosshair.SetActive(!modeStatic);
+        
     }
 
 

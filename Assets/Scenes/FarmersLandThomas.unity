@@ -1430,14 +1430,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.288
       objectReference: {fileID: 0}
-    - target: {fileID: 1711385749129704885, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
-      propertyPath: dryToWetPot
-      value: 
-      objectReference: {fileID: 1048701799}
-    - target: {fileID: 1711385749129704885, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
-      propertyPath: GrabManagerStatic
-      value: 
-      objectReference: {fileID: 1637764438}
     - target: {fileID: 9067197861354675132, guid: e9e833368e4c14a4db34f528a3014003, type: 3}
       propertyPath: m_Name
       value: 'Bucket '
@@ -1466,7 +1458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3991272109443727292, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3991272109443727292, guid: 66f7c37b6f30d9e4f80871f92fbec571, type: 3}
       propertyPath: m_IsKinematic
@@ -1710,6 +1702,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &987168439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8370385973200282423, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+  m_PrefabInstance: {fileID: 1744099018314695887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &987168444
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987168439}
+  serializedVersion: 5
+  m_Mass: 50
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1020099960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1776,17 +1800,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e43441994bc94724581a25cdb6b814f9, type: 3}
   m_PrefabInstance: {fileID: 105138539}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1048701799 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9145250909886972162, guid: 386f289113b64444593909a3fce656a3, type: 3}
+--- !u!82 &1048701801 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7314624477334599713, guid: 386f289113b64444593909a3fce656a3, type: 3}
   m_PrefabInstance: {fileID: 1557785306}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e000911ef6736c43b11b62cf6717882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DryToWetPot
 --- !u!4 &1077342899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e43441994bc94724581a25cdb6b814f9, type: 3}
@@ -2212,10 +2230,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6848969918750929725, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 1048701801}
     - target: {fileID: 8462477528029813375, guid: 386f289113b64444593909a3fce656a3, type: 3}
       propertyPath: m_Name
       value: pot_creuse
       objectReference: {fileID: 0}
+    - target: {fileID: 8648761983450971992, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: modeManager
+      value: 
+      objectReference: {fileID: 1637764434}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2237,17 +2263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc731ed94a5522141b3a9e986708d97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::modeManager
---- !u!114 &1637764438 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
-  m_PrefabInstance: {fileID: 1744099018314695887}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b9d9c9f42e9254da1bd0646fd73c3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::grabManager
 --- !u!4 &1638694815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e43441994bc94724581a25cdb6b814f9, type: 3}
@@ -2889,7 +2904,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1637764434}
     - target: {fileID: 8945314014386417081, guid: 93e2aea2034a2cb40a3b59f7582399ff, type: 3}
-      propertyPath: ModeManager
+      propertyPath: modeManager
       value: 
       objectReference: {fileID: 1637764434}
     - target: {fileID: 9113900865178872177, guid: 93e2aea2034a2cb40a3b59f7582399ff, type: 3}
@@ -2965,14 +2980,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
-      propertyPath: 'SnapableObject.Array.data[0]'
-      value: 9
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8370385973200282423, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 987168444}
   m_SourcePrefab: {fileID: 100100000, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
 --- !u!1001 &6849105213731060443
 PrefabInstance:
@@ -3109,5 +3123,5 @@ SceneRoots:
   - {fileID: 1744796693}
   - {fileID: 850674620}
   - {fileID: 12737983}
-  - {fileID: 2139846564}
   - {fileID: 1557785306}
+  - {fileID: 2139846564}

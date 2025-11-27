@@ -8,16 +8,29 @@ using UnityEngine.Timeline;
 public class CamPosInteraction : MonoBehaviour
 {
 
-    public ModeManager ModeManager;
+    private Transform cameraStatic;
+    private ModeManager modeManager;
+
+    private void Start()
+    {
+
+        if (modeManager == null)
+            modeManager = FindFirstObjectByType<ModeManager>();
+
+        GameObject parent = transform.parent.transform.gameObject;
+        cameraStatic = parent.transform.Find("PotView").transform;
+    
+        
+    }
 
     private void OnMouseDown()
     {
-        GameObject parent = transform.parent.transform.gameObject;
-        Transform cameraStatic = parent.transform.Find("PotView").transform;
+   
 
+        
 
-        ModeManager.SetCamStatic(cameraStatic);
-        ModeManager.SwitchMode(true);
+        modeManager.SetCamStatic(cameraStatic);
+        modeManager.SwitchMode(true);
 
 
     }

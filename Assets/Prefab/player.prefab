@@ -200,6 +200,7 @@ MonoBehaviour:
   crosshair: {fileID: 0}
   staticView: {fileID: 0}
   playerPOV: {fileID: 8746615877339425617}
+  body: {fileID: 8370385973200282423}
   refGrabManager: {fileID: 0}
 --- !u!114 &6291283689982169140
 MonoBehaviour:
@@ -208,7 +209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260047594304665361}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82b9d9c9f42e9254da1bd0646fd73c3b, type: 3}
   m_Name: 
@@ -220,9 +221,7 @@ MonoBehaviour:
   outlineSelection: {fileID: 2653609788993892142}
   Snap: {fileID: 0}
   hitPoint: {x: 0, y: 0, z: 0}
-  SnapableObject:
-  - serializedVersion: 2
-    m_Bits: 512
+  SnapableObject: 09000000
 --- !u!114 &5710704533850874718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,15 +255,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260047594304665361}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c1e0106a9861394f8d3b71d3d7009a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabObjFPS
   rayDistance: 20
-  objRight: 0.9
-  objUp: -0.5
-  objClose: 1
 --- !u!114 &8015210519320088215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +268,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260047594304665361}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2df368eed44a6ce4ab89c55657ae2f10, type: 3}
   m_Name: 
@@ -285,7 +281,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260047594304665361}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c206fb78d3c18ee4f92069f971dbb4c2, type: 3}
   m_Name: 
@@ -355,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &265029516825064711
 Transform:
   m_ObjectHideFlags: 0
@@ -491,7 +487,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8746615877339425617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e024ef0de3233224f853f3a3a9288cb0, type: 3}
   m_Name: 

@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class DryToWetPot : MonoBehaviour
 {
-    public bool estWet = false;
+    private float estWet = 0f;   
+    private bool isWatered = false;
+
     public GameObject Pot_wet;
+
+
+    public void SetIsWatered(bool iw) {  isWatered = iw; }
 
     [Header("Audio")]
     public AudioSource source;
@@ -12,9 +17,24 @@ public class DryToWetPot : MonoBehaviour
 
     public Color dry;
     public Color wet;
+
+    private void Start()
+    {
+    }
     void Update()
     {
+        if (isWatered)
+        {
+            estWet = (estWet < 1f) ? estWet + 0.01f : estWet;
+            gameObject.GetComponent<Renderer>().material.color = wet * estWet + dry * (1 - estWet);
 
+            if (estWet == 1f)
+            {
+                source.PlayOneShot(sfx);
+
+            }
+
+        } 
 
 
     }

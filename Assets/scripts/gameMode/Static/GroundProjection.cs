@@ -45,8 +45,8 @@ public class GroundProjection : MonoBehaviour
 
         lineRenderer.positionCount = 2;
         lineRenderer.material = linecolor;
-        lineRenderer.startWidth = 0.001f;
         lineRenderer.startWidth = 0.01f;
+        lineRenderer.endWidth = 0.02f;
         
         lineRenderer.SetPosition(0, gpp.transform.position);
 

@@ -12,9 +12,10 @@ public class Water_level : MonoBehaviour
     public AudioClip sfx;
 
     GameObject eauBucket;
-    
 
+    public bool estVide = true; 
     public bool estFull = false;
+    public float waterPercent = 0f;
 
     float seuil; // valeur courante envoyée au shader
 
@@ -40,6 +41,8 @@ public class Water_level : MonoBehaviour
                 eauBucket.GetComponent<Renderer>().enabled = true;
                 source.PlayOneShot(sfx);
                 estFull = true;
+                estVide = false;
+                waterPercent = 1f;
 
                 // on initialise le niveau d'eau
                 seuil = hautBucket.position.y - fondBucket.position.y;
@@ -59,6 +62,8 @@ public class Water_level : MonoBehaviour
         {
             if (newSeuil < -0.11f) {
                 eauBucket.GetComponent<Renderer>().enabled = false;
+                estVide = true;
+                waterPercent = 0f;
                 
             }
             else

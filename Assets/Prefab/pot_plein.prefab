@@ -391,7 +391,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7387706064836869012, guid: c50a33f0cab7096478097d1f46c2f1e7, type: 3}
 --- !u!114 &8945314014386417081
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4fdcb458dafb104a9914313f97391ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CamPosInteraction
-  ModeManager: {fileID: 0}
+  player: {fileID: 1260047594304665361, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
 --- !u!1 &9113900865178872177
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +460,7 @@ MonoBehaviour:
   source: {fileID: 3392288799132929476}
   sfx: {fileID: 8300000, guid: 26c91b3b69590eb4d97d8d98d3291618, type: 3}
   SpeedLimit: 2
+  ModeManager: {fileID: 0}
 --- !u!82 &3392288799132929476
 AudioSource:
   m_ObjectHideFlags: 0
