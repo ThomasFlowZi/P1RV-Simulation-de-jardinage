@@ -124,5 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbbbd10d628137449b87ae2fbec8760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::step1
+  dryToWetPot: {fileID: 0}
   plantStep1: {fileID: 1562638703632730589, guid: 6aec97ab110943a4b853cb7a04c1c518, type: 3}
-  growthTime: 10
+  plantStep2: {fileID: 732514449401300613, guid: ebaf86ebba1481348ad555606b66da4d, type: 3}
+  growthTime1: 10
+  growthTime2: 5
