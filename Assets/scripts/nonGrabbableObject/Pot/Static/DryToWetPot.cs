@@ -9,6 +9,8 @@ public class DryToWetPot : MonoBehaviour
     public GameObject Pot_wet;
 
 
+
+
     public void SetIsWatered(bool iw) {  isWatered = iw; }
 
     [Header("Audio")]
@@ -38,4 +40,6 @@ public class DryToWetPot : MonoBehaviour
 
 
     }
+
+    public float getWet() {  return estWet; }
 }

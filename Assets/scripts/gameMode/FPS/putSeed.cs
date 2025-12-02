@@ -21,8 +21,10 @@ public class PutSeed : MonoBehaviour
         {
 
             Debug.Log("coucou");
-            GameObject parent = transform.parent.gameObject;
-            Instantiate(seed, parent.transform.Find("positionSeed").position, parent.transform.Find("positionSeed").rotation);
+            GameObject parent = transform.root.gameObject;
+            GameObject graine = Instantiate(seed, parent.transform.Find("positionSeed").position, parent.transform.Find("positionSeed").rotation);
+            
+            graine.transform.parent = parent.transform.Find("positionSeed");
             possedeGraine = true;
         }
         
