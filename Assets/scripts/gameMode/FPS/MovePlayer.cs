@@ -2,47 +2,40 @@ using UnityEngine;
 
 public class Moveplayer : MonoBehaviour
 {
-    public float playerMoveSpeed;
+    public float playerMoveSpeed = 5f;
 
-    void Update() 
+    private Rigidbody rb;
+    private Transform cam;
+
+    void Start()
     {
-
-        Transform camera = Camera.main.transform;
-        Vector3 forward = new Vector3(camera.forward.x, 0, camera.forward.z);
-        Vector3 right = new Vector3(camera.right.x, 0, camera.right.z);
-        Vector3 result = Vector3.zero;
-
-        if (Input.GetKey(KeyCode.W)) // C'est W car QWERTY
-        {
-
-            result += forward.normalized;
-            
-        }
-        if (Input.GetKey(KeyCode.S)) 
-        {
-
-
-            result -= forward.normalized;
-            
-        }
-        if (Input.GetKey(KeyCode.D)) 
-        {
-
-
-            result += right.normalized;
-            
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-
-            result -= right.normalized;
-            
-        }
-
-        transform.position += result.normalized * playerMoveSpeed;
-
-
+        rb = GetComponent<Rigidbody>();
+        cam = Camera.main.transform;
 
     }
 
+    void FixedUpdate()
+    {
+        Vector3 forward = new Vector3(cam.forward.x, 0, cam.forward.z).normalized;
+        Vector3 right = new Vector3(cam.right.x, 0, cam.right.z).normalized;
+
+        // Input
+        Vector3 move = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.W))
+            move += forward;
+
+        if (Input.GetKey(KeyCode.S))
+            move -= forward;
+
+        if (Input.GetKey(KeyCode.D))
+            move += right;
+
+        if (Input.GetKey(KeyCode.A))
+            move -= right;
+
+        move = move.normalized * playerMoveSpeed * Time.fixedDeltaTime;
+
+        rb.MovePosition(rb.position + move);
+    }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GrabObjFPS : MonoBehaviour
 {
-    public float rayDistance = 100f;
+    public float rayDistance = 10f;
     
 
     private Transform selection;
@@ -25,11 +25,13 @@ public class GrabObjFPS : MonoBehaviour
         Ray ray = new Ray(camera.position, camera.forward);
         RaycastHit hit;
 
+        int mask = ~LayerMask.GetMask("Ignore Raycast");
+
         if (!useObject.getAnim())
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                if (Physics.Raycast(ray, out hit, rayDistance))
+                if (Physics.Raycast(ray, out hit, rayDistance, mask))
                 {
                     Transform hitTransform = hit.collider.GetComponent<Transform>();
                     Debug.Log(hit.collider.gameObject);
@@ -45,6 +47,7 @@ public class GrabObjFPS : MonoBehaviour
 
                             selection.position = main.position + camera.up*0.2f;
                             selection.rotation = camera.rotation;
+                            if (selection.GetComponent<Collider>() != null) selection.GetComponent<Collider>().enabled = false;
                             if (selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = true;
 
                             selection.SetParent(main);
@@ -67,6 +70,7 @@ public class GrabObjFPS : MonoBehaviour
                 ResetLastObjectPosition();
                 
                 if (selection != null && selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = false;
+                if (selection.GetComponent<Collider>() != null) selection.GetComponent<Collider>().enabled = true;
                 selection = null;
             }
 
