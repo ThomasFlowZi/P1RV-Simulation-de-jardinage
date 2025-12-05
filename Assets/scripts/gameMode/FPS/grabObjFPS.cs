@@ -70,7 +70,7 @@ public class GrabObjFPS : MonoBehaviour
                 ResetLastObjectPosition();
                 
                 if (selection != null && selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = false;
-                if (selection.GetComponent<Collider>() != null) selection.GetComponent<Collider>().enabled = true;
+                if (selection != null &&  selection.GetComponent<Collider>() != null) selection.GetComponent<Collider>().enabled = true;
                 selection = null;
             }
 

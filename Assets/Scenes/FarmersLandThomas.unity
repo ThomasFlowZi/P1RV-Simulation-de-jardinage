@@ -4333,7 +4333,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 131504440189345760, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: rayDistance
-      value: 2
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1020061603843838829, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: m_Layer
@@ -4355,6 +4355,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 330585549}
+    - target: {fileID: 2653609788993892142, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: rayDistance
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: crosshair
       value: 
@@ -4543,16 +4547,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: seedBag
       objectReference: {fileID: 0}
-    - target: {fileID: 6237079199622521762, guid: 92932af3a7c8ae2448858c9e5b69e0b8, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6237079199622521762, guid: 92932af3a7c8ae2448858c9e5b69e0b8, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 553832534298689047, guid: 92932af3a7c8ae2448858c9e5b69e0b8, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
