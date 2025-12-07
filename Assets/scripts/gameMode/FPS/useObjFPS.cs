@@ -1,6 +1,7 @@
 using UnityEditor.Rendering;
 using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class UseObjFPS : MonoBehaviour
 {
@@ -17,16 +18,35 @@ public class UseObjFPS : MonoBehaviour
 
     }
 
-    public void StartInteraction(Transform selection, Transform target,Transform camera)
+    public void StartAnimation()
     {
         Animation = true;
-        StartCoroutine(PlayAnimation(selection, camera));
-        Interact(selection, target);
+        StartCoroutine(PlayAnimation());
+        
+    }
+
+    public void StartInteraction()
+    {
+        // Si tu veux ignorer l’event et demander directement au manager :
+        Transform target = FindAnyObjectByType<InteractFPS>().WhatTarget();
+
+        if (target != null)
+        {
+            Interact(target);
+        }
+        else
+        {
+            Debug.Log("Aucune cible trouvée.");
+        }
     }
 
 
-    public IEnumerator PlayAnimation(Transform selection, Transform camera)
+
+
+    public IEnumerator PlayAnimation()
     {
+        Transform camera = Camera.main.transform;
+        Transform selection = main.transform.GetChild(0);
         Animation = true;
 
         while (true)
@@ -59,23 +79,14 @@ public class UseObjFPS : MonoBehaviour
         }
     }
 
-    private void Interact(Transform selection, Transform target)
+    private void Interact(Transform target) 
     {
+        Transform camera = Camera.main.transform;
+        Transform selection = main.transform.GetChild(0);
+
         int layer = selection.gameObject.layer;
 
-        Renderer renderer = target.GetComponent<Renderer>();
-        if (renderer == null) return;
-
-        if (layer == LayerMask.NameToLayer("pinceau rouge"))
-        {
-            renderer.material.color = Color.red;
-        }
-        else if (layer == LayerMask.NameToLayer("pinceau bleu"))
-        {
-            renderer.material.color = Color.blue;
-        }
+        Debug.Log(target);
     }
 
-
-    public bool getAnim() { return Animation; }
 }
