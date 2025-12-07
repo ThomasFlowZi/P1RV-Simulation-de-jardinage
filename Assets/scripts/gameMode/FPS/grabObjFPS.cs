@@ -7,6 +7,7 @@ public class GrabObjFPS : MonoBehaviour
     
 
     private Transform selection;
+    private Transform rootSelection;
     private Vector3 lastPos;
     private Quaternion lastRot;
 
@@ -38,25 +39,42 @@ public class GrabObjFPS : MonoBehaviour
 
                     if (hitTransform.CompareTag("Selectable"))
                     {
-                        if (hitTransform != selection)
+                        if (selection != null)
                         {
+                            if (selection.GetComponent<Collider>() != null) selection.GetComponent<Collider>().enabled = true;
                             ResetLastObjectPosition();
-                            selection = hitTransform;
-                            lastPos = selection.position;
-                            lastRot = selection.rotation;
-
-                            selection.position = main.position + camera.up*0.2f;
-                            selection.rotation = camera.rotation;
-                            if (selection.GetComponent<Collider>() != null) selection.GetComponent<Collider>().enabled = false;
-                            if (selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = true;
-
-                            selection.SetParent(main);
                         }
+
+
+                        selection = hitTransform;
+                        lastPos = selection.position;
+                        lastRot = selection.rotation;
+
+                        selection.position = main.position + camera.up * 0.2f;
+                        selection.rotation = camera.rotation;
+                        if (selection.GetComponent<Collider>() != null) selection.GetComponent<Collider>().enabled = false;
+                        if (selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = true;
+
+                        rootSelection = selection.root;
+
+                        rootSelection.SetParent(main);
+
+
                     }
-                    else if (selection != null)
+                    else
                     {
-                        useObject.StartInteraction(selection,hitTransform,camera);
+                        if (selection != null)
+                        {
+                            useObject.StartInteraction(selection, hitTransform, camera);
+                        }
+                        else
+                        {
+
+
+                        }
+
                     }
+                    
                 }
                 else if (selection != null)
                 {
@@ -81,12 +99,12 @@ public class GrabObjFPS : MonoBehaviour
 
     void ResetLastObjectPosition()
     {
-        if (selection != null && selection.CompareTag("Selectable"))
-        {
-            selection.position = lastPos;
-            selection.rotation = lastRot;
-            selection.SetParent(null);
-        }
+        selection.position = lastPos;
+        selection.rotation = lastRot;
+        rootSelection.SetParent(null);
+
+
+
     }
 
 }

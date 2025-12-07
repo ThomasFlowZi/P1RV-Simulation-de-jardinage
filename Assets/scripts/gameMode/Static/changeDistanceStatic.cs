@@ -21,9 +21,9 @@ public class ChangeDistanceStatic : MonoBehaviour
 
     private float sensitivity = 0.2f;
 
-
     void Update()
     {
+
         grabbedObject = GrabManagerStatic.WhatGrab();
         if (grabbedObject == null) return;
 

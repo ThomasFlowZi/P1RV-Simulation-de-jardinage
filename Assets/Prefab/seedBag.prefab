@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 516841683385654347}
   - component: {fileID: 3772864146673117865}
   - component: {fileID: 6237079199622521762}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: seedBag
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2848245222261990560}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GroundProjectionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

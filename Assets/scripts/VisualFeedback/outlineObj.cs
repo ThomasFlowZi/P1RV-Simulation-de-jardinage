@@ -17,82 +17,94 @@ public class OutlineSelection : MonoBehaviour
     private bool Sound = false;
     private bool activate=true;
 
+    public void SetRayDistance(float distance)
+        { this.rayDistance = distance; }    
 
-    void Update()
+    public void OnActivate()
     {
-        if (activate)
+        enabled = true;
+    }
+
+    private void Update()
+    {
+        Vector2 mousePos = Input.mousePosition; // on crée un vecteur 2D qui prend la position de la souris sur l'écran
+        Transform camera = Camera.main.transform;
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+
+        if (Physics.Raycast(ray, out raycastHit, rayDistance))
         {
-            Vector2 mousePos = Input.mousePosition; // on crée un vecteur 2D qui prend la position de la souris sur l'écran
-            Transform camera = Camera.main.transform;
-            Ray ray = Camera.main.ScreenPointToRay(mousePos);
-
-            if (Physics.Raycast(ray, out raycastHit, rayDistance))
+            if (audioSource != null && hitSound != null && Sound) // joue le son de sélection 
             {
-                if (audioSource != null && hitSound != null && Sound) // joue le son de sélection 
-                {
-                    audioSource.PlayOneShot(hitSound);
-                    Sound = false;
-                }
+                audioSource.PlayOneShot(hitSound);
+                Sound = false;
+            }
 
-                if (highlight != raycastHit.transform)
-                {
-                    if (highlight != null)
-                    { highlight.gameObject.GetComponent<Outline>().enabled = false; }
+            if (highlight != raycastHit.transform)
+            {
+                if (highlight != null)
+                { highlight.gameObject.GetComponent<Outline>().enabled = false; }
 
-                    highlight = raycastHit.transform;
-                    if (highlight.CompareTag("Selectable"))
+                highlight = raycastHit.transform;
+                if (highlight.CompareTag("Selectable"))
+                {
+                    Sound = true;
+                    if (highlight.gameObject.GetComponent<Outline>() != null)
                     {
-                        Sound = true;
-                        if (highlight.gameObject.GetComponent<Outline>() != null)
-                        {
 
 
-                            highlight.gameObject.GetComponent<Outline>().enabled = true;
-                            highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
-                            highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
+                        highlight.gameObject.GetComponent<Outline>().enabled = true;
+                        highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
+                        highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
 
-                        }
-                        else
-                        {
-                            Outline outline = highlight.gameObject.AddComponent<Outline>();
-                            outline.enabled = true;
-                            highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
-                            highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
-                        }
                     }
                     else
                     {
-
-
-                        highlight = null;
-                        Sound = false;
-
+                        Outline outline = highlight.gameObject.AddComponent<Outline>();
+                        outline.enabled = true;
+                        highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
+                        highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
                     }
-                    ;
                 }
-
-
-            }
-            else
-            {
-                Sound = false;
-                if (highlight != null)
+                else
                 {
-                    highlight.gameObject.GetComponent<Outline>().enabled = false;
+
+
                     highlight = null;
+                    Sound = false;
+
                 }
+                ;
             }
+
 
         }
-        else {highlight.gameObject.GetComponent<Outline>().enabled = false; }
+        else
+        {
+            Sound = false;
+            if (highlight != null)
+            {
+                highlight.gameObject.GetComponent<Outline>().enabled = false;
+                highlight = null;
+            }
+        }
+
     }
 
-
-    public void SetActivate(bool b)
-    {
-        activate = b;
-    }
     
+
+
+    
+
+    public void OnDeactivate()
+    {
+        if (highlight != null)
+        {
+            highlight.gameObject.GetComponent<Outline>().enabled = false;
+            highlight = null;
+        }
+        enabled = false;
+    }
+
 }
 
 

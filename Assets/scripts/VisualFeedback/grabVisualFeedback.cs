@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
-public class GrabVisualFeedback : MonoBehaviour
+public class GrabVisualFeedback : MonoBehaviour, IGrabbable
 {
     public Color grabColor = Color.red;
     private Color originalColor;

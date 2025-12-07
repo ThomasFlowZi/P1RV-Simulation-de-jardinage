@@ -1,35 +1,29 @@
-using System;
-using System.Collections.Generic;
 
-using UnityEditor.Experimental.GraphView;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Android;
-using UnityEngine.Timeline;
+using UnityEngine.Events;
 
 public class ModeManager : MonoBehaviour
 {
-    [Header("Scripts à activer pendant Static")]
-    public List<MonoBehaviour> staticScripts = new List<MonoBehaviour>();
-    [Header("Scripts à activer pendant FPS")]
-    public List<MonoBehaviour> fpsScripts = new List<MonoBehaviour>();
+
 
     private bool modeStatic = true;
-    public GameObject crosshair;
+    
 
-    [Header("différents points de vue")]
-    public GameObject staticView;
     public GameObject playerPOV;
 
-    private float distTravel = 0f;
-    private float speed = 2f;
+
+    private float speed = 3f;
+    private bool travel;
     private Transform camPositionFPS;
     private Transform camPositionStatic;
-    private bool travel = false;
+    private float threshold = 0.01f;
 
-    public GameObject body;
 
-    public GrabManagerStatic refGrabManager;
 
+    public UnityEvent triggerModeFPS;
+    public UnityEvent triggerModeStatic;
+    public UnityEvent triggerModeTravel;
 
 
     private void Start()
@@ -38,6 +32,7 @@ public class ModeManager : MonoBehaviour
         camPositionStatic = camPositionFPS;
         Camera.main.transform.SetPositionAndRotation(camPositionFPS.position, camPositionFPS.rotation);
         Camera.main.transform.parent = playerPOV.transform;
+        triggerModeTravel.Invoke(); //juste pour desactiver tous les scripts
         SetMode(false);
 
 
@@ -45,106 +40,62 @@ public class ModeManager : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetKeyUp(KeyCode.E))
+        // utile seulement pour faire des tests
+        if (Input.GetKeyUp(KeyCode.E)&& !travel)
         {
             SwitchMode(!modeStatic);
         }
 
 
+    }
+
+    private IEnumerator Travel(bool modeStat)
+    {
+        float distTravel = speed*Time.deltaTime;
+        travel = true;
+        triggerModeTravel.Invoke(); // on veut que pendant le travel, tout les scripts soient désactivés
+        Transform destination = modeStat ? camPositionStatic : camPositionFPS;
+
+        while ( (Camera.main.transform.position - destination.position ).magnitude > threshold)
+        {
+            Camera.main.transform.SetPositionAndRotation(Vector3.Lerp(Camera.main.transform.position, destination.position, distTravel), Quaternion.Slerp(Camera.main.transform.rotation, destination.rotation, distTravel));
+
+            yield return null;
+        };
+        travel = false;
 
 
-        if (travel) { Travel(); }
-        ;
-
-
-        
-
-
+        GameMode();
 
     }
 
-    private void Travel()
+    void GameMode() 
     {
-        if (distTravel < 1f)
+        if (!modeStatic)
         {
-            distTravel += Time.deltaTime * speed;
-
-
-            if (modeStatic)
-            {
-                Camera.main.transform.SetPositionAndRotation(Vector3.Lerp(camPositionFPS.position, camPositionStatic.position, distTravel), Quaternion.Slerp(camPositionFPS.rotation, camPositionStatic.rotation, distTravel));
-
-            }
-            else
-            {
-                Camera.main.transform.SetPositionAndRotation(Vector3.Lerp(camPositionStatic.position, camPositionFPS.position, distTravel), Quaternion.Slerp(camPositionStatic.rotation, camPositionFPS.rotation, distTravel));
-            }
-        }
-
-
-        else { 
-            travel = false;
-            GameMode();
-        }
-
-    }
-
-    void GameMode() // on veut que pendant le travel, tout les scripts soient désactivés
-    {
-        if (travel)
-        {
-            
-            foreach (var script in staticScripts)
-                script.enabled = false;
-
-
-
-            foreach (var script in fpsScripts)
-                script.enabled = false;
-
+            triggerModeFPS.Invoke();
+            Camera.main.transform.position = camPositionFPS.position; //en FPS, la camera suit la position de la tete du personnage
+            Camera.main.transform.parent = playerPOV.transform;
         }
         else
         {
-            foreach (var script in staticScripts)
-                script.enabled = modeStatic;
-
-
-
-            foreach (var script in fpsScripts)
-                script.enabled = !modeStatic;
-
-            if (!modeStatic)
-            {
-                Camera.main.transform.position = camPositionFPS.position; //en FPS, la camera suit la position de la tete du personnage
-                Camera.main.transform.parent = playerPOV.transform;
-
-            }
-            else
-            {
-                Debug.Log("coucocu");
-                Camera.main.transform.parent = null;
-                Camera.main.transform.position = camPositionStatic.position; 
-                Camera.main.transform.parent = camPositionStatic;
-            }
-
+            triggerModeStatic.Invoke();
+            Camera.main.transform.parent = null;
+            Camera.main.transform.position = camPositionStatic.position;
+            Camera.main.transform.parent = camPositionStatic;
         }
 
 
-        /*if (modeStatic) Debug.Log("mode static activé !");
-        else Debug.Log("mode FPS activé !");*/
+
+        if (modeStatic) Debug.Log("mode static activé !");
+        else Debug.Log("mode FPS activé !");
     }
 
 
     public void SwitchMode(bool modeStat)
     {
-
-        travel = true;
-        SetMode(modeStat);
-
-        
-    
-
+        modeStatic = modeStat;
+        StartCoroutine(Travel(modeStat));
 
     }
 
@@ -152,34 +103,13 @@ public class ModeManager : MonoBehaviour
     {
 
         modeStatic = modeStat;
-        distTravel = 0f;
-        
-        body.SetActive(!modeStatic);
-
-        Cursor.lockState = modeStatic ? CursorLockMode.None : CursorLockMode.Locked;
-        Cursor.visible = modeStatic;
-
-        Debug.Log(modeStat);
-
-        if (crosshair != null)
-        {
-            Debug.Log(crosshair);
-            crosshair.SetActive(!modeStatic);
-        }
-            crosshair.SetActive(!modeStatic);
-
         GameMode();
-
-
-        
+   
     }
 
 
 
-
     public void SetCamStatic(Transform campos) { camPositionStatic = campos;}
-
-
 
 
     public bool IsStatic() => modeStatic;

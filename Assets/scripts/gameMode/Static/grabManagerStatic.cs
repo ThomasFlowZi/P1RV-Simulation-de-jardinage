@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.Events;
+
 public class GrabManagerStatic : MonoBehaviour
 {
     [Header("Raycast Settings")]
     public float rayDistance = 10f;
-
-    [Header("Grab Settings")]
-    public List<MonoBehaviour> grabScripts = new List<MonoBehaviour>();
 
     private Ray _ray;
     private RaycastHit _hit;
@@ -15,39 +14,27 @@ public class GrabManagerStatic : MonoBehaviour
     private bool grabActive = false;
     private GameObject grabbedObject;
     private Plane grabPlane;
-    private Vector3 offsetMouseObject;
-
-    private GrabVisualFeedback visualFeedback;
-    public OutlineSelection outlineSelection;
 
 
-    public Vector3 hitPoint;
+    private Vector3 hitPoint;
 
     [Header("Grab Settings")]
     public List<int> SnapableObject = new List<int>();
+
+    public UnityEvent triggerStartGrab;
+    public UnityEvent triggerStopGrab;
 
 
 
 
     private void Start()
     {
-        foreach (var script in grabScripts)
-            script.enabled = false;
-
+        StopGrab(); 
     }
 
     private void OnDisable()
     {
-        if ( grabbedObject != null )
-        {
-            if (visualFeedback != null)
-                visualFeedback.OnGrabEnd();
-
-            //if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = false; temporaire 
-
-
-            grabbedObject = null;
-        }
+        
 
         StopGrab();
           
@@ -59,7 +46,6 @@ public class GrabManagerStatic : MonoBehaviour
     void Update()
     {
         Vector2 mousePos = Input.mousePosition;
-        Transform camera = Camera.main.transform;
         _ray = Camera.main.ScreenPointToRay(mousePos);
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -70,17 +56,7 @@ public class GrabManagerStatic : MonoBehaviour
                 if (hitObj.CompareTag("Selectable"))
                 {
                     grabbedObject = hitObj;
-                   
-
-                    if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
-
-
-                    visualFeedback = grabbedObject.GetComponent<GrabVisualFeedback>();
-                    if (visualFeedback != null)
-                        visualFeedback.OnGrabStart(); 
-
-
-                    grabPlane = new Plane(new Vector3(camera.forward.x,0,camera.forward.z), grabbedObject.transform.position);
+                    
                     StartGrab();
                 }
             }
@@ -88,14 +64,8 @@ public class GrabManagerStatic : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if (visualFeedback != null)
-                visualFeedback.OnGrabEnd();
 
             StopGrab();
-            //if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = false; désactiver pour l'instant
-
-
-            grabbedObject = null;
             
         }
 
@@ -156,17 +126,18 @@ public class GrabManagerStatic : MonoBehaviour
     void StartGrab()
     {
 
+
+        Transform camera = Camera.main.transform;
+
+
+        if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+
         ////////////////// ici on active tous les scripts généraux du mode grab ////////////////////////////////
-
+        Debug.Log("passage en mode grab !");
         grabActive = true;
+        triggerStartGrab.Invoke();
 
-        if (outlineSelection != null)
-            outlineSelection.SetActivate(false);
 
-        foreach (var script in grabScripts)
-            script.enabled = true;
-
-        //Debug.Log("Grab activé");
 
         ///////////////////////// ici on active tous les scripts dédiés a l'objet grab ///////////////////////////////
 
@@ -175,7 +146,10 @@ public class GrabManagerStatic : MonoBehaviour
       
             g.OnGrabStart();
 
+ 
+         
 
+        grabPlane = new Plane(new Vector3(camera.forward.x, 0, camera.forward.z), grabbedObject.transform.position);
 
     }
 
@@ -185,13 +159,8 @@ public class GrabManagerStatic : MonoBehaviour
         ////////////////// ici on desactive tous les scripts généraux du mode grab ////////////////////////////////
 
         grabActive = false;
-        offsetMouseObject = Vector3.zero;
+        triggerStopGrab.Invoke();
 
-        if (outlineSelection != null)
-            outlineSelection.SetActivate(true);
-
-        foreach (var script in grabScripts)
-            script.enabled = false;
 
         ////////////////// ici on desactive tous les scripts dédiés a l'objet grab ////////////////////////////////
 
@@ -200,6 +169,8 @@ public class GrabManagerStatic : MonoBehaviour
             foreach (var g in grabbedObject.GetComponents<IGrabbable>())
                 g.OnGrabEnd();
         }
+
+        grabbedObject = null;
 
     }
 

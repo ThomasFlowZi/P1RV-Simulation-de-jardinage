@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3485696744022013989}
   - component: {fileID: 6345365436053349216}
   - component: {fileID: 9180361301650904559}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,11 @@ GameObject:
   - component: {fileID: 8015210519320088215}
   - component: {fileID: 2274197682688433966}
   - component: {fileID: 2653609788993892142}
-  m_Layer: 0
+  - component: {fileID: 4377472081177265205}
+  - component: {fileID: 5207773060030063048}
+  - component: {fileID: 5922733701765551092}
+  - component: {fileID: 2526809015934393168}
+  m_Layer: 2
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -190,18 +194,208 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc731ed94a5522141b3a9e986708d97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::modeManager
-  staticScripts:
-  - {fileID: 6291283689982169140}
-  fpsScripts:
-  - {fileID: 131504440189345760}
-  - {fileID: 8015210519320088215}
-  - {fileID: 105554219534709596}
-  - {fileID: 2274197682688433966}
-  crosshair: {fileID: 0}
-  staticView: {fileID: 0}
   playerPOV: {fileID: 8746615877339425617}
-  body: {fileID: 8370385973200282423}
-  refGrabManager: {fileID: 0}
+  triggerModeFPS:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 131504440189345760}
+        m_TargetAssemblyTypeName: GrabObjFPS, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2274197682688433966}
+        m_TargetAssemblyTypeName: Moveplayer, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8015210519320088215}
+        m_TargetAssemblyTypeName: UseObjFPS, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 105554219534709596}
+        m_TargetAssemblyTypeName: CameraRotation, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5922733701765551092}
+        m_TargetAssemblyTypeName: ModeVisualFeedback, Assembly-CSharp
+        m_MethodName: VisualFeedbackFPS
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2653609788993892142}
+        m_TargetAssemblyTypeName: OutlineSelection, Assembly-CSharp
+        m_MethodName: SetRayDistance
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  triggerModeStatic:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6291283689982169140}
+        m_TargetAssemblyTypeName: GrabManagerStatic, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5922733701765551092}
+        m_TargetAssemblyTypeName: ModeVisualFeedback, Assembly-CSharp
+        m_MethodName: VisualFeedbackStatic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2653609788993892142}
+        m_TargetAssemblyTypeName: OutlineSelection, Assembly-CSharp
+        m_MethodName: SetRayDistance
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 6
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  triggerModeTravel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 131504440189345760}
+        m_TargetAssemblyTypeName: GrabObjFPS, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8015210519320088215}
+        m_TargetAssemblyTypeName: UseObjFPS, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2274197682688433966}
+        m_TargetAssemblyTypeName: Moveplayer, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 105554219534709596}
+        m_TargetAssemblyTypeName: CameraRotation, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6291283689982169140}
+        m_TargetAssemblyTypeName: GrabManagerStatic, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6291283689982169140}
+        m_TargetAssemblyTypeName: GrabManagerStatic, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5922733701765551092}
+        m_TargetAssemblyTypeName: ModeVisualFeedback, Assembly-CSharp
+        m_MethodName: VisualFeedbackTravel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6291283689982169140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,19 +403,91 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260047594304665361}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82b9d9c9f42e9254da1bd0646fd73c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::grabManager
-  rayDistance: 100
-  grabScripts:
-  - {fileID: 5710704533850874718}
-  - {fileID: 7185920717777816193}
-  outlineSelection: {fileID: 2653609788993892142}
-  Snap: {fileID: 0}
-  hitPoint: {x: 0, y: 0, z: 0}
+  rayDistance: 10
   SnapableObject: 09000000
+  triggerStartGrab:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5710704533850874718}
+        m_TargetAssemblyTypeName: ChangeDistanceStatic, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7185920717777816193}
+        m_TargetAssemblyTypeName: GroundProjection, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2653609788993892142}
+        m_TargetAssemblyTypeName: OutlineSelection, Assembly-CSharp
+        m_MethodName: OnDeactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  triggerStopGrab:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5710704533850874718}
+        m_TargetAssemblyTypeName: ChangeDistanceStatic, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7185920717777816193}
+        m_TargetAssemblyTypeName: GroundProjection, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2653609788993892142}
+        m_TargetAssemblyTypeName: OutlineSelection, Assembly-CSharp
+        m_MethodName: OnActivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &5710704533850874718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,12 +521,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260047594304665361}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c1e0106a9861394f8d3b71d3d7009a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabObjFPS
-  rayDistance: 20
+  rayDistance: 1.4
 --- !u!114 &8015210519320088215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +534,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260047594304665361}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2df368eed44a6ce4ab89c55657ae2f10, type: 3}
   m_Name: 
@@ -281,12 +547,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260047594304665361}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c206fb78d3c18ee4f92069f971dbb4c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Moveplayer
-  playerMoveSpeed: 0.005
+  playerMoveSpeed: 2
 --- !u!114 &2653609788993892142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,9 +565,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd6c80d3da6d164d98b254fa473e7b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OutlineSelection
-  rayDistance: 20
+  rayDistance: 3
   audioSource: {fileID: 0}
   hitSound: {fileID: 8300000, guid: 4e2876857c931a442ad13746114b0a2c, type: 3}
+--- !u!54 &4377472081177265205
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260047594304665361}
+  serializedVersion: 5
+  m_Mass: 2
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!65 &5207773060030063048
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260047594304665361}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.62, y: 1.35, z: 0.64}
+  m_Center: {x: 0, y: -0.23, z: 0}
+--- !u!114 &5922733701765551092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260047594304665361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dc76a56ec004c40a13a1909aec253b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModeVisualFeedback
+  body: {fileID: 8370385973200282423}
+  crosshair: {fileID: 0}
+--- !u!114 &2526809015934393168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260047594304665361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54381bdc0c2aee448af216e31b78005d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandFreeInteraction
 --- !u!1 &3018298421093819659
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2750882331010497901}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,13 +685,13 @@ GameObject:
   - component: {fileID: 5036558202651912912}
   - component: {fileID: 8138147215172678418}
   - component: {fileID: 3215769315708074313}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: corps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &265029516825064711
 Transform:
   m_ObjectHideFlags: 0
@@ -440,7 +780,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -456,7 +796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6981357871988203683}
   - component: {fileID: 105554219534709596}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: positionTete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
