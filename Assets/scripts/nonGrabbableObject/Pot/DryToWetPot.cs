@@ -6,7 +6,7 @@ public class DryToWetPot : MonoBehaviour
     private float estWet = 0f;   
     private bool isWatered = false;
 
-    public GameObject Pot_wet;
+
 
 
 

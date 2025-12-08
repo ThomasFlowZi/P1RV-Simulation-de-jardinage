@@ -37,5 +37,6 @@ public class Moveplayer : MonoBehaviour
         move = move.normalized * playerMoveSpeed * Time.fixedDeltaTime;
 
         rb.MovePosition(rb.position + move);
+        rb.MoveRotation(Quaternion.Euler(Vector3.up));
     }
 }
