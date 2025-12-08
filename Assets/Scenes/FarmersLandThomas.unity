@@ -3466,14 +3466,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3183888989059820868, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3183888989059820868, guid: 386f289113b64444593909a3fce656a3, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 8462477528029813375, guid: 386f289113b64444593909a3fce656a3, type: 3}
       propertyPath: m_Name
       value: pot_creuse
