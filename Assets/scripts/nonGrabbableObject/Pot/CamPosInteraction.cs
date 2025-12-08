@@ -23,14 +23,13 @@ public class CamPosInteraction : MonoBehaviour
         
     }
 
-    private void OnMouseDown()
+    public void OnActivate()
     {
 
-        if (Input.GetKey(KeyCode.E))
-        {
+        
             modeManager.SetCamStatic(cameraStatic);
             modeManager.SwitchMode(true);
-        }
+        
 
     }
 

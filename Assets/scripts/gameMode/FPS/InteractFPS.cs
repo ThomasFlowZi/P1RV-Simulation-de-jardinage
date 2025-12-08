@@ -18,8 +18,8 @@ public class InteractFPS : MonoBehaviour
     private Transform main;
 
     public UnityEvent triggerAnimationObject;
-    public UnityEvent triggerUseObject;
-    public UnityEvent triggerHandInteraction;
+    public UnityEvent triggerInteract;
+
 
     void Start()
     {
@@ -59,11 +59,12 @@ public class InteractFPS : MonoBehaviour
                         if (selection != null) // on utilise l'objet qui est dans notre main pour avoir un effet sur un autre objet
                         {
                         triggerAnimationObject.Invoke();
-                        triggerUseObject.Invoke();
+                        triggerInteract.Invoke();
                         }   
                         else // on interragit la main vide
                         {
-                            triggerHandInteraction.Invoke();
+
+                        triggerInteract.Invoke();
 
                         }
 
@@ -72,6 +73,7 @@ public class InteractFPS : MonoBehaviour
                 }
                 else if (selection != null) // on fait simplement l'animation dans le vide
                 {
+                hitTransform = null;
                 triggerAnimationObject.Invoke();
                 }
             }

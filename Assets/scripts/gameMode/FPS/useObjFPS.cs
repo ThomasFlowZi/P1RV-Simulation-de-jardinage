@@ -28,16 +28,11 @@ public class UseObjFPS : MonoBehaviour
     public void StartInteraction()
     {
         // Si tu veux ignorer l’event et demander directement au manager :
+        
         Transform target = FindAnyObjectByType<InteractFPS>().WhatTarget();
+        Debug.Log(target);
 
-        if (target != null)
-        {
-            Interact(target);
-        }
-        else
-        {
-            Debug.Log("Aucune cible trouvée.");
-        }
+        Interact(target);
     }
 
 
@@ -82,11 +77,21 @@ public class UseObjFPS : MonoBehaviour
     private void Interact(Transform target) 
     {
         Transform camera = Camera.main.transform;
-        Transform selection = main.transform.GetChild(0);
+        GameObject heldObject;
 
-        int layer = selection.gameObject.layer;
+        if (main.transform.childCount > 0)
+        {
+            heldObject = main.transform.GetChild(0).gameObject;
+        }
+        else
+        {
+            heldObject = null;
+        }
+        Transform root = target.root;
+        if(root.GetComponent<IInteractable>()  != null) root.GetComponent<IInteractable>().OnInteract(heldObject);
 
-        Debug.Log(target);
+
+
     }
 
 }

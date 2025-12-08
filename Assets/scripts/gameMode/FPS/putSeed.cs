@@ -13,18 +13,18 @@ public class PutSeed : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void OnMouseDown()
+    public void OnActivate()
     {
        
-        if (player.transform.Find("positionTete/main/seedBag") && !possedeGraine)
+        if (!possedeGraine)
 
         {
-
-            Debug.Log("coucou");
-            GameObject parent = transform.root.gameObject;
-            GameObject graine = Instantiate(seed, parent.transform.Find("positionSeed").position, parent.transform.Find("positionSeed").rotation);
             
-            graine.transform.parent = parent.transform.Find("positionSeed");
+            GameObject parent = transform.root.gameObject;
+            Transform PositionSeed = parent.transform.Find("positionSeed");
+            GameObject graine = Instantiate(seed, PositionSeed.position, PositionSeed.rotation);
+            
+            graine.transform.parent = PositionSeed;
             possedeGraine = true;
         }
         

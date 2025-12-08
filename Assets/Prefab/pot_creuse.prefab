@@ -292,6 +292,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f472b95150a9a3409f57a8a0d12347a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pot_creuse
+  HandFreeInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8648761983450971992}
+        m_TargetAssemblyTypeName: CamPosInteraction, Assembly-CSharp
+        m_MethodName: OnActivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  seedBagInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7304856661495451320}
+        m_TargetAssemblyTypeName: PutSeed, Assembly-CSharp
+        m_MethodName: OnActivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   source: {fileID: 7314624477334599713}
   sfx: {fileID: 8300000, guid: 26c91b3b69590eb4d97d8d98d3291618, type: 3}
 --- !u!82 &7314624477334599713

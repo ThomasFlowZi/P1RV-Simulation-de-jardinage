@@ -2256,6 +2256,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4276324180339636, guid: 1aad01ae01d836647b215e40f1f4c1a7, type: 3}
   m_PrefabInstance: {fileID: 1636697300}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &954225686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8945314014386417081, guid: 93e2aea2034a2cb40a3b59f7582399ff, type: 3}
+  m_PrefabInstance: {fileID: 1432261438271787681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fdcb458dafb104a9914313f97391ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CamPosInteraction
 --- !u!1 &954785793
 GameObject:
   m_ObjectHideFlags: 0
@@ -3466,6 +3477,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: seedBagInteraction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: HandFreeInteraction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: seedBagInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: HandFreeInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: seedBagInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1728345421}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: HandFreeInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1728345420}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: seedBagInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: HandFreeInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: seedBagInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: HandFreeInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnActivate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: seedBagInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PutSeed, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: HandFreeInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CamPosInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: seedBagInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040707625590011574, guid: 386f289113b64444593909a3fce656a3, type: 3}
+      propertyPath: HandFreeInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8462477528029813375, guid: 386f289113b64444593909a3fce656a3, type: 3}
       propertyPath: m_Name
       value: pot_creuse
@@ -3737,6 +3804,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc731ed94a5522141b3a9e986708d97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::modeManager
+--- !u!114 &1637764441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8015210519320088215, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+  m_PrefabInstance: {fileID: 1744099018314695887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df368eed44a6ce4ab89c55657ae2f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::useObjFPS
+--- !u!1 &1681688917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9113900865178872177, guid: 93e2aea2034a2cb40a3b59f7582399ff, type: 3}
+  m_PrefabInstance: {fileID: 1432261438271787681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1681688922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681688917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0258953b5c62a4e8901a9145be54bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pot_plein
+  HandFreeInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 954225686}
+        m_TargetAssemblyTypeName: CamPosInteraction, Assembly-CSharp
+        m_MethodName: OnActivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1723765891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,6 +3949,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1728345420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8648761983450971992, guid: 386f289113b64444593909a3fce656a3, type: 3}
+  m_PrefabInstance: {fileID: 1557785306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4fdcb458dafb104a9914313f97391ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CamPosInteraction
+--- !u!114 &1728345421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7304856661495451320, guid: 386f289113b64444593909a3fce656a3, type: 3}
+  m_PrefabInstance: {fileID: 1557785306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd632148240f024a983ebfd6111c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PutSeed
 --- !u!4 &1732330361 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4702229198241056, guid: 0ba258545da721e488ecb71ffd143b6f, type: 3}
@@ -4351,7 +4483,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9113900865178872177, guid: 93e2aea2034a2cb40a3b59f7582399ff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1681688922}
   m_SourcePrefab: {fileID: 100100000, guid: 93e2aea2034a2cb40a3b59f7582399ff, type: 3}
 --- !u!1001 &1744099018314695887
 PrefabInstance:
@@ -4361,6 +4496,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 131504440189345760, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerInteract.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 131504440189345760, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerHandInteraction.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131504440189345760, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 131504440189345760, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1637764441}
+    - target: {fileID: 131504440189345760, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 131504440189345760, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 131504440189345760, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UseObjFPS, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 131504440189345760, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1260047594304665361, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: m_Name
       value: player
