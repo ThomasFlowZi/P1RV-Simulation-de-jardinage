@@ -19,11 +19,10 @@ public class GrowSteps : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(dryToWetPot.getWet());
         if (dryToWetPot.getWet() >= 1f)
         {
             StartCoroutine(Grow());
-
+            enabled = false;
         }
     }
 
@@ -32,7 +31,7 @@ public class GrowSteps : MonoBehaviour
         yield return new WaitForSeconds(growthTime1);
         GameObject step1 = Instantiate(plantStep1, transform.position,transform.rotation);
         step1.transform.localScale = 0.2f*Vector3.one;
-        Destroy(gameObject);
+        GetComponent<Renderer>().enabled = false;
         yield return new WaitForSeconds(growthTime2);
         GameObject step2 = Instantiate(plantStep2, transform.position, transform.rotation);
         step2.transform.localScale = 0.2f * Vector3.one;

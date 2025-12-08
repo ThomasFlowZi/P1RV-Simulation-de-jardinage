@@ -30,14 +30,16 @@ public class OutlineSelection : MonoBehaviour
         Vector2 mousePos = Input.mousePosition; // on crée un vecteur 2D qui prend la position de la souris sur l'écran
         Transform camera = Camera.main.transform;
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        int mask = ~LayerMask.GetMask("Ignore Raycast","SnapZone");
 
-        if (Physics.Raycast(ray, out raycastHit, rayDistance))
+        if (Physics.Raycast(ray, out raycastHit, rayDistance, mask))
         {
             if (audioSource != null && hitSound != null && Sound) // joue le son de sélection 
             {
                 audioSource.PlayOneShot(hitSound);
                 Sound = false;
             }
+
 
             if (highlight != raycastHit.transform)
             {

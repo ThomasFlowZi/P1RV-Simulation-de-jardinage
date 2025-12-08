@@ -32,7 +32,7 @@ public class InteractFPS : MonoBehaviour
         Ray ray = new Ray(camera.position, camera.forward);
         RaycastHit hit;
 
-        int mask = ~LayerMask.GetMask("Ignore Raycast");
+        int mask = ~LayerMask.GetMask("Ignore Raycast", "SnapZone");
 
         
             if (Input.GetKeyDown(KeyCode.Mouse0))
