@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,6 +21,7 @@ public class InteractFPS : MonoBehaviour
     public UnityEvent triggerAnimationObject;
     public UnityEvent triggerInteract;
 
+    public List<GameObject> FixedPositionObject;
 
     void Start()
     {
@@ -46,7 +48,7 @@ public class InteractFPS : MonoBehaviour
                     {
                         if (selection != null)
                         {
-                            ResetLastGrabbedObject();
+                            ResetLastGrabbedObject(FixedPositionObject.Contains(rootSelection.gameObject));
                         }
 
 
@@ -73,15 +75,17 @@ public class InteractFPS : MonoBehaviour
                 }
                 else if (selection != null) // on fait simplement l'animation dans le vide
                 {
-                hitTransform = null;
-                triggerAnimationObject.Invoke();
+                    hitTransform = null;
+                    triggerAnimationObject.Invoke();
                 }
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse1) && selection != null)
             {
-                ResetLastGrabbedObject();
-    
+            
+                ResetLastGrabbedObject(FixedPositionObject.Contains(rootSelection.gameObject));  // certain objets ont une position unique dans la scène
+            
+                
             }
 
         
@@ -89,14 +93,18 @@ public class InteractFPS : MonoBehaviour
 
     }
 
-    void ResetLastGrabbedObject()
+    void ResetLastGrabbedObject(bool fix)
     {
 
         if (selection != null && selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = false;
         if (selection.GetComponent<Collider>() != null) selection.GetComponent<Collider>().enabled = true;
+        if (selection.GetComponent<GrabVisualFeedback>() != null) selection.GetComponent<GrabVisualFeedback>().OnGrabEnd();
 
-        selection.position = lastPos;
-        selection.rotation = lastRot;
+        if (fix)
+        {
+            selection.position = lastPos;
+            selection.rotation = lastRot;
+        }
         rootSelection.SetParent(null);
         selection = null;
         rootSelection = null;
@@ -113,6 +121,7 @@ public class InteractFPS : MonoBehaviour
 
         selection.position = main.position + camera.up * 0.2f;
         selection.rotation = camera.rotation;
+        if (selection.GetComponent<GrabVisualFeedback>() != null) selection.GetComponent<GrabVisualFeedback>().OnGrabStart();
         if (selection.GetComponent<Collider>() != null) selection.GetComponent<Collider>().enabled = false;
         if (selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = true;
 

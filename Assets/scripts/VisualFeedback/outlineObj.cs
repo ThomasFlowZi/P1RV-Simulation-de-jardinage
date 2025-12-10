@@ -15,7 +15,7 @@ public class OutlineSelection : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip hitSound;
     private bool Sound = false;
-    private bool activate=true;
+    
 
     public void SetRayDistance(float distance)
         { this.rayDistance = distance; }    

@@ -5,14 +5,7 @@ public class PutSeed : MonoBehaviour
 {
     public GameObject seed;
     bool possedeGraine = false;
-    GrabManagerStatic grabManager;
-    GameObject player;
-
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
-
+  
     public void OnActivate()
     {
        

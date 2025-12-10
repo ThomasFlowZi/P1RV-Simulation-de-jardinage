@@ -27,8 +27,8 @@ public class DryToWetPot : MonoBehaviour
     {
         if (isWatered)
         {
-            estWet = (estWet < 1f) ? estWet + 0.01f : estWet;
-            gameObject.GetComponent<Renderer>().material.color = wet * estWet + dry * (1 - estWet);
+            estWet = (estWet < 1f) ? estWet + 0.005f : estWet;
+            
 
             if (estWet == 1f)
             {
@@ -36,10 +36,12 @@ public class DryToWetPot : MonoBehaviour
 
             }
 
-        } 
+        }
+        gameObject.GetComponent<Renderer>().material.color = wet * estWet + dry * (1 - estWet);
 
 
     }
 
     public float getWet() {  return estWet; }
+    public void setWet(float wet) { estWet = wet; }
 }
