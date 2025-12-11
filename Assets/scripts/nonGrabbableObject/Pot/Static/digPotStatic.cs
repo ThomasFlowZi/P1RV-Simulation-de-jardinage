@@ -31,15 +31,27 @@ public class DigPotStatic : MonoBehaviour
 
             if (speed > SpeedLimit)
             {
-                GameObject potInstance = Instantiate(pot_creuse, transform.position, transform.rotation);
+                GameObject diggedDirt = transform.Find("DiggedDirt").gameObject;
+                
+                GameObject SnapZone = transform.Find("SnapZone").gameObject;
+
+                GameObject Dirt = transform.Find("Dirt").gameObject;
+                Debug.Log("coucou");
                 estCreuse = true;
                 source.PlayOneShot(sfx);
 
+                diggedDirt.SetActive(true);
+                //positionSeed.SetActive(true);
+                SnapZone.SetActive(true);
+
+                Dirt.SetActive(false);
+
+                /*
                 ModeManager.SetCamStatic(potInstance.transform.Find("PotView").transform);
-                ModeManager.SetMode(true);
+                ModeManager.SetMode(true);*/
 
 
-                Destroy(gameObject);
+                //Destroy(gameObject);
             }
         }
     }
