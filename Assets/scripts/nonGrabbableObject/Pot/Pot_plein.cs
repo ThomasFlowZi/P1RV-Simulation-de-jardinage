@@ -13,6 +13,7 @@ public class Pot_plein : MonoBehaviour,IInteractable
 
     public void OnInteract(GameObject playerHeldObject)
     {
+
         if (playerHeldObject == null)
         {
             HandFreeInteraction.Invoke();

@@ -3,7 +3,6 @@ using UnityEngine;
 public class DigPotStatic : MonoBehaviour
 {
     public static bool estCreuse = false;
-    public GameObject pot_creuse;
 
     [Header("Audio")]
     public AudioSource source;
@@ -31,17 +30,22 @@ public class DigPotStatic : MonoBehaviour
 
             if (speed > SpeedLimit)
             {
+                estCreuse = true;
+
+
                 GameObject diggedDirt = transform.Find("DiggedDirt").gameObject;
                 
                 GameObject SnapZone = transform.Find("SnapZone").gameObject;
 
                 GameObject Dirt = transform.Find("Dirt").gameObject;
-                Debug.Log("coucou");
-                estCreuse = true;
+                
+                transform.GetComponent<Pot_creuse>().enabled = true;
+                transform.GetComponent<Pot_plein>().enabled = false;
+
                 source.PlayOneShot(sfx);
 
                 diggedDirt.SetActive(true);
-                //positionSeed.SetActive(true);
+
                 SnapZone.SetActive(true);
 
                 Dirt.SetActive(false);

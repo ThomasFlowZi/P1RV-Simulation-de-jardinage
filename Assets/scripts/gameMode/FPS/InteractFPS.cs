@@ -48,7 +48,7 @@ public class InteractFPS : MonoBehaviour
                     {
                         if (selection != null)
                         {
-                            ResetLastGrabbedObject(FixedPositionObject.Contains(rootSelection.gameObject));
+                            ResetLastGrabbedObject(FixedPositionObject.Contains(rootSelection.gameObject) );
                         }
 
 

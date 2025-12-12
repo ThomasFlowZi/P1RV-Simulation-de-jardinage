@@ -15,19 +15,17 @@ public class Pot_creuse : MonoBehaviour, IInteractable
 
     public void OnInteract(GameObject playerHeldObject)
     {
+        
         if (playerHeldObject == null)
         {
             HandFreeInteraction.Invoke();
         }
         if (playerHeldObject.layer == 12) {
+
             seedBagInteraction.Invoke();
         }
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
+    
 }

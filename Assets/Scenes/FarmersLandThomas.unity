@@ -645,8 +645,6 @@ GameObject:
   - component: {fileID: 301357617}
   - component: {fileID: 301357616}
   - component: {fileID: 301357615}
-  - component: {fileID: 301357614}
-  - component: {fileID: 301357613}
   m_Layer: 0
   m_Name: DiggedDirt
   m_TagString: Untagged
@@ -669,31 +667,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3257160748432479210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &301357613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301357611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4fdcb458dafb104a9914313f97391ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CamPosInteraction
---- !u!114 &301357614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301357611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd632148240f024a983ebfd6111c9f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PutSeed
-  seed: {fileID: 5398023586075487451, guid: 8539096e1bf6d5f4cb66c818598de65a, type: 3}
 --- !u!114 &301357615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5144,8 +5117,9 @@ GameObject:
   - component: {fileID: 3133668440836357146}
   - component: {fileID: 7972490571670899527}
   - component: {fileID: 7972490571670899528}
+  - component: {fileID: 7972490571670899529}
   m_Layer: 0
-  m_Name: pot
+  m_Name: DirtPot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5226,7 +5200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220d6149dbdca474daa82d781df594b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::digPotStatic
-  pot_creuse: {fileID: 8462477528029813375, guid: 386f289113b64444593909a3fce656a3, type: 3}
   source: {fileID: 3539248807043194682}
   sfx: {fileID: 8300000, guid: 26c91b3b69590eb4d97d8d98d3291618, type: 3}
   SpeedLimit: 2
@@ -5282,7 +5255,7 @@ MonoBehaviour:
   seedBagInteraction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 301357614}
+      - m_Target: {fileID: 7972490571670899529}
         m_TargetAssemblyTypeName: PutSeed, Assembly-CSharp
         m_MethodName: OnActivate
         m_Mode: 1
@@ -5308,6 +5281,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4fdcb458dafb104a9914313f97391ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CamPosInteraction
+--- !u!114 &7972490571670899529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950514607988325263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd632148240f024a983ebfd6111c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PutSeed
+  seed: {fileID: 5398023586075487451, guid: 8539096e1bf6d5f4cb66c818598de65a, type: 3}
 --- !u!1001 &8915146933882901626
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,13 +8,12 @@ public class PutSeed : MonoBehaviour
   
     public void OnActivate()
     {
-       
+        Debug.Log("coucoucoucoiduoiuoiu");
         if (!possedeGraine)
 
         {
             
-            GameObject parent = transform.root.gameObject;
-            Transform PositionSeed = parent.transform.Find("positionSeed");
+            Transform PositionSeed = transform.Find("positionSeed");
             GameObject graine = Instantiate(seed, PositionSeed.position, PositionSeed.rotation);
             
             graine.transform.parent = PositionSeed;

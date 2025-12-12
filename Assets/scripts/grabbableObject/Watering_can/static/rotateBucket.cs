@@ -54,7 +54,7 @@ public class rotateBucket : MonoBehaviour, IGrabbable
 
         if (state.GetSnap())
         {
-            if (dryToWetPot == null )dryToWetPot = hit.collider.transform.root.Find("terre").GetComponent<DryToWetPot>();
+            if (dryToWetPot == null )dryToWetPot = hit.collider.transform.root.Find("DiggedDirt").GetComponent<DryToWetPot>();
         }
         else
         {
