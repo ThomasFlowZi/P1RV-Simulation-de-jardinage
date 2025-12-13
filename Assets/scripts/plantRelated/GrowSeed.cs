@@ -11,7 +11,7 @@ public class GrowSeed : MonoBehaviour
     private void Start()
     {
 
-        GameObject terre = transform.root.transform.Find("terre").gameObject;
+        GameObject terre = transform.root.transform.Find("DiggedDirt").gameObject;
         dryToWetPot = terre.GetComponent<DryToWetPot>();
     }
 

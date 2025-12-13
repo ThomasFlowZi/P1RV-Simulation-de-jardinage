@@ -405,7 +405,6 @@ GameObject:
   - component: {fileID: 8269911628324486370}
   - component: {fileID: 3392288799132929476}
   - component: {fileID: 8119389065054935480}
-  - component: {fileID: 3851459907810569956}
   - component: {fileID: 6840652775303708809}
   m_Layer: 0
   m_Name: pot_plein
@@ -444,7 +443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220d6149dbdca474daa82d781df594b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::digPotStatic
-  pot_creuse: {fileID: 8462477528029813375, guid: 386f289113b64444593909a3fce656a3, type: 3}
   source: {fileID: 3392288799132929476}
   sfx: {fileID: 8300000, guid: 26c91b3b69590eb4d97d8d98d3291618, type: 3}
   SpeedLimit: 2
@@ -567,33 +565,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.54, y: 0.4, z: 1.51}
   m_Center: {x: 0, y: 1.56, z: 0}
---- !u!114 &3851459907810569956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9113900865178872177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e0258953b5c62a4e8901a9145be54bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Pot_plein
-  HandFreeInteraction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6840652775303708809}
-        m_TargetAssemblyTypeName: CamPosInteraction, Assembly-CSharp
-        m_MethodName: OnActivate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &6840652775303708809
 MonoBehaviour:
   m_ObjectHideFlags: 0

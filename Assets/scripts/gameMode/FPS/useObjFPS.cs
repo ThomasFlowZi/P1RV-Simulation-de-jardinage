@@ -91,7 +91,7 @@ public class UseObjFPS : MonoBehaviour
         }
         Transform root = target.root;
         if (heldObject != null) Debug.Log("held object : " + heldObject.name);
-        if(root.GetComponent<IInteractable>()  != null) root.GetComponent<IInteractable>().OnInteract(heldObject);
+        if (root.GetComponent<IInteractable>() != null) root.GetComponent<IInteractable>().OnInteract(heldObject);
 
 
 

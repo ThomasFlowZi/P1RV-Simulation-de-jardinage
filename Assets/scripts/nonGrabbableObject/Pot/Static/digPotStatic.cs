@@ -39,8 +39,7 @@ public class DigPotStatic : MonoBehaviour
 
                 GameObject Dirt = transform.Find("Dirt").gameObject;
                 
-                transform.GetComponent<Pot_creuse>().enabled = true;
-                transform.GetComponent<Pot_plein>().enabled = false;
+
 
                 source.PlayOneShot(sfx);
 

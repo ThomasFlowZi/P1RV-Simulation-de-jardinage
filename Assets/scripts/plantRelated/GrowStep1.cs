@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class GrowStep1 : MonoBehaviour
 {
-    public DryToWetPot dryToWetPot;
+    private DryToWetPot dryToWetPot;
     public GameObject plantStep2;
     public float growthSpeed1 = 0.01f;
     public float finalScale = 1f;
@@ -19,18 +19,16 @@ public class GrowStep1 : MonoBehaviour
     public void OnActivate()
     {
 
-        GameObject terre = transform.root.transform.Find("terre").gameObject;
+        GameObject terre = transform.root.transform.Find("DiggedDirt").gameObject;
         dryToWetPot = terre.GetComponent<DryToWetPot>();
-        Debug.Log("coucou");
+
         enabled = true;
     }
 
     void Update()
     {
-        Debug.Log("coucou");
         if (dryToWetPot.getWet() >= 1f)
         {
-            Debug.Log("coucou");
             StartCoroutine(Grow());
             enabled = false;
         }

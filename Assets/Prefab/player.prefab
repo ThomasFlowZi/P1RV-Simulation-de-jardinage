@@ -157,7 +157,6 @@ GameObject:
   - component: {fileID: 4377472081177265205}
   - component: {fileID: 5207773060030063048}
   - component: {fileID: 5922733701765551092}
-  - component: {fileID: 2526809015934393168}
   m_Layer: 2
   m_Name: player
   m_TagString: Player
@@ -542,7 +541,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  triggerUseObject:
+  triggerInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8015210519320088215}
@@ -557,21 +556,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  triggerHandInteraction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2526809015934393168}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  FixedPositionObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &8015210519320088215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,18 +663,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ModeVisualFeedback
   body: {fileID: 8370385973200282423}
   crosshair: {fileID: 0}
---- !u!114 &2526809015934393168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260047594304665361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54381bdc0c2aee448af216e31b78005d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HandFreeInteraction
 --- !u!1 &3018298421093819659
 GameObject:
   m_ObjectHideFlags: 0
