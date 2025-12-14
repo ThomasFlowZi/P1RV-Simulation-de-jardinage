@@ -17,6 +17,9 @@ public class OutlineSelection : MonoBehaviour
     private bool Sound = false;
 
     public GameObject HUDGrab;
+
+    public RectTransform rectTransform;
+
     
 
     public void SetRayDistance(float distance)
@@ -52,23 +55,9 @@ public class OutlineSelection : MonoBehaviour
                 if (highlight.CompareTag("Selectable"))
                 {
                     Sound = true;
-                    if (highlight.gameObject.GetComponent<Outline>() != null)
-                    {
-
-
-                        highlight.gameObject.GetComponent<Outline>().enabled = true;
-                        highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
-                        highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
-
-                    }
-                    else
-                    {
-                        Outline outline = highlight.gameObject.AddComponent<Outline>();
-                        outline.enabled = true;
-                        highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
-                        highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
-                    }
+                    Outline();
                     HUDGrab.SetActive(true);
+                    
                 }
                 else
                 {
@@ -80,6 +69,7 @@ public class OutlineSelection : MonoBehaviour
                 }
                 ;
             }
+            rectTransform.position = Input.mousePosition + new Vector3(0, -50, 0); ;
 
 
         }
@@ -98,7 +88,25 @@ public class OutlineSelection : MonoBehaviour
 
     
 
+    private void Outline()
+    {
+        if (highlight.gameObject.GetComponent<Outline>() != null)
+        {
 
+
+            highlight.gameObject.GetComponent<Outline>().enabled = true;
+            highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
+            highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
+
+        }
+        else
+        {
+            Outline outline = highlight.gameObject.AddComponent<Outline>();
+            outline.enabled = true;
+            highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
+            highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
+        }
+    }
     
 
     public void OnDeactivate()
