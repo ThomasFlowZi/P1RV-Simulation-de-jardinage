@@ -6,8 +6,7 @@ public class Pot_Interaction : MonoBehaviour, IInteractable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public UnityEvent handFreeInteraction;
     public UnityEvent seedBagInteraction;
-    public AudioSource source;
-    public AudioClip sfx;
+
 
     bool Occupied = false;
 

@@ -18,6 +18,7 @@ public class ModeManager : MonoBehaviour
     private Transform camPositionFPS;
     private Transform camPositionStatic;
     private float threshold = 0.01f;
+    private Vector3 camVelocity = Vector3.zero;
 
 
 
@@ -31,7 +32,6 @@ public class ModeManager : MonoBehaviour
         camPositionFPS = playerPOV.transform;
         camPositionStatic = camPositionFPS;
         Camera.main.transform.SetPositionAndRotation(camPositionFPS.position, camPositionFPS.rotation);
-        Camera.main.transform.parent = playerPOV.transform;
         triggerModeTravel.Invoke(); //juste pour desactiver tous les scripts
         SetMode(false);
 
@@ -51,31 +51,49 @@ public class ModeManager : MonoBehaviour
 
     private IEnumerator Travel(bool modeStat)
     {
-        float distTravel = speed*Time.deltaTime;
         travel = true;
-        triggerModeTravel.Invoke(); // on veut que pendant le travel, tout les scripts soient désactivés
+        triggerModeTravel.Invoke(); // désactive les scripts pendant le travel
+
         Transform destination = modeStat ? camPositionStatic : camPositionFPS;
 
-        while ( (Camera.main.transform.position - destination.position ).magnitude > threshold)
+        while (
+            Vector3.Distance(Camera.main.transform.position, destination.position) > threshold ||
+            Quaternion.Angle(Camera.main.transform.rotation, destination.rotation) > 0.5f
+        )
         {
-            Camera.main.transform.SetPositionAndRotation(Vector3.Lerp(Camera.main.transform.position, destination.position, distTravel), Quaternion.Slerp(Camera.main.transform.rotation, destination.rotation, distTravel));
+            Camera.main.transform.position = Vector3.SmoothDamp(
+                Camera.main.transform.position,
+                destination.position,
+                ref camVelocity,
+                0.3f 
+            );
+
+            Camera.main.transform.rotation = Quaternion.Slerp(
+                Camera.main.transform.rotation,
+                destination.rotation,
+                Time.deltaTime * 4f
+            );
 
             yield return null;
-        };
+        }
+
+        Camera.main.transform.SetPositionAndRotation(
+            destination.position,
+            destination.rotation
+        );
+
         travel = false;
-
-
         GameMode();
-
     }
 
     void GameMode() 
     {
         if (!modeStatic)
         {
+            Camera.main.transform.parent = null;
             triggerModeFPS.Invoke();
             Camera.main.transform.position = camPositionFPS.position; //en FPS, la camera suit la position de la tete du personnage
-            Camera.main.transform.parent = playerPOV.transform;
+
         }
         else
         {
@@ -95,6 +113,7 @@ public class ModeManager : MonoBehaviour
     public void SwitchMode(bool modeStat)
     {
         modeStatic = modeStat;
+        camVelocity = Vector3.zero;
         StartCoroutine(Travel(modeStat));
 
     }

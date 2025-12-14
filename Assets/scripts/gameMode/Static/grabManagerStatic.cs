@@ -15,6 +15,10 @@ public class GrabManagerStatic : MonoBehaviour
     private GameObject grabbedObject;
     private Plane grabPlane;
 
+    public AudioSource audioSource;
+    public AudioClip grabSound;
+
+
 
     private Vector3 hitPoint;
 
@@ -129,6 +133,7 @@ public class GrabManagerStatic : MonoBehaviour
 
         Transform camera = Camera.main.transform;
 
+        audioSource.PlayOneShot(grabSound);
 
         if (grabbedObject.GetComponent<Rigidbody>() != null) grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
 

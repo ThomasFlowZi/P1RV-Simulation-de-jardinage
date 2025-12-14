@@ -26,8 +26,17 @@ public class GrabVisualFeedback : MonoBehaviour, IGrabbable
         {
             MeshFilter mf = GetComponent<MeshFilter>();
             Renderer r = GetComponent<Renderer>();
+
+            MeshCollider mc = GetComponent<MeshCollider>();
+            if (mc == null)
+                mc = gameObject.AddComponent<MeshCollider>();
+
+            // Applique le nouveau mesh
             mf.mesh = Mesh;
-            r.material = Material;  
+            mc.sharedMesh = Mesh;   
+            mc.convex = true;       
+
+            r.material = Material;
             Debug.Log("change le mesh");
 
         }

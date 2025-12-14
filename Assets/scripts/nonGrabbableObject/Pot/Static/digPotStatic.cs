@@ -10,7 +10,6 @@ public class DigPotStatic : MonoBehaviour
     public float SpeedLimit = 20f;
 
 
-    public ModeManager ModeManager;
 
 
     private void OnTriggerEnter(Collider other)
@@ -30,32 +29,32 @@ public class DigPotStatic : MonoBehaviour
 
             if (speed > SpeedLimit)
             {
-                estCreuse = true;
+                DigPot();
 
-
-                GameObject diggedDirt = transform.Find("DiggedDirt").gameObject;
                 
-                GameObject SnapZone = transform.Find("SnapZone").gameObject;
-
-                GameObject Dirt = transform.Find("Dirt").gameObject;
-                
-
-
-                source.PlayOneShot(sfx);
-
-                diggedDirt.SetActive(true);
-
-                SnapZone.SetActive(true);
-
-                Dirt.SetActive(false);
-
-                /*
-                ModeManager.SetCamStatic(potInstance.transform.Find("PotView").transform);
-                ModeManager.SetMode(true);*/
-
-
-                //Destroy(gameObject);
             }
         }
+    }
+
+    private void DigPot()
+    {
+        estCreuse = true;
+
+
+        GameObject diggedDirt = transform.Find("DiggedDirt").gameObject;
+
+        GameObject SnapZone = transform.Find("SnapZone").gameObject;
+
+        GameObject Dirt = transform.Find("Dirt").gameObject;
+
+
+
+        source.PlayOneShot(sfx);
+
+        diggedDirt.SetActive(true);
+
+        SnapZone.SetActive(true);
+
+        Dirt.SetActive(false);
     }
 }

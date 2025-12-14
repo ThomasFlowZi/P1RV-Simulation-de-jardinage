@@ -15,6 +15,8 @@ public class OutlineSelection : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip hitSound;
     private bool Sound = false;
+
+    public GameObject HUDGrab;
     
 
     public void SetRayDistance(float distance)
@@ -66,10 +68,11 @@ public class OutlineSelection : MonoBehaviour
                         highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
                         highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
                     }
+                    HUDGrab.SetActive(true);
                 }
                 else
                 {
-
+                    HUDGrab.SetActive(false);
 
                     highlight = null;
                     Sound = false;
@@ -82,6 +85,7 @@ public class OutlineSelection : MonoBehaviour
         }
         else
         {
+            HUDGrab.SetActive(false);
             Sound = false;
             if (highlight != null)
             {
@@ -99,6 +103,7 @@ public class OutlineSelection : MonoBehaviour
 
     public void OnDeactivate()
     {
+        HUDGrab.SetActive(false);
         if (highlight != null)
         {
             highlight.gameObject.GetComponent<Outline>().enabled = false;

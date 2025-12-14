@@ -524,9 +524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::digPotStatic
   source: {fileID: 6759683148900032593}
-  sfx: {fileID: 8300000, guid: 26c91b3b69590eb4d97d8d98d3291618, type: 3}
+  sfx: {fileID: 8300000, guid: 6d0d67e86f6d4d34da17f95b85bfa7d0, type: 3}
   SpeedLimit: 2
-  ModeManager: {fileID: 0}
 --- !u!82 &6759683148900032593
 AudioSource:
   m_ObjectHideFlags: 0
@@ -540,7 +539,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 26c91b3b69590eb4d97d8d98d3291618, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.258
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -657,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f472b95150a9a3409f57a8a0d12347a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pot_creuse
-  HandFreeInteraction:
+  handFreeInteraction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6753665615637001764}
@@ -687,8 +686,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  source: {fileID: 6759683148900032593}
-  sfx: {fileID: 0}
 --- !u!114 &6753665615637001764
 MonoBehaviour:
   m_ObjectHideFlags: 0

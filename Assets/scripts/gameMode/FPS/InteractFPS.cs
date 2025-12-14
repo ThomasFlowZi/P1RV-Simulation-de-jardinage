@@ -15,8 +15,17 @@ public class InteractFPS : MonoBehaviour
     private Quaternion lastRot;
     private Transform hitTransform;
 
+    public AudioSource audioSource;
+    public AudioClip grabSound;
+
+    Transform cam;
 
     private Transform main;
+
+    private bool isGrabbing = false;
+
+    private Vector3 grabOffsetPos;
+    private Quaternion grabOffsetRot;
 
     public UnityEvent triggerAnimationObject;
     public UnityEvent triggerInteract;
@@ -25,13 +34,13 @@ public class InteractFPS : MonoBehaviour
 
     void Start()
     {
+        cam = Camera.main.transform;
         main = GameObject.Find("player").transform.Find("positionTete/main");
 
     }
     void Update()
     {
-        Transform camera = Camera.main.transform;
-        Ray ray = new Ray(camera.position, camera.forward);
+        Ray ray = new Ray(cam.position, cam.forward);
         RaycastHit hit;
 
         int mask = ~LayerMask.GetMask("Ignore Raycast", "SnapZone");
@@ -53,6 +62,7 @@ public class InteractFPS : MonoBehaviour
 
 
                         GrabObject(hitTransform);
+                        audioSource.PlayOneShot(grabSound);
 
 
                     }
@@ -93,47 +103,80 @@ public class InteractFPS : MonoBehaviour
 
     }
 
+    void LateUpdate()
+    {
+        if (!isGrabbing || rootSelection == null) return;
+
+        Vector3 targetPos = main.position + cam.up * 0.2f;
+        Quaternion targetRot = main.rotation;
+
+        rootSelection.position = Vector3.Lerp(rootSelection.position, targetPos, Time.deltaTime * 20f);
+
+        rootSelection.rotation = Quaternion.Slerp(rootSelection.rotation, targetRot, Time.deltaTime * 20f);
+    }
+
     void ResetLastGrabbedObject(bool fix)
     {
+        isGrabbing = false;
+        if (selection == null) return;
 
-        if (selection != null && selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = false;
-        if (selection.GetComponent<Collider>() != null) selection.GetComponent<Collider>().enabled = true;
-        if (selection.GetComponent<GrabVisualFeedback>() != null) selection.GetComponent<GrabVisualFeedback>().OnGrabEnd();
+        if ( selection.GetComponent<Rigidbody>() != null)
+            selection.GetComponent<Rigidbody>().isKinematic = false;
+
+        if ( selection.GetComponent<Collider>() != null)
+            selection.GetComponent<Collider>().enabled = true;
+
+        if (selection.GetComponent<GrabVisualFeedback>() != null)
+            selection.GetComponent<GrabVisualFeedback>().OnGrabEnd();
 
         if (fix)
         {
-            selection.position = lastPos;
-            selection.rotation = lastRot;
+            rootSelection.position = lastPos;
+            rootSelection.rotation = lastRot;
         }
-        rootSelection.SetParent(null);
+        else
+        {
+            rootSelection.position = cam.position + cam.forward * 1f;
+        }
         selection = null;
         rootSelection = null;
-
-
     }
 
     void GrabObject(Transform hitTransform)
     {
-        Transform camera = Camera.main.transform;
+        
+
         selection = hitTransform;
-        lastPos = selection.position;
-        lastRot = selection.rotation;
-
-        selection.position = main.position + camera.up * 0.2f;
-        selection.rotation = camera.rotation;
-        if (selection.GetComponent<GrabVisualFeedback>() != null) selection.GetComponent<GrabVisualFeedback>().OnGrabStart();
-        if (selection.GetComponent<Collider>() != null) selection.GetComponent<Collider>().enabled = false;
-        if (selection.GetComponent<Rigidbody>() != null) selection.GetComponent<Rigidbody>().isKinematic = true;
-
         rootSelection = selection.root;
 
-        rootSelection.SetParent(main);
+        lastPos = rootSelection.position;
+        lastRot = rootSelection.rotation;
 
+        // Position visuelle initiale
+        rootSelection.position = main.position + cam.up * 0.2f;
+        rootSelection.rotation = main.rotation;
+
+
+        if (selection.GetComponent<GrabVisualFeedback>() != null)
+            selection.GetComponent<GrabVisualFeedback>().OnGrabStart();
+
+        if (selection.GetComponent<Collider>() != null)
+            selection.GetComponent<Collider>().enabled = false;
+
+        if (selection.GetComponent<Rigidbody>() != null)
+            selection.GetComponent<Rigidbody>().isKinematic = true;
+
+        isGrabbing = true;
     }
 
     public Transform WhatTarget()
     {
         return hitTransform;
+
+    }
+    public GameObject WhatHeldObject()
+    {
+        return selection ? selection.gameObject : null;
 
     }
 

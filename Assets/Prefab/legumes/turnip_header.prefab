@@ -201,7 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f397856d4b6d61346a3ab9d981310f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrowStep1
-  dryToWetPot: {fileID: 0}
   plantStep2: {fileID: 732514449401300613, guid: ebaf86ebba1481348ad555606b66da4d, type: 3}
   growthSpeed1: 10
   finalScale: 1
