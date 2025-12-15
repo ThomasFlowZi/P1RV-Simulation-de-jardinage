@@ -8,6 +8,7 @@ TagManager:
   - Selectable
   - Eau
   - SnapZone
+  - Interactable
   layers:
   - Default
   - TransparentFX

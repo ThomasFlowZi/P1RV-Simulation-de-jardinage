@@ -139,8 +139,5 @@ public class rotateBucket : MonoBehaviour, IGrabbable
         dryToWetPot = null;
     }
 
-    public string HUDInfo(GameObject phi)
-    {
-        return "Seau";
-    }
+   
 }

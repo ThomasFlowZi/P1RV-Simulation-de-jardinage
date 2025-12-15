@@ -4634,7 +4634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeStatic.m_PersistentCalls.m_Calls.Array.size
@@ -4642,7 +4642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeTravel.m_PersistentCalls.m_Calls.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[6].m_Mode
@@ -4653,11 +4653,19 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[8].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[6].m_Target
       value: 
       objectReference: {fileID: 330585551}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[7].m_Target
+      value: 
+      objectReference: {fileID: 2109509108}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[8].m_Target
       value: 
       objectReference: {fileID: 2109509108}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
@@ -4669,11 +4677,19 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeTravel.m_PersistentCalls.m_Calls.Array.data[8].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[6].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[7].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[8].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
@@ -4685,6 +4701,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 330585551}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeTravel.m_PersistentCalls.m_Calls.Array.data[8].m_Target
+      value: 
+      objectReference: {fileID: 2109509108}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[6].m_MethodName
       value: set_enabled
       objectReference: {fileID: 0}
@@ -4693,11 +4713,19 @@ PrefabInstance:
       value: SetRayDistance
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[8].m_MethodName
+      value: OnActivate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeStatic.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeTravel.m_PersistentCalls.m_Calls.Array.data[7].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeTravel.m_PersistentCalls.m_Calls.Array.data[8].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
@@ -4709,6 +4737,10 @@ PrefabInstance:
       value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeTravel.m_PersistentCalls.m_Calls.Array.data[8].m_MethodName
+      value: OnDeactivate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[6].m_TargetAssemblyTypeName
       value: SmoothCameraFollow, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -4717,11 +4749,19 @@ PrefabInstance:
       value: HUDGrab, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[8].m_TargetAssemblyTypeName
+      value: HUDGrab, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[7].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[8].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
@@ -4737,12 +4777,20 @@ PrefabInstance:
       value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[8].m_Arguments.m_FloatArgument
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeStatic.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: HUDGrab, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeTravel.m_PersistentCalls.m_Calls.Array.data[7].m_TargetAssemblyTypeName
       value: SmoothCameraFollow, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeTravel.m_PersistentCalls.m_Calls.Array.data[8].m_TargetAssemblyTypeName
+      value: HUDGrab, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeStatic.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
@@ -4761,11 +4809,19 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeFPS.m_PersistentCalls.m_Calls.Array.data[8].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeStatic.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: triggerModeTravel.m_PersistentCalls.m_Calls.Array.data[7].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919085688184271625, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerModeTravel.m_PersistentCalls.m_Calls.Array.data[8].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4377472081177265205, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
@@ -4824,6 +4880,66 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 330585553}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStopGrab.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStartGrab.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStopGrab.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStartGrab.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStopGrab.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 2109509108}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStartGrab.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 2109509108}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStopGrab.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStartGrab.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStopGrab.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: OnActivate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStartGrab.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: OnDeactivate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStopGrab.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: HUDGrab, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStartGrab.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: HUDGrab, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStopGrab.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStopGrab.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291283689982169140, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
+      propertyPath: triggerStartGrab.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6981357871988203683, guid: c90f36600e490db4f8e0ddae9447b51e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.133
@@ -4947,21 +5063,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5130959463881878438, guid: cdf17602bf71f414689439d78eeef1ed, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: 5631441820743955532, guid: cdf17602bf71f414689439d78eeef1ed, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_TagString
+      value: Interactable
       objectReference: {fileID: 0}
     - target: {fileID: 5797875818096821598, guid: cdf17602bf71f414689439d78eeef1ed, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_TagString
+      value: Interactable
       objectReference: {fileID: 0}
     - target: {fileID: 5804955220971143613, guid: cdf17602bf71f414689439d78eeef1ed, type: 3}
       propertyPath: m_Name
       value: DirtPot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8168596417445433145, guid: cdf17602bf71f414689439d78eeef1ed, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.274
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

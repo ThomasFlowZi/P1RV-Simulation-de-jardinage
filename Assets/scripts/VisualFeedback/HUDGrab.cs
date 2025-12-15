@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class HUDGrab : MonoBehaviour
+public class HUDGrabFPS : MonoBehaviour
 {
     private Transform targetHUD;
 
@@ -14,6 +14,8 @@ public class HUDGrab : MonoBehaviour
     public RectTransform rectTransform;
 
     public InteractFPS interactFPS;
+
+    private TMP_Text Text;
 
 
 
@@ -42,7 +44,7 @@ public class HUDGrab : MonoBehaviour
                 HUDGrabFunc(false);
 
                 targetHUD = raycastHit.transform;
-                if (targetHUD.CompareTag("Selectable"))
+                if (targetHUD.CompareTag("Selectable") || targetHUD.CompareTag("Interactable"))
                 {
                     
                     HUDGrabFunc(true);
@@ -80,20 +82,18 @@ public class HUDGrab : MonoBehaviour
 
             HUD.SetActive(true);
             GameObject heldobject = interactFPS.WhatHeldObject();
+            GameObject targetHUDroot = targetHUD.transform.root.gameObject;
 
-            if (targetHUD.GetComponent<IInteractable>() != null)
+            Text = HUD.transform.GetChild(0).GetComponent<TMP_Text>();
+
+            if (targetHUDroot.GetComponentInChildren<IInteractionHUDText>() != null)
             {
 
-                HUD.transform.GetChild(0).GetComponent<TMP_Text>().text += targetHUD.GetComponent<IInteractable>().HUDInfo(heldobject);
+                Text.text += targetHUDroot.GetComponentInChildren<IInteractionHUDText>().HUDInfo(heldobject);
             }
 
-            if (targetHUD.GetComponent<IGrabbable>() != null)
-            {
-
-                HUD.transform.GetChild(0).GetComponent<TMP_Text>().text += targetHUD.GetComponent<IGrabbable>().HUDInfo(heldobject);
-            }
-
-            HUD.transform.GetChild(0).GetComponent<TMP_Text>().text += " [ClicGauche]";
+            if (Text.text == "") { Text.text = "Interaction impossible"; }
+            else { Text.text += " [ClicGauche]"; }
 
         }
         else

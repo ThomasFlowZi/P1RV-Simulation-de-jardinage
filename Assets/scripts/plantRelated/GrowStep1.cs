@@ -25,7 +25,10 @@ public class GrowStep1 : MonoBehaviour
         enabled = true;
     }
 
-    void Update()
+    
+
+
+        void Update()
     {
         if (dryToWetPot.getWet() >= 1f)
         {

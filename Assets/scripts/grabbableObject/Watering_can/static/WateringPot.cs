@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class WateringPot : MonoBehaviour, IGrabbable
+public class WateringPot : MonoBehaviour, IGrabbable, IInteractionHUDText
 {
     private GrabManagerStatic grabManager;
 

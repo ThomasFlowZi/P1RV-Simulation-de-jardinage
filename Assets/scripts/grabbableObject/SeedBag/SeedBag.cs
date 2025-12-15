@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SeedBag : MonoBehaviour, IGrabbable
+public class SeedBag : MonoBehaviour, IGrabbable, IInteractionHUDText
 {
     public void OnGrabStart() { }
     public void OnGrabEnd() { }

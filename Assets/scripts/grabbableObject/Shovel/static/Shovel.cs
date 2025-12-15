@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Shovel : MonoBehaviour, IGrabbable
+public class Shovel : MonoBehaviour, IGrabbable, IInteractionHUDText
 {
     private GrabManagerStatic grabManager; 
     public Vector3 grabbedRotation = new Vector3(0,0, 0); 

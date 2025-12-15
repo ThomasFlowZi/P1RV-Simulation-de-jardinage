@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Pot_Interaction : MonoBehaviour, IInteractable
+public class Pot_Interaction : MonoBehaviour, IInteractable, IInteractionHUDText
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public UnityEvent handFreeInteraction;
@@ -46,11 +46,11 @@ public class Pot_Interaction : MonoBehaviour, IInteractable
     public string HUDInfo(GameObject phi)
     {
         if (phi == null) { return "S'occuper du pot"; }
-        else if (phi.layer==12)
+        else if (phi.layer==12 && transform.Find("DiggedDirt").gameObject.activeInHierarchy)
         {
             return "Placer une graine";
         }
-        else { return "Pas d'interaction"; }
+        else { return ""; }
     }
 
     public bool GetOccupied() { return Occupied; }

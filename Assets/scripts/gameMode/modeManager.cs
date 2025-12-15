@@ -13,7 +13,6 @@ public class ModeManager : MonoBehaviour
     public GameObject playerPOV;
 
 
-    private float speed = 3f;
     private bool travel;
     private Transform camPositionFPS;
     private Transform camPositionStatic;
