@@ -44,6 +44,11 @@ public class GrabVisualFeedback : MonoBehaviour, IGrabbable
         
     }
 
+    public string HUDInfo(GameObject phi) //rien a faire ici
+    {
+        return "";
+    }
+
     public void OnGrabEnd()
     {
        

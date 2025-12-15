@@ -83,6 +83,11 @@ public class WateringPot : MonoBehaviour, IGrabbable
         // wasGrabbed reste true pour le retour automatique
     }
 
+    public string HUDInfo(GameObject phi)
+    {
+         return "Prendre Seau";
+    }
+
     private IEnumerator waitWasGrabbed()
     {
         while (true)

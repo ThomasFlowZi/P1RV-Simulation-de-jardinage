@@ -138,4 +138,9 @@ public class rotateBucket : MonoBehaviour, IGrabbable
         if (dryToWetPot != null) dryToWetPot.SetIsWatered(false);
         dryToWetPot = null;
     }
+
+    public string HUDInfo(GameObject phi)
+    {
+        return "Seau";
+    }
 }

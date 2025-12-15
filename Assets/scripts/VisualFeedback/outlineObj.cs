@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -16,9 +17,6 @@ public class OutlineSelection : MonoBehaviour
     public AudioClip hitSound;
     private bool Sound = false;
 
-    public GameObject HUDGrab;
-
-    public RectTransform rectTransform;
 
     
 
@@ -56,12 +54,11 @@ public class OutlineSelection : MonoBehaviour
                 {
                     Sound = true;
                     Outline();
-                    HUDGrab.SetActive(true);
+                    
                     
                 }
                 else
                 {
-                    HUDGrab.SetActive(false);
 
                     highlight = null;
                     Sound = false;
@@ -69,13 +66,12 @@ public class OutlineSelection : MonoBehaviour
                 }
                 ;
             }
-            rectTransform.position = Input.mousePosition + new Vector3(0, -50, 0); ;
+            
 
 
         }
         else
         {
-            HUDGrab.SetActive(false);
             Sound = false;
             if (highlight != null)
             {
@@ -96,7 +92,7 @@ public class OutlineSelection : MonoBehaviour
 
             highlight.gameObject.GetComponent<Outline>().enabled = true;
             highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
-            highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
+            highlight.gameObject.GetComponent<Outline>().OutlineWidth = 5.0f;
 
         }
         else
@@ -104,14 +100,16 @@ public class OutlineSelection : MonoBehaviour
             Outline outline = highlight.gameObject.AddComponent<Outline>();
             outline.enabled = true;
             highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
-            highlight.gameObject.GetComponent<Outline>().OutlineWidth = 10.0f;
+            highlight.gameObject.GetComponent<Outline>().OutlineWidth = 5.0f;
         }
     }
+
     
+
+
 
     public void OnDeactivate()
     {
-        HUDGrab.SetActive(false);
         if (highlight != null)
         {
             highlight.gameObject.GetComponent<Outline>().enabled = false;

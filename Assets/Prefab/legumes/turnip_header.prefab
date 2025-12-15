@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9106432278656030553}
   - component: {fileID: 2936688823078014829}
   - component: {fileID: 3643309885304530489}
-  - component: {fileID: 3994730382819374366}
+  - component: {fileID: 3663173018650427745}
   m_Layer: 0
   m_Name: Turnip_Plant
   m_TagString: Untagged
@@ -129,7 +129,7 @@ MonoBehaviour:
   Mesh: {fileID: 4300018, guid: b69b26c8b73b8bd49bf243bbe541a2e0, type: 3}
   Material: {fileID: 2100000, guid: 5c447342ee33d5e41b58c66831ddd16d, type: 2}
   grabSound: {fileID: 0}
---- !u!54 &3994730382819374366
+--- !u!54 &3663173018650427745
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

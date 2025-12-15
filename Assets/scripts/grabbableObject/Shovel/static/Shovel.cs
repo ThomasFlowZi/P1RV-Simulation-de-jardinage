@@ -89,6 +89,12 @@ public class Shovel : MonoBehaviour, IGrabbable
         // wasGrabbed reste true pour le retour automatique
     }
 
+    public string HUDInfo(GameObject phi)
+    {
+        return "Prendre Pelle";
+        
+    }
+
     private IEnumerator waitWasGrabbed()
     {
         while (true)

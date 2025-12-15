@@ -43,6 +43,16 @@ public class Pot_Interaction : MonoBehaviour, IInteractable
 
     }
 
+    public string HUDInfo(GameObject phi)
+    {
+        if (phi == null) { return "S'occuper du pot"; }
+        else if (phi.layer==12)
+        {
+            return "Placer une graine";
+        }
+        else { return "Pas d'interaction"; }
+    }
+
     public bool GetOccupied() { return Occupied; }
     
 }
