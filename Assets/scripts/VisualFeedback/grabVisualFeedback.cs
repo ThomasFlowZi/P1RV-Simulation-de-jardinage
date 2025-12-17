@@ -9,13 +9,15 @@ public class GrabVisualFeedback : MonoBehaviour, IGrabbable
     public AudioClip grabSound;
     private AudioSource audioSource;
 
+    private Vector3 initPos;
     private Renderer _renderer;
 
     void Start()
     {
-
+        initPos = transform.localPosition;
         audioSource = GetComponent<AudioSource>();
-    }
+        
+}
 
     public void OnGrabStart()
     {
@@ -35,6 +37,9 @@ public class GrabVisualFeedback : MonoBehaviour, IGrabbable
             mf.mesh = Mesh;
             mc.sharedMesh = Mesh;   
             mc.convex = true;       
+
+            transform.localPosition = initPos;
+            transform.localRotation = Quaternion.identity;
 
             r.material = Material;
             Debug.Log("change le mesh");
