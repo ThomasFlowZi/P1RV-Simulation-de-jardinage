@@ -17,7 +17,7 @@ public class CamPosInteraction : MonoBehaviour
         if (modeManager == null)
             modeManager = FindFirstObjectByType<ModeManager>();
 
-        cameraStatic = transform.Find("PotView").transform;
+        cameraStatic = transform.Find("StaticView").transform;
     
         
     }
