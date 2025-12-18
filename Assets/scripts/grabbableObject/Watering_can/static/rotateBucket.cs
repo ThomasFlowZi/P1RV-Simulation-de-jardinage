@@ -11,7 +11,7 @@ public class rotateBucket : MonoBehaviour, IGrabbable
     private DryToWetPot dryToWetPot;
     private Water_level waterLevel;
 
-
+    public AudioSource AudioSource;
 
     public float speedRot = 0.002f;
 
@@ -80,15 +80,26 @@ public class rotateBucket : MonoBehaviour, IGrabbable
                 {
                     if ( Mathf.Cos((Quaternion.Angle( initRot, transform.localRotation) - 15) / 75f) < waterLevel.waterPercent){
                         waterLevel.waterPercent = Mathf.Cos((Quaternion.Angle(initRot, transform.localRotation) - 15) / 75f);
-                        if (state.GetSnap()) dryToWetPot.SetIsWatered(true);
-                        if (lineRenderer.enabled == false && !waterLevel.estVide) lineRenderer.enabled = true;
-                    }
+                        if (state.GetSnap())
+                        {
+                            dryToWetPot.SetIsWatered(true);   
+                        }
+                        if (lineRenderer.enabled == false && !waterLevel.estVide)
+                        {
+                            lineRenderer.enabled = true;
+                            AudioSource.Play();
+                        }
+                        }
 
                     
                 }
                 if (Quaternion.Angle(transform.localRotation, initRot) > 89)
                 {
-                    if (lineRenderer.enabled == true) lineRenderer.enabled = false;
+                        if (lineRenderer.enabled == true)
+                        {
+                            lineRenderer.enabled = false;
+                            AudioSource.Stop();
+                        }
                     if (state.GetSnap()) dryToWetPot.SetIsWatered(false);
                 }
 
@@ -102,7 +113,11 @@ public class rotateBucket : MonoBehaviour, IGrabbable
         else
         {
             if (state.GetSnap()) dryToWetPot.SetIsWatered(false);
-            if (lineRenderer.enabled == true) lineRenderer.enabled = false;
+                if (lineRenderer.enabled == true)
+                {
+                    lineRenderer.enabled = false;
+                    AudioSource.Stop();
+                }
 
             if (Quaternion.Angle(transform.localRotation, initRot) > 10)
             {
@@ -134,6 +149,7 @@ public class rotateBucket : MonoBehaviour, IGrabbable
     public void OnGrabEnd()
     {
         enabled = false;
+        AudioSource.Stop();
         if (lineRenderer.enabled == true) lineRenderer.enabled = false;
         if (dryToWetPot != null) dryToWetPot.SetIsWatered(false);
         dryToWetPot = null;

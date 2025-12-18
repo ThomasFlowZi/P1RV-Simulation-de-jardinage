@@ -55,10 +55,8 @@ public class GroundProjection : MonoBehaviour
 
         LayerMask layermask = ~LayerMask.GetMask("SnapZone");
 
-        Physics.Raycast(ray, out hit, 10f, layermask);
-
-        
-        lineRenderer.SetPosition(1, hit.point);
+        if (Physics.Raycast(ray, out hit, 10f, layermask))   lineRenderer.SetPosition(1, hit.point);
+        else lineRenderer.SetPosition(1,gpp.transform.position- Vector3.one* 2f);
         
 
 
