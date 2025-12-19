@@ -6,6 +6,9 @@ public class book : MonoBehaviour
 {
     [SerializeField] float pageSpeed = 0.5f;
     [SerializeField] List<Transform> pages;
+
+    public Sprite backPage;
+
     int index = -1;
     bool rotate = false;
     [SerializeField] GameObject backButton;
