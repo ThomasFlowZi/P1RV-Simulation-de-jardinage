@@ -114,6 +114,9 @@ public class Shovel : MonoBehaviour, IGrabbable, IInteractionHUDText
 
 
     
-
+    public void RemoveDirt()
+    {
+        transform.root.Find("DirtPile").gameObject.SetActive(false);
+    }
     public float GetSpeed() => speed;
 }

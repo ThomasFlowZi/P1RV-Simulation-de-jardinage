@@ -22,7 +22,7 @@ public class InteractFPS : MonoBehaviour
 
     private Transform main;
 
-    private bool isGrabbing = false;
+    public bool isGrabbing = false;
 
     private Vector3 grabOffsetPos;
     private Quaternion grabOffsetRot;

@@ -19,7 +19,7 @@ public class GrowStep1 : MonoBehaviour
     public void OnActivate()
     {
 
-        GameObject terre = transform.root.transform.Find("DiggedDirt").gameObject;
+        GameObject terre = transform.root.transform.Find("DirtPile").gameObject;
         dryToWetPot = terre.GetComponent<DryToWetPot>();
 
         enabled = true;

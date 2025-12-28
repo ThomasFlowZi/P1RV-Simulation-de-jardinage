@@ -13,10 +13,31 @@ public class UseObjFPS : MonoBehaviour
 
     public void StartAnimation()
     {
+        GameObject heldObject = gameObject.GetComponent<InteractFPS>().WhatHeldObject();
         if (animator != null)
         {
-            Debug.Log("coucou");
-            animator.SetTrigger("Hit");
+            if (heldObject.layer == 12) {
+                animator.SetTrigger("Hit");
+
+            }
+            if (heldObject.layer == 7)
+            {
+
+                if (heldObject.transform.root.Find("DirtPile").gameObject.activeInHierarchy)
+                {
+                    animator.SetTrigger("Hit");
+                }
+                else
+                {
+                    gameObject.GetComponent<InteractFPS>().isGrabbing = false;
+                    heldObject.transform.GetComponent<Animation>().Play();
+
+                }
+                    
+
+            }
+            
+            
         }
     }
 

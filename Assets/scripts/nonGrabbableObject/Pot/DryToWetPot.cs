@@ -7,11 +7,8 @@ public class DryToWetPot : MonoBehaviour
     private bool isWatered = false;
 
 
-
-
-
-
     public void SetIsWatered(bool iw) {  isWatered = iw; }
+    public bool GetIsWatered() { return isWatered; }
 
     [Header("Audio")]
     public AudioSource source;

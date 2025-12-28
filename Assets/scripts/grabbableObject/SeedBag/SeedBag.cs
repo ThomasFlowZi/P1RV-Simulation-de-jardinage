@@ -6,7 +6,7 @@ public class SeedBag : MonoBehaviour, IGrabbable, IInteractionHUDText
     public void OnGrabEnd() { }
     public string HUDInfo(GameObject gameObject)
     {
-        return "prendre Sac de Graine";
+        return "Prendre sac de graine de radis";
     }
 
 }

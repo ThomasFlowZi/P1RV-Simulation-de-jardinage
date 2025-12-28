@@ -42,7 +42,6 @@ public class GrabVisualFeedback : MonoBehaviour, IGrabbable
             transform.localRotation = Quaternion.identity;
 
             r.material = Material;
-            Debug.Log("change le mesh");
 
         }
 

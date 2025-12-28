@@ -6,6 +6,7 @@ public class Pot_Interaction : MonoBehaviour, IInteractable, IInteractionHUDText
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public UnityEvent handFreeInteraction;
     public UnityEvent seedBagInteraction;
+    public UnityEvent addDirtInteraction;
 
 
     bool Occupied = false;
@@ -36,6 +37,10 @@ public class Pot_Interaction : MonoBehaviour, IInteractable, IInteractionHUDText
                     seedBagInteraction.Invoke();
                 }
             }
+            if (playerHeldObject?.layer == 7 && playerHeldObject.transform.root.Find("DirtPile").gameObject.activeInHierarchy)
+            {
+                addDirtInteraction.Invoke();
+            }
 
         }
 
@@ -49,6 +54,10 @@ public class Pot_Interaction : MonoBehaviour, IInteractable, IInteractionHUDText
         else if (phi.layer==12 && transform.Find("DiggedDirt").gameObject.activeInHierarchy)
         {
             return "Placer une graine";
+        }
+        else if(phi.layer == 7 && transform.Find("DiggedDirt").gameObject.activeInHierarchy && phi.transform.root.Find("DirtPile").gameObject.activeInHierarchy)
+        {
+            return "Deposer la terre dans le pot";
         }
         else { return ""; }
     }

@@ -47,14 +47,19 @@ public class rotateBucket : MonoBehaviour, IGrabbable
     {
 
         lineRenderer.SetPosition(0, hautBucket.position);
-        LayerMask layermask = ~LayerMask.GetMask("SnapZone");
+        LayerMask layermask = ~LayerMask.GetMask("SnapZone", "Ignore Raycast");
         RaycastHit hit;
         Physics.Raycast(hautBucket.position, Vector3.down, out hit, 5f, layermask);
         lineRenderer.SetPosition(1, hit.point);
 
         if (state.GetSnap())
         {
-            if (dryToWetPot == null )dryToWetPot = hit.collider.transform.root.Find("DiggedDirt").GetComponent<DryToWetPot>();
+            if (dryToWetPot == null)
+            {
+                dryToWetPot = hit.collider.transform?.GetComponent<DryToWetPot>();
+                Debug.Log(hit.collider.transform.name);
+            }
+
         }
         else
         {
@@ -74,7 +79,7 @@ public class rotateBucket : MonoBehaviour, IGrabbable
 
                 
 
-                transform.localRotation = transform.localRotation * Quaternion.Euler(0, 0, -speedRot);
+                transform.localRotation = transform.localRotation * Quaternion.Euler(0, 0, -speedRot*Time.deltaTime);
 
                 if (Quaternion.Angle(transform.localRotation, initRot) > 15)
                 {
@@ -122,7 +127,7 @@ public class rotateBucket : MonoBehaviour, IGrabbable
             if (Quaternion.Angle(transform.localRotation, initRot) > 10)
             {
 
-                transform.localRotation = transform.localRotation * Quaternion.Euler(0, 0, 2 * speedRot);
+                transform.localRotation = transform.localRotation * Quaternion.Euler(0, 0, 2 * speedRot* Time.deltaTime);
             }
             else
             {
