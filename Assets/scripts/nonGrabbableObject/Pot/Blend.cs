@@ -9,11 +9,15 @@ public class Blend : MonoBehaviour
     GameObject dirtPile;
     DryToWetPot dpWet;
     DryToWetPot ddWet;
-    public float speed = 2f; 
+    public float speed = 2f;
+    private bool possible;
+
     private void Start()
     {
         diggedDirt = transform.Find("DiggedDirt").gameObject;
         dirtPile = transform.Find("DirtPile").gameObject;
+
+        possible = true;
 
         dpWet = dirtPile.GetComponent<DryToWetPot>();
         ddWet = diggedDirt.GetComponent<DryToWetPot>();
@@ -21,11 +25,14 @@ public class Blend : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(dirtPile.activeInHierarchy && diggedDirt.activeInHierarchy && !dpWet.GetIsWatered() && !ddWet.GetIsWatered())
+        if (possible)
         {
-            Debug.Log("dmlgkjsdgmlksrjgmlsrdkmdsrjlgk");
-            StartCoroutine(BlendColor());
-            enabled = false;
+            if (dirtPile.activeInHierarchy && diggedDirt.activeInHierarchy && !dpWet.GetIsWatered() && !ddWet.GetIsWatered())
+            {
+                Debug.Log("dmlgkjsdgmlksrjgmlsrdkmdsrjlgk");
+                StartCoroutine(BlendColor());
+                possible = false;
+            }
         }
 
 
@@ -33,8 +40,9 @@ public class Blend : MonoBehaviour
 
     public IEnumerator BlendColor()
     {
+        yield return new WaitForSeconds(0.5f);
 
-        if (ddWet.getWet() == dpWet.getWet()) { enabled = true ; yield break; }
+        if (ddWet.getWet() == dpWet.getWet()) { possible = true; yield break; }
 
         float targetWet = ddWet.getWet() + dpWet.getWet() / 2f;
 
@@ -44,7 +52,7 @@ public class Blend : MonoBehaviour
         while (t < 1f)
         {
             t += Time.deltaTime * speed;
-
+            Debug.Log(ddWet, dpWet);
             ddWet.setWet(Mathf.Lerp(ddWet.getWet(),targetWet,t));
             dpWet.setWet(Mathf.Lerp(dpWet.getWet(), targetWet, t));
 
@@ -56,7 +64,7 @@ public class Blend : MonoBehaviour
 
         ddWet.setWet(targetWet);
         dpWet.setWet(targetWet);
-        enabled = true;
+        possible = true; 
         yield break;
     }
 }
