@@ -9,6 +9,8 @@ public class HUDGrabFPS : MonoBehaviour
     public float rayDistance = 100f;
 
 
+    public GameObject lastHeldObject =null;
+
     public GameObject HUD;
 
     public RectTransform rectTransform;
@@ -35,14 +37,16 @@ public class HUDGrabFPS : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
         int mask = ~LayerMask.GetMask("Ignore Raycast", "SnapZone", "IgnoreFPS");
 
+        GameObject heldobject = interactFPS.WhatHeldObject();
+
         if (Physics.Raycast(ray, out raycastHit, rayDistance, mask))
         {
 
-            if (targetHUD != raycastHit.transform)
+            if (targetHUD != raycastHit.transform || heldobject != lastHeldObject )
             {
 
                 HUDGrabFunc(false);
-
+                lastHeldObject = heldobject;
                 targetHUD = raycastHit.transform;
                 if (targetHUD.CompareTag("Selectable") || targetHUD.CompareTag("Interactable"))
                 {
