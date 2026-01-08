@@ -33,7 +33,7 @@ public class HUDGrabFPS : MonoBehaviour
         Vector2 mousePos = Input.mousePosition; // on crée un vecteur 2D qui prend la position de la souris sur l'écran
         Transform camera = Camera.main.transform;
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
-        int mask = ~LayerMask.GetMask("Ignore Raycast", "SnapZone");
+        int mask = ~LayerMask.GetMask("Ignore Raycast", "SnapZone", "IgnoreFPS");
 
         if (Physics.Raycast(ray, out raycastHit, rayDistance, mask))
         {
@@ -93,7 +93,8 @@ public class HUDGrabFPS : MonoBehaviour
             }
 
             if (Text.text == "") { Text.text = "Interaction impossible"; }
-            else { Text.text += " [ClicGauche]"; }
+            else if (Text.text[Text.text.Length - 1] != '!') 
+                { Text.text += " [ClicGauche]"; }
 
         }
         else

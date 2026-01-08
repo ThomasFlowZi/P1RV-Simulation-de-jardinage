@@ -27,9 +27,9 @@ public class Blend : MonoBehaviour
     {
         if (possible)
         {
-            if (dirtPile.activeInHierarchy && diggedDirt.activeInHierarchy && !dpWet.GetIsWatered() && !ddWet.GetIsWatered())
+            if (dirtPile.activeInHierarchy && diggedDirt.activeInHierarchy && !dpWet.GetIsWatered() && !ddWet.GetIsWatered() && ddWet.getWet() != dpWet.getWet())
             {
-                Debug.Log("dmlgkjsdgmlksrjgmlsrdkmdsrjlgk");
+                Debug.Log("il faut blend");
                 StartCoroutine(BlendColor());
                 possible = false;
             }
@@ -44,13 +44,14 @@ public class Blend : MonoBehaviour
 
         if (ddWet.getWet() == dpWet.getWet()) { possible = true; yield break; }
 
-        float targetWet = ddWet.getWet() + dpWet.getWet() / 2f;
+        float targetWet = (ddWet.getWet() + dpWet.getWet()) / 2f;
 
         float t = 0f;
 
 
         while (t < 1f)
         {
+            Debug.Log(t);
             t += Time.deltaTime * speed;
             Debug.Log(ddWet, dpWet);
             ddWet.setWet(Mathf.Lerp(ddWet.getWet(),targetWet,t));
@@ -64,7 +65,8 @@ public class Blend : MonoBehaviour
 
         ddWet.setWet(targetWet);
         dpWet.setWet(targetWet);
-        possible = true; 
+        possible = true;
+        Debug.Log("blend fini");
         yield break;
     }
 }

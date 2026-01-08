@@ -17,7 +17,6 @@ public class Dirt : MonoBehaviour, IInteractionHUDText
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("dsdsfghdsflkgjhsfd");
         Transform root = other.transform.root;
         if (other.transform.gameObject.layer == 8 && !root.Find("DirtPile").gameObject.activeInHierarchy)//shovel tip
         {

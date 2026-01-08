@@ -10,11 +10,13 @@ public class GrabVisualFeedback : MonoBehaviour, IGrabbable
     private AudioSource audioSource;
 
     private Vector3 initPos;
+
     private Renderer _renderer;
 
     void Start()
     {
         initPos = transform.localPosition;
+
         audioSource = GetComponent<AudioSource>();
         
 }
@@ -33,10 +35,12 @@ public class GrabVisualFeedback : MonoBehaviour, IGrabbable
             if (mc == null)
                 mc = gameObject.AddComponent<MeshCollider>();
 
+
+            transform.localPosition = initPos;
             // Applique le nouveau mesh
             mf.mesh = Mesh;
-            mc.sharedMesh = Mesh;   
-            mc.convex = true;       
+            mc.sharedMesh = Mesh;
+            mc.convex = true;
 
             transform.localPosition = initPos;
             transform.localRotation = Quaternion.identity;
@@ -45,7 +49,16 @@ public class GrabVisualFeedback : MonoBehaviour, IGrabbable
 
         }
 
-        
+        if (gameObject.transform.root.GetComponent<GrowStep1>().twoStepsGrowth == false)
+        {
+            gameObject.transform.root.GetComponent<GrowStep1>().AssociatedPot.GetComponent<ResetPot>().ResetPotState();
+        }
+        else
+        {
+            gameObject.transform.root.GetComponent<GrowStep2>().AssociatedPot.GetComponent<ResetPot>().ResetPotState();
+
+
+        }
     }
 
     public string HUDInfo(GameObject phi) //rien a faire ici

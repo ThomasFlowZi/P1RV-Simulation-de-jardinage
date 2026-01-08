@@ -7,6 +7,7 @@ public class GrowStep2 : MonoBehaviour
     public DryToWetPot dryToWetPot;
     public float growthSpeed2 = 0.1f;
     public float finalScale = 1f;
+    public GameObject AssociatedPot;
 
     private void Awake()
     {
@@ -40,7 +41,7 @@ public class GrowStep2 : MonoBehaviour
             dryToWetPot.setWet((finalScale - transform.localScale.x) / finalScale);
         }
 
-        
+        AssociatedPot = gameObject.transform.root.gameObject;
         gameObject.transform.SetParent(null, true);
         gameObject.transform.GetChild(0).tag = "Selectable";
         

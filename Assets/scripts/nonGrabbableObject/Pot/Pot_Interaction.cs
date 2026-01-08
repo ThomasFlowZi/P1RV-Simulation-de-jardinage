@@ -31,13 +31,13 @@ public class Pot_Interaction : MonoBehaviour, IInteractable, IInteractionHUDText
         {
             if (playerHeldObject?.layer == 12)
             {
-                if (!Occupied && transform.Find("DiggedDirt").gameObject.activeInHierarchy)
+                if (!Occupied && transform.Find("DiggedDirt").gameObject.activeInHierarchy && !transform.Find("DirtPile").gameObject.activeInHierarchy)
                 {
                     Occupied = true;
                     seedBagInteraction.Invoke();
                 }
             }
-            if (playerHeldObject?.layer == 7 && playerHeldObject.transform.root.Find("DirtPile").gameObject.activeInHierarchy)
+            if (playerHeldObject?.layer == 7 && playerHeldObject.transform.root.Find("DirtPile").gameObject.activeInHierarchy && transform.Find("positionSeed").childCount != 0)
             {
                 addDirtInteraction.Invoke();
             }
@@ -51,10 +51,16 @@ public class Pot_Interaction : MonoBehaviour, IInteractable, IInteractionHUDText
     public string HUDInfo(GameObject phi)
     {
         if (phi == null) { return "S'occuper du pot"; }
-        else if (phi.layer==12 && transform.Find("DiggedDirt").gameObject.activeInHierarchy)
+
+        else if (phi.layer == 12 && transform.Find("DiggedDirt").gameObject.activeInHierarchy && !transform.Find("DirtPile").gameObject.activeInHierarchy)
         {
             return "Placer une graine";
         }
+        else if (phi.layer == 7 && transform.Find("DiggedDirt").gameObject.activeInHierarchy && phi.transform.root.Find("DirtPile").gameObject.activeInHierarchy && transform.Find("positionSeed").childCount == 0)
+        {
+            return "Plantez une graine avant !";
+        }
+
         else if(phi.layer == 7 && transform.Find("DiggedDirt").gameObject.activeInHierarchy && phi.transform.root.Find("DirtPile").gameObject.activeInHierarchy)
         {
             return "Deposer la terre dans le pot";

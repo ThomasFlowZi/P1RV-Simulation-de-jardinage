@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DigPotStatic : MonoBehaviour
 {
-    public static bool estCreuse = false;
+    public bool estCreuse = false;
 
     [Header("Audio")]
     public AudioSource source;

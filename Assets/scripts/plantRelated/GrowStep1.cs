@@ -7,9 +7,10 @@ public class GrowStep1 : MonoBehaviour
 {
     private DryToWetPot dryToWetPot;
     public GameObject plantStep2;
+    public GameObject AssociatedPot;
     public float growthSpeed1 = 0.01f;
     public float finalScale = 1f;
-    public bool twoStepsGrowth;
+    public bool twoStepsGrowth=false;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class GrowStep1 : MonoBehaviour
 
         GameObject terre = transform.root.transform.Find("DirtPile").gameObject;
         dryToWetPot = terre.GetComponent<DryToWetPot>();
+
 
         enabled = true;
     }
@@ -55,6 +57,7 @@ public class GrowStep1 : MonoBehaviour
         }
         else
         {
+            AssociatedPot = gameObject.transform.root.gameObject;
             gameObject.transform.SetParent(null, true);
             gameObject.transform.GetChild(0).tag = "Selectable";
         }
