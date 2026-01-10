@@ -243,7 +243,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.32, y: 0.32, z: 0.31}
-  m_Center: {x: 0, y: 0.02, z: 0}
+  m_Center: {x: 0, y: 0.03, z: 0}
 --- !u!114 &2794557499769061765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -295,10 +295,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Resource: {fileID: 8300000, guid: 129e1a7c78e03a64bb201a2195947cfb, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.409
+  m_Pitch: 0.86
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -394,8 +394,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water_level
   source: {fileID: 7549583333342636256}
-  sfx: {fileID: 8300000, guid: 04d406ef0932ed34abe1dab67086fe7d, type: 3}
+  sfx: {fileID: 8300000, guid: 13a146318e653fa43882fd81e2010574, type: 3}
+  estVide: 1
   estFull: 0
+  waterPercent: 0
 --- !u!114 &1711385749129704885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea8eb63f9b3da342a59475f6f34b771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::rotateBucket
-  speedRot: 0.2
+  AudioSource: {fileID: 7549583333342636256}
+  speedRot: 60
   Material: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   colorS: {r: 0.15686275, g: 0.5529412, b: 0.7607844, a: 1}
   colorE: {r: 0.4488252, g: 0.662538, b: 0.7735849, a: 1}

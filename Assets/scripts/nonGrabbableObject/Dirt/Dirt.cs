@@ -7,12 +7,17 @@ public class Dirt : MonoBehaviour, IInteractionHUDText
     public AudioClip clip;
     public string HUDInfo(GameObject playerHeldItem = null)
     {
+        if (playerHeldItem == null)
+        {
+            return "";
+        }
         if (playerHeldItem.layer == 7)
         {
             return "récuperer de la terre";
 
         }
         return "";
+        
     }
 
     private void OnTriggerEnter(Collider other)

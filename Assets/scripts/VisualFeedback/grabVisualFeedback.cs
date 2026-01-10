@@ -51,10 +51,12 @@ public class GrabVisualFeedback : MonoBehaviour, IGrabbable
 
         if (gameObject.transform.root.GetComponent<GrowStep1>().twoStepsGrowth == false)
         {
+            if (gameObject.transform.root.GetComponent<GrowStep1>().AssociatedPot == null) return;
             gameObject.transform.root.GetComponent<GrowStep1>().AssociatedPot.GetComponent<ResetPot>().ResetPotState();
         }
         else
         {
+            if (gameObject.transform.root.GetComponent<GrowStep2>().AssociatedPot == null) return;
             gameObject.transform.root.GetComponent<GrowStep2>().AssociatedPot.GetComponent<ResetPot>().ResetPotState();
 
 

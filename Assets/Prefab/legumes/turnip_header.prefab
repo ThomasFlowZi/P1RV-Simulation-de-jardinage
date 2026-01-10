@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrowStep1
   plantStep2: {fileID: 732514449401300613, guid: ebaf86ebba1481348ad555606b66da4d, type: 3}
+  AssociatedPot: {fileID: 0}
   growthSpeed1: 10
   finalScale: 1
   twoStepsGrowth: 0
@@ -218,3 +219,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6354d7f78ce0df5429a02b2f4d0bd561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Turnip
+  nameVeg: Radis
