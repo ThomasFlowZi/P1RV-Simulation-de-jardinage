@@ -34,6 +34,7 @@ public class Pot_Interaction : MonoBehaviour, IInteractable, IInteractionHUDText
                 if (!Occupied && transform.Find("DiggedDirt").gameObject.activeInHierarchy && !transform.Find("DirtPile").gameObject.activeInHierarchy)
                 {
                     Occupied = true;
+                    gameObject.GetComponent<PutSeed>().seed = playerHeldObject.GetComponent<SeedBag>().seed;
                     seedBagInteraction.Invoke();
                 }
             }

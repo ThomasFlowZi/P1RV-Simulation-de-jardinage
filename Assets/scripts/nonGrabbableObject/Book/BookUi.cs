@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class book : MonoBehaviour
@@ -7,16 +8,26 @@ public class book : MonoBehaviour
     [SerializeField] float pageSpeed = 0.5f;
     [SerializeField] List<Transform> pages;
 
-    public Sprite backPage;
-
     int index = -1;
     bool rotate = false;
     [SerializeField] GameObject backButton;
     [SerializeField] GameObject forwardButton;
 
+    public List<TMP_Text> nbr;
+
+    private List<int> count;
+
     private void Start()
     {
         InitialState();
+        count = FindAnyObjectByType<Count>().count;
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < nbr.Count; i++) {
+            if (nbr[i].text != count[i].ToString()) { nbr[i].text = count[i].ToString(); }
+                }
     }
 
     public void InitialState()

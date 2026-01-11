@@ -1,11 +1,13 @@
 using System.Collections;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class GrowStep1 : MonoBehaviour
 {
-    private DryToWetPot dryToWetPot;
+    private DryToWetPot dryToWetPot1;
+    private DryToWetPot dryToWetPot2;
     public GameObject plantStep2;
     public GameObject AssociatedPot;
     public float growthSpeed1 = 0.01f;
@@ -20,8 +22,9 @@ public class GrowStep1 : MonoBehaviour
     public void OnActivate()
     {
 
-        GameObject terre = transform.root.transform.Find("DirtPile").gameObject;
-        dryToWetPot = terre.GetComponent<DryToWetPot>();
+        GameObject terre = transform.root.Find("DirtPile").gameObject;
+        dryToWetPot1 = terre.GetComponent<DryToWetPot>();
+        dryToWetPot2 = transform.root.Find("DiggedDirt").GetComponent<DryToWetPot>();
 
 
         enabled = true;
@@ -32,7 +35,9 @@ public class GrowStep1 : MonoBehaviour
 
         void Update()
     {
-        if (dryToWetPot.getWet() >= 1f)
+        float waterLevel = (dryToWetPot1.getWet() + dryToWetPot2.getWet()) / 2;
+
+        if (waterLevel >= 0.7f )
         {
             StartCoroutine(Grow());
             enabled = false;
@@ -44,23 +49,26 @@ public class GrowStep1 : MonoBehaviour
         while (transform.localScale.x < finalScale)
         {
             transform.localScale += growthSpeed1 * Time.deltaTime * Vector3.one *0.01f;
+            dryToWetPot1.setWet((finalScale - transform.localScale.x) / finalScale);
             yield return null;
-            dryToWetPot.setWet((finalScale -transform.localScale.x )/ finalScale);
         }
+
+        AssociatedPot = gameObject.transform.root.gameObject;
 
         if (twoStepsGrowth)
         {
-            GameObject step2 = Instantiate(plantStep2, transform.position, transform.rotation);
+            GameObject step2 = Instantiate(plantStep2, transform.position, transform.rotation,AssociatedPot.transform.Find("positionSeed"));
             step2.transform.localScale = finalScale * Vector3.one;
             Destroy(gameObject);
 
         }
         else
-        {
-            AssociatedPot = gameObject.transform.root.gameObject;
+        { 
             gameObject.transform.SetParent(null, true);
             gameObject.transform.GetChild(0).tag = "Selectable";
         }
-        
+
+        yield break;
+
     }   
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GrabVisualFeedback : MonoBehaviour, IGrabbable
+public class TurnipGrab : MonoBehaviour
 {
 
 
@@ -49,27 +49,12 @@ public class GrabVisualFeedback : MonoBehaviour, IGrabbable
 
         }
 
-        if (gameObject.transform.root.GetComponent<GrowStep1>().twoStepsGrowth == false)
-        {
-            if (gameObject.transform.root.GetComponent<GrowStep1>().AssociatedPot == null) return;
-            gameObject.transform.root.GetComponent<GrowStep1>().AssociatedPot.GetComponent<ResetPot>().ResetPotState();
-        }
-        else
-        {
-            if (gameObject.transform.root.GetComponent<GrowStep2>().AssociatedPot == null) return;
-            gameObject.transform.root.GetComponent<GrowStep2>().AssociatedPot.GetComponent<ResetPot>().ResetPotState();
+        if (gameObject.transform.root.GetComponent<GrowStep1>().AssociatedPot == null) return;
+        gameObject.transform.root.GetComponent<GrowStep1>().AssociatedPot.GetComponent<ResetPot>().ResetPotState();
 
 
-        }
+
+
     }
 
-    public string HUDInfo(GameObject phi) //rien a faire ici
-    {
-        return "";
-    }
-
-    public void OnGrabEnd()
-    {
-       
-    }
 }

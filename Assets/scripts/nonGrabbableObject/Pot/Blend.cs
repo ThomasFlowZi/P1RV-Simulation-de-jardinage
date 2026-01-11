@@ -51,9 +51,7 @@ public class Blend : MonoBehaviour
 
         while (t < 1f)
         {
-            Debug.Log(t);
             t += Time.deltaTime * speed;
-            Debug.Log(ddWet, dpWet);
             ddWet.setWet(Mathf.Lerp(ddWet.getWet(),targetWet,t));
             dpWet.setWet(Mathf.Lerp(dpWet.getWet(), targetWet, t));
 

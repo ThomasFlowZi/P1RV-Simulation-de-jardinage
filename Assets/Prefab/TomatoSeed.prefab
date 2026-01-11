@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2622107884361410333}
   - component: {fileID: 3496358189646444294}
   m_Layer: 0
-  m_Name: seed
+  m_Name: TomatoSeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbbbd10d628137449b87ae2fbec8760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::step1
-  dryToWetPot: {fileID: 0}
-  plantStep1: {fileID: 1562638703632730589, guid: 6aec97ab110943a4b853cb7a04c1c518, type: 3}
-  SeedDev: 3
+  plantStep1: {fileID: 573348443039904159, guid: f6689848847160547b6f4603954f9d23, type: 3}
+  SeedDev: 6

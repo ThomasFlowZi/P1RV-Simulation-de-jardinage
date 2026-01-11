@@ -1,50 +1,79 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class GrowStep2 : MonoBehaviour
 {
-    public DryToWetPot dryToWetPot;
+    private DryToWetPot dryToWetPot1;
+    private DryToWetPot dryToWetPot2;
     public float growthSpeed2 = 0.1f;
     public float finalScale = 1f;
     public GameObject AssociatedPot;
+    public List<GameObject> vegs;
+    public bool done;
 
-    private void Awake()
+    private void Start()
     {
-        enabled = false;
+        GameObject terre = transform.root.Find("DirtPile").gameObject;
+        dryToWetPot1 = terre.GetComponent<DryToWetPot>();
+        dryToWetPot2 = transform.root.Find("DiggedDirt").GetComponent<DryToWetPot>();
     }
 
-    public void OnActivate()
-    {
-
-        GameObject terre = transform.root.transform.Find("terre").gameObject;
-        dryToWetPot = terre.GetComponent<DryToWetPot>();
-       
-        enabled = true;
-    }
+ 
 
     void Update()
     {
-        if (dryToWetPot.getWet() >= 1f)
+        if (!done)
         {
-            StartCoroutine(Grow());
-            enabled = false;
+            float waterLevel = (dryToWetPot1.getWet() + dryToWetPot2.getWet()) / 2;
+
+            if (waterLevel >= 0.7f)
+            {
+                StartCoroutine(Grow());
+                done = true;
+            }
+
         }
+        else
+        {
+            if (transform.childCount <= 1) ResetState() ;
+        }
+        
     }
 
     IEnumerator Grow()
     {
-        while (transform.localScale.x < finalScale)
+        yield return new WaitForSeconds(3);
+        while (vegs[0].transform.localScale.x < finalScale)
         {
-            transform.localScale += growthSpeed2 * Time.deltaTime * Vector3.one * 0.01f;
+            foreach (GameObject v in vegs) {
+                v.transform.localScale += growthSpeed2 * Time.deltaTime * Vector3.one * 0.01f;
+            }
+
+            transform.localScale += growthSpeed2/2 * Time.deltaTime * Vector3.one * 0.01f;
+            
+            dryToWetPot1.setWet((finalScale - vegs[0].transform.localScale.x) / finalScale);
             yield return null;
-            dryToWetPot.setWet((finalScale - transform.localScale.x) / finalScale);
         }
 
         AssociatedPot = gameObject.transform.root.gameObject;
-        gameObject.transform.SetParent(null, true);
-        gameObject.transform.GetChild(0).tag = "Selectable";
+
+        foreach (GameObject v in vegs)
+        {
+            v.transform.GetChild(0).tag = "Selectable";
+        }
+
+        yield break;
+
+    }
+
+
+    private void ResetState()
+    {
         
+        AssociatedPot.GetComponent<ResetPot>().ResetPotState();
+        Destroy(gameObject);
 
     }
 

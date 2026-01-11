@@ -126,8 +126,6 @@ public class InteractFPS : MonoBehaviour
         if ( selection.GetComponent<Collider>() != null)
             selection.GetComponent<Collider>().enabled = true;
 
-        if (selection.GetComponent<GrabVisualFeedback>() != null)
-            selection.GetComponent<GrabVisualFeedback>().OnGrabEnd();
 
         if (fix)
         {
@@ -144,10 +142,20 @@ public class InteractFPS : MonoBehaviour
 
     void GrabObject(Transform hitTransform)
     {
-        
 
         selection = hitTransform;
         rootSelection = selection.root;
+
+
+        if (selection.GetComponent<Collider>() != null)
+            selection.GetComponent<Collider>().enabled = false;
+
+        if (selection.GetComponent<Rigidbody>() != null)
+            selection.GetComponent<Rigidbody>().isKinematic = true;
+
+        if (selection.GetComponent<Vege>() != null) { selection.GetComponent<Vege>().StartGrab(); rootSelection = selection.parent; } //cas particulier pour les légumes
+
+        
 
         lastPos = rootSelection.position;
         lastRot = rootSelection.rotation;
@@ -157,14 +165,7 @@ public class InteractFPS : MonoBehaviour
         rootSelection.rotation = main.rotation;
 
 
-        if (selection.GetComponent<GrabVisualFeedback>() != null)
-            selection.GetComponent<GrabVisualFeedback>().OnGrabStart();
-
-        if (selection.GetComponent<Collider>() != null)
-            selection.GetComponent<Collider>().enabled = false;
-
-        if (selection.GetComponent<Rigidbody>() != null)
-            selection.GetComponent<Rigidbody>().isKinematic = true;
+      
 
         isGrabbing = true;
     }

@@ -19,17 +19,18 @@ public class Count : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("deposé");
-        if (other.transform.root.gameObject.GetComponent<Vege>().nameVeg == "Radis") //turnip
+        if (other.transform.root.gameObject.GetComponent<Vege>().nameVeg == "le Radis") //turnip
         {
             Debug.Log("radis deposé");
             count[0] += 1;
             lastVeg = "Radis";
             StartCoroutine(HUDCounter());
         }
-        if (other.transform.root.gameObject.GetComponent<Vege>().nameVeg == "Tomate") //tomato
+        if (other.transform.root.gameObject.GetComponent<Vege>().nameVeg == "la Tomate") //tomato
         {
             count[1] += 1;
             lastVeg = "Tomate";
+            StartCoroutine(HUDCounter());
         }
 
     }
