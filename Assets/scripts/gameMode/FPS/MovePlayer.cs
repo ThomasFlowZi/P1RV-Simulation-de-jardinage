@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Moveplayer : MonoBehaviour
 {
-    public float playerMoveSpeed = 5f;
-    public float addSpeed = 0f;
+    public float walkSpeed = 5f;
+    public float runSpeed = 0f;
+    public float actualSpeed;
 
     private Rigidbody rb;
     private Transform cam;
@@ -27,9 +28,10 @@ public class Moveplayer : MonoBehaviour
         if (Input.GetKey(KeyCode.D)) move += right;
         if (Input.GetKey(KeyCode.A)) move -= right;
 
-        if (Input.GetKey(KeyCode.LeftShift)) addSpeed = 3f;
-        else addSpeed = 0f;
 
-        rb.linearVelocity = move.normalized * (playerMoveSpeed + addSpeed);
+        if (Input.GetKey(KeyCode.LeftShift)) actualSpeed = runSpeed;
+        else actualSpeed = walkSpeed;
+
+        rb.linearVelocity = move.normalized * (actualSpeed);
     }
 }

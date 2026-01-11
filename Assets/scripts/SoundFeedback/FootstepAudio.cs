@@ -22,7 +22,7 @@ public class FootstepAudio : MonoBehaviour
 
     void Update()
     {
-        if (PlayerMovement.addSpeed != 0) stepInterval = 0.4f;
+        if (PlayerMovement.actualSpeed == PlayerMovement.runSpeed) stepInterval = 0.3f;
         else stepInterval = 0.5f;
         if (rb.linearVelocity.magnitude > minVelocity && IsGrounded())
         {

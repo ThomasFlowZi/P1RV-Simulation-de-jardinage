@@ -40,7 +40,7 @@ public class ModeManager : MonoBehaviour
     void Update()
     {
         // utile seulement pour faire des tests
-        if (Input.GetKeyUp(KeyCode.E)&& !travel)
+        if (Input.GetKeyUp(KeyCode.E)&& !travel && modeStatic)
         {
             SwitchMode(!modeStatic);
         }
