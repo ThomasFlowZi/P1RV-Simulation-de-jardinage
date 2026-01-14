@@ -155,8 +155,11 @@ GameObject:
   - component: {fileID: 2274197682688433966}
   - component: {fileID: 2653609788993892142}
   - component: {fileID: 4377472081177265205}
+  - component: {fileID: 4436180196568649449}
   - component: {fileID: 5207773060030063048}
   - component: {fileID: 5922733701765551092}
+  - component: {fileID: 7300535393915393778}
+  - component: {fileID: 8503753726947922266}
   m_Layer: 2
   m_Name: player
   m_TagString: Player
@@ -265,7 +268,55 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 1.4
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SmoothCameraFollow, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4436180196568649449}
+        m_TargetAssemblyTypeName: HUDGrab, Assembly-CSharp
+        m_MethodName: SetRayDistance
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1.4
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4436180196568649449}
+        m_TargetAssemblyTypeName: HUDGrab, Assembly-CSharp
+        m_MethodName: OnActivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1.4
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1.4
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
@@ -300,6 +351,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: OutlineSelection, Assembly-CSharp
         m_MethodName: SetRayDistance
         m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 6
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4436180196568649449}
+        m_TargetAssemblyTypeName: HUDGrab, Assembly-CSharp
+        m_MethodName: SetRayDistance
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 6
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -395,6 +470,54 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SmoothCameraFollow, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4436180196568649449}
+        m_TargetAssemblyTypeName: HUDGrab, Assembly-CSharp
+        m_MethodName: OnDeactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6291283689982169140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +531,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::grabManager
   rayDistance: 10
+  audioSource: {fileID: 0}
+  grabSound: {fileID: 8300000, guid: 7c35a7da3b4a0aa489fb11df405f9dd5, type: 3}
   SnapableObject: 09000000
   triggerStartGrab:
     m_PersistentCalls:
@@ -525,7 +650,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c1e0106a9861394f8d3b71d3d7009a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabObjFPS
-  rayDistance: 1.4
+  rayDistance: 1.6
+  audioSource: {fileID: 0}
+  grabSound: {fileID: 8300000, guid: 7c35a7da3b4a0aa489fb11df405f9dd5, type: 3}
+  isGrabbing: 0
   triggerAnimationObject:
     m_PersistentCalls:
       m_Calls:
@@ -560,6 +688,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &8015210519320088215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df368eed44a6ce4ab89c55657ae2f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::useObjFPS
-  dureeAnim: 40
 --- !u!114 &2274197682688433966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +713,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c206fb78d3c18ee4f92069f971dbb4c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Moveplayer
-  playerMoveSpeed: 2
+  walkSpeed: 3
+  runSpeed: 5
+  actualSpeed: 0
 --- !u!114 &2653609788993892142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OutlineSelection
   rayDistance: 3
   audioSource: {fileID: 0}
-  hitSound: {fileID: 8300000, guid: 4e2876857c931a442ad13746114b0a2c, type: 3}
+  hitSound: {fileID: 8300000, guid: 5ffb4a9378d8e9848ba1427f2cde9c0c, type: 3}
 --- !u!54 &4377472081177265205
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -626,8 +756,25 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 1
+--- !u!114 &4436180196568649449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260047594304665361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad0201280fb1a5418d8f9e394d99a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HUDGrab
+  rayDistance: 100
+  lastHeldObject: {fileID: 0}
+  HUD: {fileID: 0}
+  rectTransform: {fileID: 0}
+  interactFPS: {fileID: 131504440189345760}
 --- !u!65 &5207773060030063048
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -647,7 +794,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.62, y: 1.35, z: 0.64}
+  m_Size: {x: 0.52, y: 1.35, z: 0.46}
   m_Center: {x: 0, y: -0.23, z: 0}
 --- !u!114 &5922733701765551092
 MonoBehaviour:
@@ -663,6 +810,122 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ModeVisualFeedback
   body: {fileID: 8370385973200282423}
   crosshair: {fileID: 0}
+--- !u!114 &7300535393915393778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260047594304665361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9700917057195849aaf05c2a4abd32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepAudio
+  audioSource: {fileID: 8503753726947922266}
+  footstepClips:
+  - {fileID: 8300000, guid: 7db15c4779495744f9d924404be2cf35, type: 3}
+  - {fileID: 8300000, guid: bae77f61878ce3645b93998b5337bdea, type: 3}
+  PlayerMovement: {fileID: 2274197682688433966}
+  stepInterval: 0.5
+  minVelocity: 0.1
+--- !u!82 &8503753726947922266
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260047594304665361}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.141
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3018298421093819659
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,6 +935,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2750882331010497901}
+  - component: {fileID: 6350289580370151050}
   m_Layer: 2
   m_Name: main
   m_TagString: Untagged
@@ -688,12 +952,34 @@ Transform:
   m_GameObject: {fileID: 3018298421093819659}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.326, y: -0.397, z: 0.497}
+  m_LocalPosition: {x: 0.435, y: -0.397, z: 0.545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6981357871988203683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &6350289580370151050
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018298421093819659}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95ec25d67efe703468815255aab25044, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8370385973200282423
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,8 +1008,8 @@ Transform:
   m_GameObject: {fileID: 8370385973200282423}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.199, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.67230403, z: 0.6}
+  m_LocalPosition: {x: 0, y: -0.041, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.84222174, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5788753158582765994}
@@ -833,7 +1119,7 @@ Transform:
   m_GameObject: {fileID: 8746615877339425617}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.557, z: 0.03}
+  m_LocalPosition: {x: 0, y: 0.557, z: 0.133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:

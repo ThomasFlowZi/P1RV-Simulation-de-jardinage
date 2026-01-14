@@ -149,3 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Count
   HUD: {fileID: 0}
   count: 0000000000000000
+  successUI: {fileID: 0}
+  success1: 1
+  success2: 4
+  tomatoSeedBag: {fileID: 0}
+  secondPot: {fileID: 0}

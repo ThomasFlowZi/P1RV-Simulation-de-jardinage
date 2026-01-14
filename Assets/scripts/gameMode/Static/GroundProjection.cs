@@ -17,7 +17,7 @@ public class GroundProjection : MonoBehaviour
     {
         objet = grabManager.WhatGrab();
         
-        gpp = objet.transform.Find("GroundProjectionPoint").gameObject;
+        if(objet.transform.Find("GroundProjectionPoint") != null) gpp = objet.transform.Find("GroundProjectionPoint").gameObject;
         if (gpp != null)
         {
 
