@@ -7,7 +7,7 @@ public class ModeManager : MonoBehaviour
 {
 
 
-    private bool modeStatic = true;
+    private bool modeStatic = false;
     
 
     public GameObject playerPOV;

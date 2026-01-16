@@ -11,4 +11,9 @@ public class loadGame : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorial");
     }
+
+    public void LoadTitleScreen()
+    {
+        SceneManager.LoadScene("Lobby");
+    }
 }

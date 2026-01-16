@@ -1,9 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.Android;
-using System;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine.Timeline;
 
 public class CamPosInteraction : MonoBehaviour
 {

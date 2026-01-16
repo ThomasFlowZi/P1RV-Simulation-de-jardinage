@@ -1,6 +1,5 @@
 using System.Collections;
-using TMPro;
-using TreeEditor;
+
 using UnityEngine;
 
 public class Blend : MonoBehaviour
